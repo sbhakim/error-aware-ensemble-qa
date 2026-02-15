@@ -1,0 +1,47 @@
+[
+  {
+    "type": "count",
+    "pattern": "\\bhow many ([a-z ]+?)(?:\\s+(?:in|during)\\s+(first half|second half|1st quarter|2nd quarter|3rd quarter|4th quarter))?(?:\\s+were\\s+there|\\s+did|\\s+was|\\s+score|\\?)?$",
+    "entity_group": 1,
+    "temporal_group": 2
+  },
+  {
+    "type": "count_entities",
+    "pattern": "\\bhow many ([a-z ]+?) did ([^ ]+) (?:and|or) ([^ ]+) (?:both )?(?:score|kick|throw|make|have) (?:each)?\\b",
+    "entity_group": 1,
+    "subject_groups": [2, 3]
+  },
+  {
+    "type": "difference",
+    "pattern": "\\bhow many more ([a-z ]+?) was ([^ ]+) over ([^ ]+)\\b",
+    "entity_groups": [1, 2, 3]
+  },
+  {
+    "type": "difference",
+    "pattern": "\\bhow many ([a-z ]+?) difference is there between ([^ ]+?)(?:'s)? (longest|shortest) ([a-z ]+?) and (?:his|her|its|their) (longest|shortest) ([a-z ]+?)\\b",
+    "unit_group": 1,
+    "entity_group": 2,
+    "attr1_group": 3,
+    "entity1_group": 4,
+    "attr2_group": 5,
+    "entity2_group": 6
+  },
+  {
+    "type": "extreme_value",
+    "pattern": "\\bwho (?:scored|threw|made|kicked) the (first|last|longest|shortest) ([a-z ]+)\\b",
+    "direction_group": 1,
+    "entity_group": 2
+  },
+  {
+    "type": "extreme_value_numeric",
+    "pattern": "\\bhow many ([a-z ]+?) was the (longest|shortest) ([a-z ]+?)(?: of the game)?\\b",
+    "unit_group": 1,
+    "direction_group": 2,
+    "entity_group": 3
+  },
+  {
+    "type": "temporal_difference",
+    "pattern": "\\bhow many years between ([^ ]+) and ([^ ]+)\\b",
+    "entity_groups": [1, 2]
+  }
+]

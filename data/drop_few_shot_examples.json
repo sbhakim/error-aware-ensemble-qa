@@ -1,0 +1,17 @@
+[
+  {
+    "query": "How many total points were scored by halftime?",
+    "context_snippet": "REPLACE THIS: Actual concise sentence(s) from your data supporting the answer is 30.",
+    "answer": {"number": "30", "spans": [], "date": {"day": "", "month": "", "year": ""}}
+  },
+  {
+    "query": "Which team scored first?",
+    "context_snippet": "The Bears struck first on Jay Cutler's touchdown pass to Brandon Marshall, and Kicker Gould kicked a field goal to increase the first half score to 10-0.",
+    "answer": {"number": "", "spans": ["Bears"], "date": {"day": "", "month": "", "year": ""}}
+  },
+  {
+    "query": "In what year did the NFL season in the passage begin?",
+    "context_snippet": "REPLACE THIS: Actual concise sentence(s) from your data supporting the answer is 2008.",
+    "answer": {"number": "", "spans": [], "date": {"day": "", "month": "", "year": "2008"}}
+  }
+]

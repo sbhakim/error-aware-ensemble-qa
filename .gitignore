@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+hysym/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints
+
+# Large dataset files - NOT IN REPO
+data/drop_dataset_dev.json
+data/drop_dataset_train.json
+data/hotpot_dev_distractor_v1.json
+data/rules_drop_dynamic.json
+
+# Keep only small reference files in data/
+# (drop_few_shot_examples.json, rules_drop.json, rules_hotpotqa.json, empty_rules.json)
+
+# Results, logs, metrics - NOT IN REPO
+logs/
+*.log
+results/
+output/
+metrics/
+eval_results/
+validation_*/
+
+# Model caches and checkpoints - NOT IN REPO
+*.bin
+*.pt
+*.pth
+*.safetensors
+models/
+.cache/
+huggingface/
+checkpoints/
+
+# Temporary files
+*.tmp
+temp/
+tmp/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/

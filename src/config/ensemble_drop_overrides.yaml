@@ -1,0 +1,8 @@
+# Only keys you want to override
+ensemble:
+  enabled: true
+
+use_drop_few_shots: 1
+drop_few_shot_examples_path: /media/safayat/second_ssd/HySym-RAG/symrag/data/drop_few_shot_examples.jsonl
+few_shot_strategy: fixed_topk
+few_shot_k: 6

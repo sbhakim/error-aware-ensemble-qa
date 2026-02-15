@@ -1,17 +1,43 @@
 [
   {
-    "query": "How many total points were scored by halftime?",
-    "context_snippet": "REPLACE THIS: Actual concise sentence(s) from your data supporting the answer is 30.",
-    "answer": {"number": "30", "spans": [], "date": {"day": "", "month": "", "year": ""}}
+    "query": "How many field goals did Kris Brown kick?",
+    "context_snippet": "The Texans would respond with fullback Vonta Leach getting a 1-yard touchdown run, yet the Raiders would answer with kicker Sebastian Janikowski getting a 33-yard and a 30-yard field goal. Houston would tie the game in the second quarter with kicker Kris Brown getting a 53-yard and a 24-yard field goal.",
+    "answer": {
+      "number": "2",
+      "spans": [],
+      "date": {
+        "day": "",
+        "month": "",
+        "year": ""
+      }
+    }
   },
   {
-    "query": "Which team scored first?",
-    "context_snippet": "The Bears struck first on Jay Cutler's touchdown pass to Brandon Marshall, and Kicker Gould kicked a field goal to increase the first half score to 10-0.",
-    "answer": {"number": "", "spans": ["Bears"], "date": {"day": "", "month": "", "year": ""}}
+    "query": "Who scored the first touchdown of the game?",
+    "context_snippet": "Oakland would get the early lead in the first quarter as quarterback JaMarcus Russell completed a 20-yard touchdown pass to rookie wide receiver Chaz Schilens.",
+    "answer": {
+      "number": "",
+      "spans": [
+        "Chaz Schilens"
+      ],
+      "date": {
+        "day": "",
+        "month": "",
+        "year": ""
+      }
+    }
   },
   {
-    "query": "In what year did the NFL season in the passage begin?",
-    "context_snippet": "REPLACE THIS: Actual concise sentence(s) from your data supporting the answer is 2008.",
-    "answer": {"number": "", "spans": [], "date": {"day": "", "month": "", "year": "2008"}}
+    "query": "When did the first battle against Guadalajara take place?",
+    "context_snippet": "In 1085, Guadalajara was retaken by the Christian forces of Alfonso VI.",
+    "answer": {
+      "number": "",
+      "date": {
+        "day": "",
+        "month": "",
+        "year": "1085"
+      },
+      "spans": []
+    }
   }
 ]

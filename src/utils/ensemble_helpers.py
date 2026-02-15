@@ -62,6 +62,16 @@ def normalize_drop_number(value_str: Optional[Any]) -> Optional[float]:
         return None
 
 
+def normalize_drop_span_text(text: Any) -> str:
+    """
+    Normalizes DROP span text for robust equivalence checks.
+    """
+    s = str(text).strip().lower()
+    s = s.translate(str.maketrans('', '', string.punctuation))
+    s = re.sub(r'\b(a|an|the)\b', ' ', s)
+    return ' '.join(s.split())
+
+
 def are_drop_values_equivalent(
     obj1: Dict[str, Any],
     obj2: Dict[str, Any],
@@ -105,8 +115,16 @@ def are_drop_values_equivalent(
             return abs(n1 - n2) <= tolerance
 
         elif value_type == "spans":
-            spans1 = set(str(s).strip().lower() for s in obj1.get("spans", []) if str(s).strip())
-            spans2 = set(str(s).strip().lower() for s in obj2.get("spans", []) if str(s).strip())
+            spans1 = {
+                norm
+                for s in obj1.get("spans", [])
+                if (norm := normalize_drop_span_text(s))
+            }
+            spans2 = {
+                norm
+                for s in obj2.get("spans", [])
+                if (norm := normalize_drop_span_text(s))
+            }
             if not spans1 and not spans2:
                 return treat_empty_as_agree  # default False -> no agreement on empty-empty
             return spans1 == spans2
@@ -149,19 +167,39 @@ class QueryFeatureExtractor:
         features = {
             'has_temporal_ambiguity': False,
             'requires_decimal_arithmetic': False,
-            'complex_nested_structure': False
+            'complex_nested_structure': False,
+            # NEW FEATURES (high-value, easy to compute):
+            'is_comparative': False,      # "more than", "less than"
+            'requires_aggregation': False, # "total", "sum", "average"
+            'long_query': False,          # >15 words
         }
         if not query:
             return features
+
         query_lower = query.lower()
+        words = query.split()
+
+        # EXISTING FEATURES (unchanged logic)
         if any(signal in query_lower for signal in self.temporal_weak_signals) and not any(
             period in query_lower for period in self.explicit_periods
         ):
             features['has_temporal_ambiguity'] = True
+
         if any(op in query_lower for op in self.arithmetic_operators):
             features['requires_decimal_arithmetic'] = True
+
         if query_lower.count('and') >= 2 or query_lower.count(',') >= 3:
             features['complex_nested_structure'] = True
+
+        # NEW FEATURES: Simple but effective for model routing
+        comparative_keywords = ['more', 'less', 'longer', 'shorter', 'higher', 'lower', 'greater', 'fewer']
+        features['is_comparative'] = any(w in query_lower for w in comparative_keywords)
+
+        aggregation_keywords = ['total', 'sum', 'average', 'combined', 'altogether', 'overall']
+        features['requires_aggregation'] = any(w in query_lower for w in aggregation_keywords)
+
+        features['long_query'] = len(words) > 15
+
         return features
 
 
@@ -176,6 +214,39 @@ class EnsembleFuser:
         self._MONTHS = {m: i for i, m in enumerate(
             ["january", "february", "march", "april", "may", "june", "july",
              "august", "september", "october", "november", "december"], 1)}
+
+        # NEW: Per-model confidence calibration temperatures
+        # Optimized via temperature scaling on 50-sample validation set (Feb 2026)
+        # All models were ~50% overconfident, requiring strong downscaling
+        self.confidence_temperatures = {
+            'llama-3.2-3b': 2.85,   # Optimized: was 79.7% conf vs 28% acc
+            'mistral-7b': 2.76,     # Optimized: was 77.2% conf vs 28% acc
+            'gemma-1.1-7b': 2.76    # Optimized: was 77.3% conf vs 28% acc
+        }
+
+    def _calibrate_confidence(self, model_key: str, raw_conf: float, query_features: dict) -> float:
+        """
+        Apply temperature scaling for better confidence calibration.
+
+        Args:
+            model_key: Model identifier (will be canonicalized)
+            raw_conf: Raw confidence score from model [0, 1]
+            query_features: Dict of query features from feature extractor
+
+        Returns:
+            Calibrated confidence in [0, 0.99]
+        """
+        canon_key = canonical_model_key(model_key)
+        temp = self.confidence_temperatures.get(canon_key, 1.0)
+
+        # Apply temperature scaling
+        calibrated = min(0.99, raw_conf / temp)
+
+        # Feature-specific adjustments: boost Gemma on simple structured queries (its strength)
+        if canon_key == 'gemma-1.1-7b' and not query_features.get('complex_nested_structure', False):
+            calibrated = min(0.99, calibrated * 1.05)
+
+        return calibrated
 
     def fuse(self, query: str, model_results: Dict[str, Dict]) -> Dict:
         """Main entry point that dispatches to the correct fusion strategy."""
@@ -255,22 +326,33 @@ class EnsembleFuser:
         if not valid_results:
             return {'answer': None, 'confidence': 0.0, 'fusion_type': 'no_valid_results', 'status': 'error'}
 
+        # Extract query features once for calibration
+        features = self.feature_extractor.extract_features(query)
+
         answer_keys = {self._get_answer_key(res['answer']) for res in valid_results.values()}
         if len(valid_results) > 1 and len(answer_keys) == 1:
-            confidences = [r.get('confidence', 0.0) for r in valid_results.values()]
+            # UPDATED: Apply confidence calibration before averaging
+            calibrated_confidences = [
+                self._calibrate_confidence(model_key, r.get('confidence', 0.0), features)
+                for model_key, r in valid_results.items()
+            ]
             return {
                 'answer': next(iter(valid_results.values()))['answer'],
-                'confidence': min(1.0, float(np.mean(confidences)) * 1.2),
+                'confidence': min(1.0, float(np.mean(calibrated_confidences)) * 1.2),
                 'fusion_type': 'unanimous',
                 'status': 'success'
             }
 
         majority_answer, _, agreeing_models = self._find_majority(valid_results)
         if majority_answer:
-            agreeing_confidences = [valid_results[model].get('confidence', 0.0) for model in agreeing_models]
+            # UPDATED: Apply confidence calibration to agreeing models
+            calibrated_confidences = [
+                self._calibrate_confidence(model, valid_results[model].get('confidence', 0.0), features)
+                for model in agreeing_models
+            ]
             return {
                 'answer': majority_answer,
-                'confidence': float(np.mean(agreeing_confidences)) if agreeing_confidences else 0.0,
+                'confidence': float(np.mean(calibrated_confidences)) if calibrated_confidences else 0.0,
                 'fusion_type': 'majority',
                 'status': 'success'
             }

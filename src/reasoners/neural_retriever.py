@@ -1580,17 +1580,13 @@ class NeuralRetriever:
             is_date_query = 'when' in query_lower or 'what date' in query_lower or 'which year' in query_lower or 'what month' in query_lower or 'what day' in query_lower
 
             if is_count_query or is_difference_query or is_extreme_value_numeric_query:
-                instruction = "Your task is to provide ONLY the single, final numerical answer. Do NOT include units (like 'yards' or 'points') unless the question explicitly asks for the unit as part of the answer. Do NOT include any reasoning, explanation, or introductory phrases. For example, if the answer is 7, respond with '7'."
-                if is_difference_query:
-                    instruction += " If the question asks for a difference, calculate it and provide only the resulting number."
-                elif is_extreme_value_numeric_query:
-                    instruction += " If the question asks for an extreme value (e.g., longest), provide that specific number."
+                instruction = "CRITICAL: The answer must come from the context provided. Find the relevant numbers, perform any required calculation (addition, subtraction, counting), and provide ONLY the final number. Do not guess or use external knowledge. No units unless the question asks for them."
             elif is_who_which_what_span_query:
-                instruction = "Your task is to provide ONLY the name(s) of the player(s), team(s), or specific entity(ies) requested. If multiple distinct entities are requested by the question, separate them with a comma. Do NOT provide explanations or introductory phrases. The answer should be a direct span from the text if possible."
+                instruction = "CRITICAL: The answer must be a direct quote or name from the context. Do not generate names or entities not mentioned in the text. Find the exact player, team, or entity name that answers the question. Provide ONLY the name(s), comma-separated if multiple."
             elif is_date_query:
-                instruction = "Your task is to provide ONLY the date. If the answer is a full date, format it as MM/DD/YYYY. If only a year, provide just the YYYY. If only month and year, format as MM/YYYY. Do NOT provide explanations or introductory phrases."
+                instruction = "CRITICAL: The answer must come from the context. Find where the date/year is explicitly stated. Do not infer dates not mentioned. Format appropriately: YYYY, MM/YYYY, or MM/DD/YYYY. Provide ONLY the date."
             else:  # Default DROP instruction
-                instruction = "Carefully analyze the question and context. Provide the single, most precise answer. This could be a number (output only the number), a short text span (like a name or specific phrase from the text), or a date (MM/DD/YYYY or YYYY). Do NOT include explanations or units unless they are explicitly part of the answer span itself."
+                instruction = "CRITICAL: The answer must be grounded in the context provided. Find the specific evidence in the text. Extract the precise answer (number, name, or date) directly from the context. No guessing or external knowledge."
             self.logger.debug(f"[QID:{query_id_for_log}] DROP Instruction: {instruction}")
         else:  # Default / HotpotQA
             instruction = "Based ONLY on the context passages and any relevant background information provided, answer the following question accurately and concisely. Provide only the answer, no explanations."

@@ -64,3 +64,8 @@ Thumbs.db
 
 # Git
 .git/
+
+# Temporary - decide later whether to commit
+PROJECT_GUIDE.md
+PROJECT_GUIDE_updated.md
+scripts/

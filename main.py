@@ -4,11 +4,16 @@ import os
 import sys
 import json
 import time
+import hashlib
 import warnings
 import argparse
 import logging
+import platform
+import socket
+import subprocess
 import urllib3
 import yaml
+from datetime import datetime
 from collections import defaultdict
 from typing import Dict, Any, Optional, List, Tuple, Union
 import torch
@@ -64,6 +69,101 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 logger = logging.getLogger(__name__)
 
 
+def _collect_git_metadata(repo_dir: str) -> Dict[str, Any]:
+    """
+    Collect lightweight git metadata for reproducibility.
+    """
+    metadata: Dict[str, Any] = {"commit": None, "branch": None, "is_dirty": None}
+    try:
+        commit = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"],
+            cwd=repo_dir,
+            text=True
+        ).strip()
+        metadata["commit"] = commit
+    except Exception:
+        pass
+
+    try:
+        branch = subprocess.check_output(
+            ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+            cwd=repo_dir,
+            text=True
+        ).strip()
+        metadata["branch"] = branch
+    except Exception:
+        pass
+
+    try:
+        status = subprocess.check_output(
+            ["git", "status", "--porcelain"],
+            cwd=repo_dir,
+            text=True
+        ).strip()
+        metadata["is_dirty"] = bool(status)
+    except Exception:
+        pass
+
+    return metadata
+
+
+def _write_run_manifest(
+    *,
+    config: Dict[str, Any],
+    dataset_type: str,
+    samples: int,
+    args: Optional[argparse.Namespace],
+    execution_mode: str
+) -> Optional[str]:
+    """
+    Persist a run manifest with environment/config metadata for reproducibility.
+    """
+    try:
+        project_root = os.path.dirname(os.path.abspath(__file__))
+        log_root = args.log_dir if args and getattr(args, "log_dir", None) else "logs"
+        manifest_dir = os.path.join(log_root, dataset_type, "run_manifests")
+        os.makedirs(manifest_dir, exist_ok=True)
+
+        config_json = json.dumps(config, sort_keys=True, default=str)
+        config_sha = hashlib.sha256(config_json.encode("utf-8")).hexdigest()
+
+        manifest = {
+            "timestamp_utc": datetime.utcnow().isoformat() + "Z",
+            "execution_mode": execution_mode,
+            "dataset_type": dataset_type,
+            "samples": int(samples),
+            "cli_args": vars(args) if args else {},
+            "python": {
+                "version": sys.version,
+                "executable": sys.executable
+            },
+            "system": {
+                "platform": platform.platform(),
+                "hostname": socket.gethostname(),
+                "cwd": os.getcwd()
+            },
+            "torch": {
+                "version": getattr(torch, "__version__", None),
+                "cuda_available": torch.cuda.is_available(),
+                "cuda_device_count": torch.cuda.device_count() if torch.cuda.is_available() else 0
+            },
+            "git": _collect_git_metadata(project_root),
+            "config_sha256": config_sha,
+            "config": config
+        }
+
+        run_id = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+        manifest_path = os.path.join(manifest_dir, f"run_manifest_{run_id}.json")
+        with open(manifest_path, "w", encoding="utf-8") as f:
+            json.dump(manifest, f, indent=2)
+
+        logger.info(f"Run manifest written to: {manifest_path}")
+        return manifest_path
+    except Exception as e:
+        logger.warning(f"Failed to write run manifest: {e}")
+        return None
+
+
 def run_symrag_system(
     samples: int = 200,
     dataset_type: str = 'hotpotqa',
@@ -106,6 +206,15 @@ def run_symrag_system(
         except Exception as e:
             logger.error(f"[ENSEMBLE_OVERRIDES] failed to load {ov_path}: {e}")
     # ----------------------------------------------------
+
+    mode = "ensemble" if config.get('ensemble', {}).get('enabled') else "single_model"
+    _write_run_manifest(
+        config=config,
+        dataset_type=dataset_type,
+        samples=samples,
+        args=args,
+        execution_mode=mode
+    )
 
     # CHANGE: branch to ensemble if enabled in config
     if config.get('ensemble', {}).get('enabled'):
@@ -685,6 +794,19 @@ def run_ensemble_system(
 
             except Exception as e:
                 logger.exception(f"Critical error in ensemble processing loop for query {query_id_val}: {e}")
+
+    # NEW: Save meta-learned weights for future runs
+    if hasattr(ensemble_manager, 'meta_weights'):
+        try:
+            ensemble_manager.meta_weights.save_weights(ensemble_manager.weights_save_path)
+            print(f"\n✓ Meta-learned weights saved to: {ensemble_manager.weights_save_path}")
+
+            # Print summary of learned weights
+            summary = ensemble_manager.meta_weights.get_summary()
+            if summary['total_feature_model_pairs'] > 0:
+                print(f"✓ Learned {summary['total_feature_model_pairs']} feature-model weight combinations")
+        except Exception as e:
+            logger.warning(f"Failed to save meta-learning weights: {e}")
 
     # Lightweight final fused summary
     print("\n" + "=" * 20 + " Ensemble Run Completed " + "=" * 20)

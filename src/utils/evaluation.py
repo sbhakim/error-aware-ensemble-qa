@@ -11,6 +11,10 @@ from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 from rouge_score import rouge_scorer
 from scipy import stats
 import string  # For punctuation removal in DROP tokenization
+from src.utils.ensemble_helpers import (
+    are_drop_values_equivalent as shared_are_drop_values_equivalent,
+    normalize_drop_number as shared_normalize_drop_number,
+)
 
 
 class Evaluation:
@@ -443,72 +447,12 @@ class Evaluation:
         obj1 is prediction, obj2 is ground truth.
         """
         try:
-            if value_type == "number":
-                # Values from the prediction (obj1) and ground truth (obj2) dicts
-                val1_raw = obj1.get("number")
-                val2_raw = obj2.get("number")
-
-                n1 = self._normalize_drop_number_for_comparison(val1_raw, qid)
-                n2 = self._normalize_drop_number_for_comparison(val2_raw, qid)
-
-                if n1 is None and n2 is None:
-                    # If both normalize to None, consider them equivalent only if their raw forms were also similar
-                    # (e.g. both empty string, or both explicitly "N/A" if that was a convention)
-                    # For now, if both fail normalization, they aren't equivalent valid numbers for scoring.
-                    # But if raw were both '', it is an EM if GT is also '' expecting nothing.
-                    # This logic is tricky: if GT expects "no number" and pred gives "no number" = True.
-                    # If GT expects a number, and pred gives "no number" = False.
-                    # The current logic in _evaluate_drop_answer implies that if gt_type is 'number', a number is expected.
-                    raw1_is_empty_like = (val1_raw == '' or val1_raw is None)
-                    raw2_is_empty_like = (val2_raw == '' or val2_raw is None)
-                    if raw1_is_empty_like and raw2_is_empty_like:
-                        self.logger.debug(
-                            f"[QID:{qid}] Number comparison: Both raw values indicate empty. Result: True")
-                        return True
-                    self.logger.debug(
-                        f"[QID:{qid}] Number comparison: Both normalized to None, but raw values differ or not both empty. Pred raw: '{val1_raw}', GT raw: '{val2_raw}'. Result: False")
-                    return False
-                if n1 is None or n2 is None:  # Only one normalized successfully
-                    self.logger.debug(
-                        f"[QID:{qid}] Number comparison: One normalized to None. Pred norm: {n1}, GT norm: {n2}. Pred raw: '{val1_raw}', GT raw: '{val2_raw}'. Result: False")
-                    return False
-
-                # Both n1 and n2 are valid floats here
-                result = abs(n1 - n2) < 1e-6  # Compare floats
-                self.logger.debug(
-                    f"[QID:{qid}] Number comparison: {n1} (from '{val1_raw}') == {n2} (from '{val2_raw}') -> {result}")
-                return result
-
-            elif value_type == "spans":
-                # Spans are lists of strings. Normalize each string for comparison.
-                pred_spans_raw = obj1.get("spans", [])
-                gt_spans_raw = obj2.get("spans", [])
-
-                # Use the _normalize_drop_answer_str for each span string
-                pred_spans_normalized = {self._normalize_drop_answer_str(str(s), qid) for s in pred_spans_raw if
-                                         str(s).strip()}
-                gt_spans_normalized = {self._normalize_drop_answer_str(str(s), qid) for s in gt_spans_raw if
-                                       str(s).strip()}
-
-                result = pred_spans_normalized == gt_spans_normalized
-                self.logger.debug(
-                    f"[QID:{qid}] Span comparison: Normalized Pred {pred_spans_normalized} == Normalized GT {gt_spans_normalized} -> {result}")
-                return result
-
-            elif value_type == "date":
-                pred_date = obj1.get("date", {})
-                gt_date = obj2.get("date", {})
-
-                # Ensure comparison on stripped string versions of day, month, year
-                result = all(
-                    str(pred_date.get(k, '')).strip() == str(gt_date.get(k, '')).strip()
-                    for k in ['day', 'month', 'year']
-                )
-                self.logger.debug(f"[QID:{qid}] Date comparison: Pred {pred_date} == GT {gt_date} -> {result}")
-                return result
-
-            self.logger.debug(f"[QID:{qid}] Unsupported value type for DROP comparison: {value_type}")
-            return False
+            return shared_are_drop_values_equivalent(
+                obj1,
+                obj2,
+                value_type,
+                treat_empty_as_agree=True
+            )
         except Exception as e:
             self.logger.error(f"[QID:{qid}] Error comparing DROP values (type '{value_type}'): {str(e)}", exc_info=True)
             return False
@@ -516,41 +460,9 @@ class Evaluation:
     def _normalize_drop_number_for_comparison(self, value_str: Optional[Any], qid: str) -> Optional[float]:
         """
         Normalize number strings/values for comparison, returning float or None.
-        Consistent with hybrid_integrator.py.
+        Delegates to the shared utility to keep number handling consistent.
         """
-        if value_str is None:
-            return None
-        try:
-            if isinstance(value_str, (int, float)):  # If already a number
-                return float(value_str)
-
-            s = str(value_str).replace(",", "").strip().lower()
-            if not s:  # If empty after cleaning
-                self.logger.debug(f"[QID:{qid}] Number value '{value_str}' became empty after cleaning.")
-                return None
-
-            words = {
-                "zero": 0.0, "one": 1.0, "two": 2.0, "three": 3.0, "four": 4.0,
-                "five": 5.0, "six": 6.0, "seven": 7.0, "eight": 8.0, "nine": 9.0,
-                "ten": 10.0
-            }
-            if s in words:
-                result = words[s]
-            elif re.fullmatch(r'-?\d+(\.\d+)?', s):  # Regex to match float/int strings
-                result = float(s)
-            else:
-                self.logger.debug(
-                    f"[QID:{qid}] Could not normalize '{value_str}' (cleaned: '{s}') to a recognized number format or word.")
-                return None
-
-            # No need to convert to int if is_integer, as comparison will be float vs float.
-            # The main goal is a canonical float representation for comparison.
-            # Example: "4" -> 4.0, "4.0" -> 4.0.
-            self.logger.debug(f"[QID:{qid}] Normalized number: '{value_str}' -> {result}")
-            return result
-        except (ValueError, TypeError) as e:
-            self.logger.debug(f"[QID:{qid}] Error normalizing number '{value_str}': {str(e)}")
-            return None
+        return shared_normalize_drop_number(value_str)
 
     def _normalize_drop_answer_str(self, text: str, qid: str) -> str:
         """
@@ -910,3 +822,176 @@ class Evaluation:
                 significance_results[metric] = {'error': 'Insufficient data for t-test'}
                 self.logger.debug(f"[QID:{qid}] Insufficient data for t-test on {metric}")
         return significance_results
+
+
+# ============================================================================
+# NEW: Failure Taxonomy Analyzer for Systematic Error Categorization
+# ============================================================================
+
+class FailureTaxonomyAnalyzer:
+    """
+    Categorizes ensemble failures for systematic analysis and improvement.
+
+    Identifies why the ensemble failed when it should have succeeded,
+    enabling targeted improvements to fusion logic, feature detection, or calibration.
+    """
+
+    def __init__(self):
+        self.categories = {
+            'confidence_miscalibration': [],  # All models confident but wrong
+            'feature_detection_miss': [],      # Wrong model selected by error-aware routing
+            'universal_failure': [],           # All single models failed (ensemble can't help)
+            'fusion_logic_error': [],          # Right answer available, but not selected
+        }
+        self.logger = logging.getLogger(__name__)
+
+    def categorize_failure(self,
+                          query_id: str,
+                          ground_truth: dict,
+                          single_model_results: Dict[str, dict],
+                          ensemble_result: dict,
+                          fusion_metadata: Optional[dict] = None) -> str:
+        """
+        Determines why ensemble failed on this query.
+
+        Args:
+            query_id: Unique query identifier
+            ground_truth: Correct answer in DROP format
+            single_model_results: Dict[model_name -> result_dict with 'answer', 'confidence']
+            ensemble_result: Final ensemble answer dict
+            fusion_metadata: Optional metadata about fusion decision (fusion_type, etc.)
+
+        Returns:
+            category name (str)
+        """
+        fusion_metadata = fusion_metadata or {}
+
+        # Check if any single model was correct
+        correct_models = []
+        for model_name, result in single_model_results.items():
+            if self._is_correct(result.get('answer'), ground_truth):
+                correct_models.append(model_name)
+
+        # Categorization logic
+        if not correct_models:
+            # No single model had the right answer - ensemble can't recover
+            category = 'universal_failure'
+
+        elif all(res.get('confidence', 0) > 0.6 for res in single_model_results.values()):
+            # All models were confident but at least one was wrong
+            # This suggests confidence calibration issues
+            category = 'confidence_miscalibration'
+
+        elif fusion_metadata.get('fusion_type') == 'error_aware_routing':
+            # Error-aware routing was triggered but selected wrong model
+            # This suggests feature detection missed important signals
+            category = 'feature_detection_miss'
+
+        else:
+            # Correct answer was available, but fusion logic didn't select it
+            # Could be majority voting failure or disagreement resolution issue
+            category = 'fusion_logic_error'
+
+        # Store the failure case with context for later analysis
+        self.categories[category].append({
+            'query_id': query_id,
+            'ground_truth': ground_truth,
+            'correct_models': correct_models,
+            'single_results': single_model_results,
+            'ensemble_result': ensemble_result,
+            'fusion_metadata': fusion_metadata
+        })
+
+        self.logger.debug(f"[QID:{query_id}] Categorized as '{category}'. Correct models: {correct_models}")
+
+        return category
+
+    def _is_correct(self, prediction: dict, ground_truth: dict) -> bool:
+        """Check if prediction matches ground truth using DROP comparison logic."""
+        if not prediction or not ground_truth:
+            return False
+
+        # Import the comparison function from ensemble_helpers
+        try:
+            from .ensemble_helpers import are_drop_values_equivalent
+            answer_type = self._get_answer_type(ground_truth)
+            return are_drop_values_equivalent(prediction, ground_truth, answer_type)
+        except Exception as e:
+            self.logger.warning(f"Error comparing answers: {e}")
+            return False
+
+    def _get_answer_type(self, answer: dict) -> str:
+        """Determine answer type (number/spans/date) from DROP answer dict."""
+        if not isinstance(answer, dict):
+            return 'unknown'
+
+        # Check for number
+        num = answer.get('number', '')
+        if num and str(num).strip():
+            return 'number'
+
+        # Check for spans
+        spans = answer.get('spans', [])
+        if spans and any(str(s).strip() for s in spans):
+            return 'spans'
+
+        # Check for date
+        date = answer.get('date', {})
+        if isinstance(date, dict) and any(str(date.get(k, '')).strip() for k in ['day', 'month', 'year']):
+            return 'date'
+
+        return 'unknown'
+
+    def generate_report(self) -> dict:
+        """
+        Returns summary statistics for each category.
+
+        Returns:
+            Dict with total_failures, breakdown by category, and examples
+        """
+        total_failures = sum(len(v) for v in self.categories.values())
+        report = {
+            'total_failures': total_failures,
+            'breakdown': {}
+        }
+
+        for category, failures in self.categories.items():
+            count = len(failures)
+            report['breakdown'][category] = {
+                'count': count,
+                'percentage': (count / total_failures * 100) if total_failures > 0 else 0,
+                'examples': [
+                    {
+                        'query_id': f['query_id'],
+                        'correct_models': f['correct_models'],
+                        'fusion_type': f['fusion_metadata'].get('fusion_type', 'unknown')
+                    }
+                    for f in failures[:3]  # Include up to 3 examples
+                ]
+            }
+
+        return report
+
+    def print_summary(self):
+        """Pretty-print the failure taxonomy summary."""
+        report = self.generate_report()
+
+        print("\n" + "="*70)
+        print("FAILURE TAXONOMY ANALYSIS")
+        print("="*70)
+        print(f"Total Failures Analyzed: {report['total_failures']}")
+        print()
+
+        for category, stats in report['breakdown'].items():
+            count = stats['count']
+            pct = stats['percentage']
+            print(f"{category.replace('_', ' ').title()}: {count} ({pct:.1f}%)")
+
+            if stats['examples']:
+                print(f"  Examples:")
+                for ex in stats['examples']:
+                    correct = ', '.join(ex['correct_models']) if ex['correct_models'] else 'None'
+                    print(f"    - QID: {ex['query_id'][:20]}... | Correct: {correct} | Fusion: {ex['fusion_type']}")
+            print()
+
+        print("="*70)

@@ -4,6 +4,7 @@ import numpy as np
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Any, Tuple
 from collections import defaultdict
+import hashlib
 import logging
 import json
 import time
@@ -13,6 +14,10 @@ import pandas as pd
 from scipy import stats
 import re
 import string
+from src.utils.ensemble_helpers import (
+    are_drop_values_equivalent as shared_are_drop_values_equivalent,
+    normalize_drop_number as shared_normalize_drop_number,
+)
 
 class MetricsCollector:
     """
@@ -359,26 +364,14 @@ class MetricsCollector:
     def _are_drop_values_equivalent(self, obj1: Dict[str, Any], obj2: Dict[str, Any], value_type: str) -> bool:
         """
         Compare DROP answer values for equivalence.
-        Consistent with hybrid_integrator.py.
         """
         try:
-            if value_type == "number":
-                n1 = self._normalize_drop_number_for_comparison(obj1.get("number"))
-                n2 = self._normalize_drop_number_for_comparison(obj2.get("number"))
-                if n1 is None or n2 is None:
-                    return False
-                return abs(n1 - n2) < 1e-6
-            elif value_type == "spans":
-                pred_spans = [self._normalize_drop_answer_str(str(s)) for s in obj1.get("spans", []) if
-                              str(s).strip()]
-                gt_spans = [self._normalize_drop_answer_str(str(s)) for s in obj2.get("spans", []) if str(s).strip()]
-                return set(pred_spans) == set(gt_spans)
-            elif value_type == "date":
-                pred_date = obj1.get("date", {})
-                gt_date = obj2.get("date", {})
-                return all(str(pred_date.get(k, '')).strip() == str(gt_date.get(k, '')).strip() for k in
-                           ['day', 'month', 'year'])
-            return False
+            return shared_are_drop_values_equivalent(
+                obj1,
+                obj2,
+                value_type,
+                treat_empty_as_agree=True
+            )
         except Exception as e:
             self.logger.debug(f"Error comparing DROP values: {str(e)}")
             return False
@@ -387,18 +380,7 @@ class MetricsCollector:
         """
         Normalize number strings for DROP comparison.
         """
-        if value_str is None:
-            return None
-        try:
-            s = str(value_str).replace(",", "").strip().lower()
-            words = {
-                "zero": 0.0, "one": 1.0, "two": 2.0, "three": 3.0, "four": 4.0,
-                "five": 5.0, "six": 6.0, "seven": 7.0, "eight": 8.0, "nine": 9.0,
-                "ten": 10.0
-            }
-            return words.get(s, float(s))
-        except Exception:
-            return None
+        return shared_normalize_drop_number(value_str)
 
     def _normalize_drop_answer_str(self, text: str) -> str:
         """

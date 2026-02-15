@@ -3,7 +3,10 @@
 import gc
 import logging
 import torch
+import os
+import json
 from typing import Dict, Any, Optional, Tuple, List
+from collections import defaultdict
 
 # Core SymRAG components needed to build an SCM instance on the fly
 from ..system.system_control_manager import SystemControlManager
@@ -16,8 +19,173 @@ from ..utils.dimension_manager import DimensionalityManager
 from ..queries.query_expander import QueryExpander
 from ..system.response_aggregator import UnifiedResponseAggregator
 from ..utils.metrics_collector import MetricsCollector
+from ..utils.ensemble_helpers import canonical_model_key
 
 logger = logging.getLogger(__name__)
+
+
+# ============================================================================
+# NEW: Meta-Learning for Adaptive Fusion Weights
+# ============================================================================
+
+class MetaLearningWeights:
+    """
+    Learns optimal per-feature, per-model weights from validation performance.
+
+    Uses simple online updates (exponential moving average) to adapt fusion weights
+    based on observed success rates. This allows the ensemble to discover nuanced
+    interactions between query features and model capabilities.
+
+    Example:
+        If Llama-3.2-3B consistently fails on temporal queries with "before halftime"
+        but succeeds on "earlier in the game", the meta-learner will down-weight
+        Llama specifically for the temporal_ambiguity feature.
+    """
+
+    def __init__(self, learning_rate: float = 0.1):
+        """
+        Initialize meta-learning component.
+
+        Args:
+            learning_rate: EMA alpha for weight updates (0.1 = 10% new, 90% old)
+        """
+        self.lr = learning_rate
+        # (feature_name, model_key) -> weight multiplier
+        self.feature_model_weights = defaultdict(lambda: 1.0)
+        # Track statistics for analysis
+        self.performance_history = defaultdict(lambda: {'correct': 0, 'total': 0})
+        self.logger = logging.getLogger(__name__)
+
+    def get_weight(self, features: dict, model_key: str) -> float:
+        """
+        Returns multiplicative weight for this model given query features.
+
+        Weight < 1.0: down-weight model (likely to fail on this feature)
+        Weight > 1.0: up-weight model (likely to succeed on this feature)
+
+        Args:
+            features: Dict of boolean features from QueryFeatureExtractor
+            model_key: Model identifier (e.g., "llama-3.2-3b")
+
+        Returns:
+            Combined weight (clamped to [0.2, 2.0] for stability)
+        """
+        weight = 1.0
+        model_key_canon = canonical_model_key(model_key)
+
+        for feature_name, is_present in features.items():
+            if is_present:  # Only consider active features
+                key = (feature_name, model_key_canon)
+                weight *= self.feature_model_weights[key]
+
+        # Clamp to reasonable range to prevent extreme values
+        return max(0.2, min(2.0, weight))
+
+    def update(self, features: dict, model_key: str, was_correct: bool):
+        """
+        Online update after observing a result.
+
+        If model succeeded on a query with feature F, increase weight.
+        If model failed, decrease weight.
+
+        Args:
+            features: Dict of boolean features
+            model_key: Model identifier
+            was_correct: Whether this model's answer was correct
+        """
+        model_key_canon = canonical_model_key(model_key)
+
+        for feature_name, is_present in features.items():
+            if is_present:
+                key = (feature_name, model_key_canon)
+
+                # Update statistics
+                self.performance_history[key]['total'] += 1
+                if was_correct:
+                    self.performance_history[key]['correct'] += 1
+
+                # Calculate empirical success rate for this feature-model combo
+                stats = self.performance_history[key]
+                empirical_rate = stats['correct'] / stats['total']
+
+                # Target weight: boost if success rate > 0.5, down-weight if < 0.5
+                # Maps [0, 1] success rate to [0.5, 1.5] weight
+                target_weight = 0.5 + (empirical_rate - 0.5) * 2
+
+                # Exponential moving average update
+                current = self.feature_model_weights[key]
+                self.feature_model_weights[key] = (1 - self.lr) * current + self.lr * target_weight
+
+                self.logger.debug(
+                    f"Meta-learning update: ({feature_name}, {model_key_canon}) "
+                    f"rate={empirical_rate:.2f} -> weight={self.feature_model_weights[key]:.3f}"
+                )
+
+    def save_weights(self, path: str):
+        """Persist learned weights for future runs."""
+        try:
+            # Ensure directory exists
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+
+            data = {
+                'weights': {f"{k[0]}::{k[1]}": v for k, v in self.feature_model_weights.items()},
+                'stats': {
+                    f"{k[0]}::{k[1]}": v for k, v in self.performance_history.items()
+                }
+            }
+            with open(path, 'w') as f:
+                json.dump(data, f, indent=2)
+
+            self.logger.info(f"Meta-learned weights saved to {path}")
+        except Exception as e:
+            self.logger.warning(f"Failed to save meta-learning weights: {e}")
+
+    def load_weights(self, path: str):
+        """Load previously learned weights from file."""
+        if not os.path.exists(path):
+            self.logger.info(f"No existing weights file at {path}. Starting fresh.")
+            return
+
+        try:
+            with open(path, 'r') as f:
+                data = json.load(f)
+
+            # Restore weights
+            for key_str, weight in data.get('weights', {}).items():
+                feature, model = key_str.split('::')
+                self.feature_model_weights[(feature, model)] = weight
+
+            # Restore statistics
+            for key_str, stats in data.get('stats', {}).items():
+                feature, model = key_str.split('::')
+                self.performance_history[(feature, model)] = stats
+
+            self.logger.info(
+                f"Loaded {len(self.feature_model_weights)} meta-learned weights from {path}"
+            )
+        except Exception as e:
+            self.logger.warning(f"Failed to load meta-learning weights: {e}")
+
+    def get_summary(self) -> dict:
+        """Returns summary of learned weights for analysis."""
+        summary = {
+            'total_feature_model_pairs': len(self.feature_model_weights),
+            'weights': {},
+            'statistics': {}
+        }
+
+        for (feature, model), weight in sorted(self.feature_model_weights.items()):
+            key_str = f"{feature}::{model}"
+            summary['weights'][key_str] = round(weight, 3)
+
+            stats = self.performance_history.get((feature, model), {'correct': 0, 'total': 0})
+            if stats['total'] > 0:
+                summary['statistics'][key_str] = {
+                    'success_rate': round(stats['correct'] / stats['total'], 3),
+                    'total_observations': stats['total']
+                }
+
+        return summary
 
 
 class EnsembleManager:
@@ -43,6 +211,52 @@ class EnsembleManager:
         self.dim_manager = dim_manager
         self.query_expander = query_expander
         self.response_aggregator = response_aggregator
+
+        # NEW: Initialize meta-learning for adaptive fusion weights
+        self.meta_weights = MetaLearningWeights(learning_rate=0.1)
+        self.weights_save_path = os.path.join("logs", "meta_learned_weights.json")
+        self.meta_weights.load_weights(self.weights_save_path)  # Load from previous runs if available
+        logger.info(f"Meta-learning initialized. Weights will be saved to: {self.weights_save_path}")
+
+    def _resolve_rules_file(self, model_cfg: Dict[str, Any], dataset_type: str) -> str:
+        """
+        Resolve rules file with explicit fallback order and existence checks.
+        DROP order: model override -> dynamic rules -> static rules -> default static path.
+        Hotpot order: model override -> configured hotpot rules -> default hotpot path.
+        """
+        ds = (dataset_type or "").strip().lower()
+        model_override = model_cfg.get('rules_file')
+
+        if ds == 'drop':
+            candidates = [
+                model_override,
+                self.config.get('drop_rules_dynamic_file'),
+                self.config.get('drop_rules_file'),
+                "data/rules_drop.json"
+            ]
+        else:
+            candidates = [
+                model_override,
+                self.config.get('hotpotqa_rules_file'),
+                "data/rules_hotpotqa.json"
+            ]
+
+        seen = set()
+        for path in candidates:
+            if not path or path in seen:
+                continue
+            seen.add(path)
+            if os.path.exists(path):
+                if ds == 'drop' and path != candidates[1] and candidates[1]:
+                    logger.warning(
+                        f"DROP dynamic rules missing or unavailable; using fallback rules file: {path}"
+                    )
+                return path
+
+        raise FileNotFoundError(
+            f"No valid rules file found for dataset='{ds}'. Tried: "
+            f"{[p for p in candidates if p]}"
+        )
 
     # -----------------------------
     # Internal helpers
@@ -75,13 +289,7 @@ class EnsembleManager:
         )
 
         # 2) Symbolic Reasoner (dataset-specific, allow per-model rules override)
-        rules_file = (
-            model_cfg.get('rules_file') or
-            (self.config.get('hotpotqa_rules_file') if ds == 'hotpotqa' else
-             self.config.get('drop_rules_dynamic_file') or
-             self.config.get('drop_rules_file') or
-             "data/rules_drop.json")
-        )
+        rules_file = self._resolve_rules_file(model_cfg=model_cfg, dataset_type=ds)
 
         if ds == 'drop':
             symbolic_reasoner = GraphSymbolicReasonerDrop(rules_file=rules_file, dim_manager=self.dim_manager)
@@ -143,17 +351,17 @@ class EnsembleManager:
                         try:
                             if getattr(nr, attr, None) is not None:
                                 delattr(nr, attr)
-                        except Exception:
-                            pass
+                        except Exception as e:
+                            logger.debug(f"Failed to delete neural_retriever.{attr}: {e}")
                 # Drop references
                 try:
                     del scm.hybrid_integrator.neural_retriever
-                except Exception:
-                    pass
+                except Exception as e:
+                    logger.debug(f"Failed to delete scm.hybrid_integrator.neural_retriever: {e}")
                 try:
                     del scm.hybrid_integrator
-                except Exception:
-                    pass
+                except Exception as e:
+                    logger.debug(f"Failed to delete scm.hybrid_integrator: {e}")
             # Finally drop SCM
             del scm
         except Exception as unload_err:
@@ -163,8 +371,8 @@ class EnsembleManager:
             if torch.cuda.is_available():
                 try:
                     torch.cuda.empty_cache()
-                except Exception:
-                    pass
+                except Exception as e:
+                    logger.debug(f"torch.cuda.empty_cache failed: {e}")
 
     def _extract_response_details(self, scm_response: Any) -> Dict[str, Any]:
         """
@@ -266,7 +474,8 @@ class EnsembleManager:
                     if actual_model_obj is not None:
                         cfg = getattr(actual_model_obj, "config", None)
                         actual_name = getattr(cfg, "_name_or_path", None) or getattr(cfg, "name_or_path", None)
-                except Exception:
+                except Exception as e:
+                    logger.debug(f"Could not capture provenance snapshot for model '{model_key}': {e}")
                     actual_name = None
 
                 # 2) Run the query
@@ -305,8 +514,8 @@ class EnsembleManager:
             for mk, res in model_results.items():
                 logger.info(f"[SEQ FUSION INPUT] model={mk} name={res.get('source_model_name')} "
                             f"conf={res.get('confidence')} type={type(res.get('answer'))}")
-        except Exception:
-            pass
+        except Exception as e:
+            logger.debug(f"Failed to log sequential fusion inputs: {e}")
 
         fused_result = fuser.fuse(query, model_results)
 
@@ -400,7 +609,8 @@ class EnsembleManager:
                     if actual_model_obj is not None:
                         cfg = getattr(actual_model_obj, "config", None)
                         actual_name = getattr(cfg, "_name_or_path", None) or getattr(cfg, "name_or_path", None)
-                except Exception:
+                except Exception as e:
+                    logger.debug(f"Could not capture batched provenance for model '{model_key}': {e}")
                     actual_name = None
 
                 for s in normalized_samples:
@@ -439,15 +649,112 @@ class EnsembleManager:
         fused_outputs: Dict[str, Dict[str, Any]] = {}
         for qid in order:
             model_results_for_qid = by_qid_results.get(qid, {})
+            query_text = by_qid_query.get(qid, "")
+
             # Helpful log before fusion
             try:
                 for mk, res in model_results_for_qid.items():
                     logger.info(f"[BATCH FUSION INPUT] qid={qid} model={mk} name={res.get('source_model_name')} "
                                 f"conf={res.get('confidence')} type={type(res.get('answer'))}")
-            except Exception:
-                pass
+            except Exception as e:
+                logger.debug(f"Failed to log batched fusion inputs for qid={qid}: {e}")
 
-            fused = fuser.fuse(by_qid_query.get(qid, ""), model_results_for_qid)
+            # NEW: Apply meta-learned weights to adjust confidences before fusion
+            adjusted_results = self.apply_meta_weights_to_results(query_text, model_results_for_qid)
+
+            # Fuse with adjusted confidences
+            fused = fuser.fuse(query_text, adjusted_results)
             fused_outputs[qid] = fused
 
         return fused_outputs
+
+    def apply_meta_weights_to_results(self, query: str, model_results: Dict[str, Dict]) -> Dict[str, Dict]:
+        """
+        Apply meta-learned weights to adjust model confidences before fusion.
+
+        Args:
+            query: Query string for feature extraction
+            model_results: Dict[model_key -> result_dict with 'confidence']
+
+        Returns:
+            Updated model_results with adjusted confidences
+        """
+        from ..utils.ensemble_helpers import QueryFeatureExtractor
+
+        # Extract features from query
+        extractor = QueryFeatureExtractor()
+        features = extractor.extract_features(query)
+
+        # Apply meta-learned weights to each model's confidence
+        adjusted_results = {}
+        for model_key, result in model_results.items():
+            meta_weight = self.meta_weights.get_weight(features, model_key)
+            original_conf = result.get('confidence', 0.0)
+
+            # Create copy and adjust confidence by meta-learned weight
+            adjusted_result = result.copy()
+            adjusted_result['confidence'] = min(0.99, original_conf * meta_weight)
+            adjusted_result['meta_weight_applied'] = meta_weight
+            adjusted_result['original_confidence'] = original_conf
+
+            adjusted_results[model_key] = adjusted_result
+
+            logger.debug(
+                f"[Meta-Weight] {model_key}: conf {original_conf:.3f} * weight {meta_weight:.3f} "
+                f"= {adjusted_result['confidence']:.3f}"
+            )
+
+        return adjusted_results
+
+    def update_meta_weights(self, query: str, model_results: Dict[str, Dict],
+                           ground_truth: Optional[Dict] = None):
+        """
+        Update meta-learning weights based on observed performance.
+
+        Should be called after ground truth is available to provide learning signal.
+
+        Args:
+            query: Query string
+            model_results: Dict[model_key -> result with 'answer']
+            ground_truth: Correct answer for evaluation
+        """
+        if not ground_truth:
+            return
+
+        from ..utils.ensemble_helpers import QueryFeatureExtractor, are_drop_values_equivalent
+
+        # Extract features
+        extractor = QueryFeatureExtractor()
+        features = extractor.extract_features(query)
+
+        # Determine answer type from ground truth
+        answer_type = self._get_answer_type(ground_truth)
+
+        # Update weights for each model based on correctness
+        for model_key, result in model_results.items():
+            prediction = result.get('answer')
+            if prediction:
+                try:
+                    was_correct = are_drop_values_equivalent(prediction, ground_truth, answer_type)
+                    self.meta_weights.update(features, model_key, was_correct)
+                except Exception as e:
+                    logger.warning(f"Failed to update meta-weights for {model_key}: {e}")
+
+    def _get_answer_type(self, answer: dict) -> str:
+        """Determine answer type (number/spans/date) from DROP answer dict."""
+        if not isinstance(answer, dict):
+            return 'unknown'
+
+        num = answer.get('number', '')
+        if num and str(num).strip():
+            return 'number'
+
+        spans = answer.get('spans', [])
+        if spans and any(str(s).strip() for s in spans):
+            return 'spans'
+
+        date = answer.get('date', {})
+        if isinstance(date, dict) and any(str(date.get(k, '')).strip() for k in ['day', 'month', 'year']):
+            return 'date'
+
+        return 'unknown'

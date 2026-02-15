@@ -21,7 +21,8 @@ class FeedbackHandler:
                  feedback_dir: str = "logs/feedback",
                  min_confidence: float = 0.3,
                  feedback_window: int = 100,
-                 adaptation_threshold: float = 0.6):
+                 adaptation_threshold: float = 0.6,
+                 interactive: bool = False):
         """
         Initialize the enhanced feedback handler with sophisticated tracking capabilities.
 
@@ -40,6 +41,7 @@ class FeedbackHandler:
         self.min_confidence = min_confidence
         self.feedback_window = feedback_window
         self.adaptation_threshold = adaptation_threshold
+        self.interactive = interactive
 
         # Initialize logging
         self.logger = logging.getLogger("FeedbackHandler")
@@ -57,6 +59,24 @@ class FeedbackHandler:
         self._initialize_analysis_components()
 
         self.logger.info("FeedbackHandler initialized successfully")
+
+    def _get_validated_rating(self, prompt: str) -> int:
+        """
+        Read and validate a feedback score in [1, 5].
+        In non-interactive mode, returns a neutral score to keep pipelines non-blocking.
+        """
+        if not self.interactive:
+            return 3
+
+        raw = input(prompt).strip()
+        try:
+            rating = int(raw)
+        except (TypeError, ValueError) as exc:
+            raise ValueError(f"Rating must be an integer in [1, 5], got: {raw}") from exc
+
+        if not (1 <= rating <= 5):
+            raise ValueError(f"Rating must be in [1, 5], got: {rating}")
+        return rating
 
     def _initialize_analysis_components(self):
         """
@@ -418,3 +438,99 @@ class FeedbackHandler:
             return slope
         except:
             return 0.0
+
+    def _calculate_category_scores(self, feedback: Dict[str, Any]) -> Dict[str, float]:
+        """Extract per-category numeric scores from feedback payload."""
+        scores: Dict[str, float] = {}
+        for category, payload in feedback.items():
+            rating = payload.get('rating') if isinstance(payload, dict) else None
+            if isinstance(rating, (int, float)):
+                scores[category] = float(rating)
+        return scores
+
+    def _calculate_feedback_confidence(self, feedback: Dict[str, Any]) -> float:
+        """
+        Estimate confidence in feedback quality based on coverage + consistency.
+        Returns value in [0, 1].
+        """
+        ratings: List[float] = []
+        for payload in feedback.values():
+            if isinstance(payload, dict) and isinstance(payload.get('rating'), (int, float)):
+                ratings.append(float(payload['rating']))
+
+        if not ratings:
+            return 0.0
+
+        coverage = len(ratings) / max(1, len(self.feedback_categories))
+        std = float(np.std(ratings)) if len(ratings) > 1 else 0.0
+        consistency = max(0.0, 1.0 - min(1.0, std / 2.0))
+        return float(max(0.0, min(1.0, 0.5 * coverage + 0.5 * consistency)))
+
+    def _analyze_performance_metrics(
+            self,
+            feedback: Dict[str, Any],
+            metadata: Optional[Dict[str, Any]]) -> Dict[str, float]:
+        """Compute lightweight runtime metrics for downstream trend analysis."""
+        metadata = metadata or {}
+        processing_time = metadata.get('processing_time')
+        model_confidence = metadata.get('confidence')
+        overall_score = self._calculate_overall_score(feedback)
+        return {
+            'overall_score': float(overall_score),
+            'processing_time': float(processing_time) if isinstance(processing_time, (int, float)) else 0.0,
+            'model_confidence': float(model_confidence) if isinstance(model_confidence, (int, float)) else 0.0
+        }
+
+    def _generate_recommendations(self, analyzed_feedback: Dict[str, Any]) -> List[str]:
+        """Generate actionable recommendations from analyzed feedback."""
+        recommendations: List[str] = []
+
+        if analyzed_feedback.get('overall_score', 0.0) < self.adaptation_threshold:
+            recommendations.append("Increase symbolic-neural agreement checks for low-confidence cases.")
+
+        for area in analyzed_feedback.get('improvement_areas', []):
+            category = area.get('category', 'general')
+            recommendations.append(f"Improve {category} quality for similar queries.")
+
+        for suggestion in analyzed_feedback.get('reasoning_analysis', {}).get('improvement_suggestions', []):
+            recommendations.append(suggestion)
+
+        # Keep recommendations concise and unique while preserving order
+        deduped: List[str] = []
+        seen = set()
+        for rec in recommendations:
+            if rec not in seen:
+                seen.add(rec)
+                deduped.append(rec)
+
+        return deduped[:5]
+
+    def _store_feedback(self, feedback_report: Dict[str, Any]) -> None:
+        """Persist processed feedback report to local JSONL log."""
+        output_file = self.feedback_dir / "feedback_reports.jsonl"
+        with output_file.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(feedback_report) + "\n")
+
+    def _calculate_path_performance(self) -> Dict[str, Dict[str, float]]:
+        """Aggregate per-path feedback stats."""
+        summary: Dict[str, Dict[str, float]] = {}
+        for path_type, scores in self.feedback_stats['reasoning_paths'].items():
+            if not scores:
+                continue
+            summary[path_type] = {
+                'average_score': float(np.mean(scores)),
+                'count': float(len(scores))
+            }
+        return summary
+
+    def _generate_system_recommendations(self) -> List[str]:
+        """Generate system-level recommendations from rolling trends."""
+        recs: List[str] = []
+        perf = self._calculate_performance_summary()
+        if perf.get('average', 0.0) < self.adaptation_threshold:
+            recs.append("Average feedback is below target; prioritize routing and calibration refinements.")
+        if perf.get('trend', 0.0) < 0:
+            recs.append("Feedback trend is declining; re-check prompt templates and fusion thresholds.")
+        if not recs:
+            recs.append("Feedback trends are stable; continue monitoring and periodic recalibration.")
+        return recs

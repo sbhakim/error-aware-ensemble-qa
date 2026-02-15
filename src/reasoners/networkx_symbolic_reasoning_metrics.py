@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
 
-def _serialize_dependencies(self, dependencies: nx.DiGraph) -> Dict:
+def _serialize_dependencies(dependencies: nx.DiGraph) -> Dict:
     """
     Serialize the dependencies graph into a dictionary format.
     """
@@ -25,28 +25,21 @@ def _serialize_dependencies(self, dependencies: nx.DiGraph) -> Dict:
 
 # ------------------- Utility / Placeholder methods for chain calculations -------------------
 
-def _get_prerequisites(self, node_id: str) -> List[str]:
+def _get_prerequisites(node_id: str) -> List[str]:
     """
     Placeholder: Return prerequisite nodes for a rule.
     """
     return []
 
 
-def _get_conclusions(self, node_id: str) -> List[str]:
+def _get_conclusions(node_id: str) -> List[str]:
     """
     Placeholder: Return conclusion nodes for a rule.
     """
     return []
 
 
-def _calculate_step_confidence(self, rule: Dict, prereqs: List[str], base_conf: float) -> float:
-    """
-    Placeholder for more advanced step-by-step confidence calculation.
-    """
-    return base_conf
-
-
-def _calculate_step_confidence(self, rule: Dict, prereqs: List[str], base_conf: float) -> float:
+def _calculate_step_confidence(rule: Dict, prereqs: List[str], base_conf: float) -> float:
     """
     Placeholder for more advanced step-by-step confidence calculation.
     """
@@ -406,4 +399,3 @@ def _analyze_pattern_effectiveness(reasoning_metrics: Dict[str, Any]) -> Dict[st
             'sample_size': len(measures)
         }
     return result
-

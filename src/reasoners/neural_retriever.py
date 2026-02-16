@@ -1582,7 +1582,7 @@ class NeuralRetriever:
             if is_count_query or is_difference_query or is_extreme_value_numeric_query:
                 instruction = "CRITICAL: The answer must come from the context provided. Find the relevant numbers, perform any required calculation (addition, subtraction, counting), and provide ONLY the final number. Do not guess or use external knowledge. No units unless the question asks for them."
             elif is_who_which_what_span_query:
-                instruction = "CRITICAL: The answer must be a direct quote or name from the context. Do not generate names or entities not mentioned in the text. Find the exact player, team, or entity name that answers the question. Provide ONLY the name(s), comma-separated if multiple."
+                instruction = "CRITICAL: Extract ONLY the name exactly as written in the context. Do not include positions (QB, WR, RB), descriptions, or extra words. Do not include yardage (e.g., '57-yard'). Match spelling exactly from the text. For team names, use the exact term from context (team name or city). Provide ONLY the name(s), comma-separated if multiple. No explanations."
             elif is_date_query:
                 instruction = "CRITICAL: The answer must come from the context. Find where the date/year is explicitly stated. Do not infer dates not mentioned. Format appropriately: YYYY, MM/YYYY, or MM/DD/YYYY. Provide ONLY the date."
             else:  # Default DROP instruction

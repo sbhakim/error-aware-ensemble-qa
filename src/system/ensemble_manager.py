@@ -20,6 +20,7 @@ from ..queries.query_expander import QueryExpander
 from ..system.response_aggregator import UnifiedResponseAggregator
 from ..utils.metrics_collector import MetricsCollector
 from ..utils.ensemble_helpers import canonical_model_key
+from ..utils.answer_postprocessor import AnswerPostProcessor
 
 logger = logging.getLogger(__name__)
 
@@ -505,6 +506,12 @@ class EnsembleManager:
                 # 4) Unload to avoid OOM
                 self._unload_model(scm)
 
+        # 4.5) Post-process answers (clean spans, remove prefixes)
+        postprocessor = AnswerPostProcessor()
+        for model_key, result in model_results.items():
+            if result.get('answer'):
+                result['answer'] = postprocessor.postprocess_answer(result['answer'])
+
         # 5) Fuse
         fusion_strategy = self.ensemble_config.get('fusion_strategy', 'error_aware')
         fuser = EnsembleFuser(fusion_strategy=fusion_strategy)
@@ -641,6 +648,13 @@ class EnsembleManager:
             finally:
                 # Unload model after finishing all samples
                 self._unload_model(scm)
+
+        # Post-process all answers before fusion
+        postprocessor = AnswerPostProcessor()
+        for qid in by_qid_results:
+            for model_key, result in by_qid_results[qid].items():
+                if result.get('answer'):
+                    result['answer'] = postprocessor.postprocess_answer(result['answer'])
 
         # Fuse per sample
         fusion_strategy = self.ensemble_config.get('fusion_strategy', 'error_aware')

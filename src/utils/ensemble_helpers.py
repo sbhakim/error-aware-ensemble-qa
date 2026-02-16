@@ -224,6 +224,57 @@ class EnsembleFuser:
             'gemma-1.1-7b': 2.76    # Optimized: was 77.3% conf vs 28% acc
         }
 
+        # NEW: Type-aware fusion parameters (Feb 2026)
+        # Different answer types show different reliability patterns
+        self.type_specific_params = {
+            'number': {
+                'unanimous_boost': 1.3,  # Numbers are more reliable when models agree
+                'confidence_floor': 0.15  # Allow lower confidence numbers (math can be hard)
+            },
+            'spans': {
+                'unanimous_boost': 1.1,  # Spans have more variance
+                'confidence_floor': 0.20  # Require higher confidence for span answers
+            },
+            'date': {
+                'unanimous_boost': 1.4,  # Dates are very reliable when models agree
+                'confidence_floor': 0.15  # Dates are rare, allow lower confidence
+            },
+            'default': {
+                'unanimous_boost': 1.2,  # Fallback for unknown types
+                'confidence_floor': 0.20
+            }
+        }
+
+    def _detect_answer_type(self, answer: Dict[str, Any]) -> str:
+        """
+        Detect the primary answer type from a DROP-format answer.
+
+        Args:
+            answer: DROP answer dict with 'number', 'spans', 'date' fields
+
+        Returns:
+            'number', 'spans', 'date', or 'default'
+        """
+        if not isinstance(answer, dict):
+            return 'default'
+
+        # Check for number answer
+        number = answer.get('number', '')
+        if str(number).strip() and str(number).strip() != '':
+            return 'number'
+
+        # Check for spans answer
+        spans = answer.get('spans', [])
+        if isinstance(spans, list) and len(spans) > 0:
+            return 'spans'
+
+        # Check for date answer
+        date = answer.get('date', {})
+        if isinstance(date, dict) and any(str(v).strip() for v in date.values()):
+            return 'date'
+
+        return 'default'
+
     def _calibrate_confidence(self, model_key: str, raw_conf: float, query_features: dict) -> float:
         """
         Apply temperature scaling for better confidence calibration.
@@ -256,6 +307,41 @@ class EnsembleFuser:
             return self._confidence_weighted_pick(model_results)
         else:
             return self._majority_vote_fusion(model_results)
+
+    def _spans_are_compatible(self, spans1: List[str], spans2: List[str]) -> bool:
+        """
+        Check if two span lists are compatible (exact match OR subset match).
+        Helps catch cases like "Houston Texans" vs "Texans".
+        """
+        if not spans1 or not spans2:
+            return False
+
+        # Tokenize both span lists
+        toks1 = set()
+        for s in spans1:
+            toks1.update(self._TOKEN_RE.findall(str(s).lower()))
+
+        toks2 = set()
+        for s in spans2:
+            toks2.update(self._TOKEN_RE.findall(str(s).lower()))
+
+        # Exact match
+        if toks1 == toks2:
+            return True
+
+        # Subset match (one is contained in the other)
+        # e.g., {"houston"} ⊂ {"houston", "texans"}
+        if toks1.issubset(toks2) or toks2.issubset(toks1):
+            return True
+
+        # High overlap (>= 66% of tokens in common)
+        if len(toks1) > 0 and len(toks2) > 0:
+            overlap = len(toks1 & toks2)
+            min_size = min(len(toks1), len(toks2))
+            if overlap / min_size >= 0.66:
+                return True
+
+        return False
 
     def _get_answer_key(self, answer: Optional[Dict[str, Any]]) -> Optional[Tuple]:
         """Creates a robust, hashable key for a structured DROP answer for voting."""
@@ -336,12 +422,48 @@ class EnsembleFuser:
                 self._calibrate_confidence(model_key, r.get('confidence', 0.0), features)
                 for model_key, r in valid_results.items()
             ]
+            # NEW: Type-aware unanimous boost
+            answer_obj = next(iter(valid_results.values()))['answer']
+            answer_type = self._detect_answer_type(answer_obj)
+            type_params = self.type_specific_params.get(answer_type, self.type_specific_params['default'])
+            unanimous_boost = type_params['unanimous_boost']
+
             return {
-                'answer': next(iter(valid_results.values()))['answer'],
-                'confidence': min(1.0, float(np.mean(calibrated_confidences)) * 1.2),
+                'answer': answer_obj,
+                'confidence': min(1.0, float(np.mean(calibrated_confidences)) * unanimous_boost),
                 'fusion_type': 'unanimous',
                 'status': 'success'
             }
+
+        # NEW: Check for span compatibility (allows partial matches like "Houston" vs "Houston Texans")
+        if len(valid_results) > 1 and len(answer_keys) > 1:
+            # Try span compatibility check for span-type answers
+            span_answers = [(k, v['answer']) for k, v in valid_results.items()
+                           if v['answer'].get('spans')]
+            if len(span_answers) == len(valid_results):  # All are span answers
+                # Check if all spans are mutually compatible
+                first_spans = span_answers[0][1].get('spans', [])
+                all_compatible = all(
+                    self._spans_are_compatible(first_spans, ans.get('spans', []))
+                    for _, ans in span_answers[1:]
+                )
+                if all_compatible:
+                    # Treat as unanimous (relaxed)
+                    calibrated_confidences = [
+                        self._calibrate_confidence(model_key, r.get('confidence', 0.0), features)
+                        for model_key, r in valid_results.items()
+                    ]
+                    answer_obj = next(iter(valid_results.values()))['answer']
+                    answer_type = self._detect_answer_type(answer_obj)
+                    type_params = self.type_specific_params.get(answer_type, self.type_specific_params['default'])
+                    unanimous_boost = type_params['unanimous_boost'] * 0.95  # Slightly lower boost for relaxed match
+
+                    return {
+                        'answer': answer_obj,
+                        'confidence': min(1.0, float(np.mean(calibrated_confidences)) * unanimous_boost),
+                        'fusion_type': 'unanimous',
+                        'status': 'success'
+                    }
 
         majority_answer, _, agreeing_models = self._find_majority(valid_results)
         if majority_answer:

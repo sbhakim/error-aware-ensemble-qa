@@ -72,8 +72,8 @@ class AnswerValidator:
             if not num_validation['is_valid']:
                 return num_validation
 
-        # Check 3: Span grounding validation
-        if has_spans:
+        # Check 3: Span grounding validation (only if context available)
+        if has_spans and context and context.strip():
             span_validation = self._validate_spans(spans, context, self.strict_mode)
             if not span_validation['is_valid']:
                 return span_validation

@@ -55,7 +55,7 @@ use_drop_few_shots: 1  # <-- minimal change: enable few-shots
 # Ablation studies can explicitly choose between these via ablation_config.yaml.
 hotpotqa_rules_file: "data/rules_hotpotqa.json"
 drop_rules_file: "data/rules_drop.json"                     # Static/fallback DROP rules
-drop_rules_dynamic_file: "data/rules_drop_dynamic.json"     # Path where dynamic DROP rules are saved
+drop_rules_dynamic_file: "data/rules_drop_dynamic_cleaned.json"     # Path where dynamic DROP rules are saved (cleaned, 1030 valid rules)
 empty_rules_file: "data/empty_rules.json"                   # For "no rules" ablation (optional)
 
 knowledge_base: "data/small_knowledge_base.txt"  # Ensured path consistency

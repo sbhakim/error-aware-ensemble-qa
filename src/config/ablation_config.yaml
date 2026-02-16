@@ -11,7 +11,7 @@ drop_few_shot_examples_path: "data/drop_few_shot_examples.json"  # Default path 
 
 # Paths to different rule sets - These are CRITICAL and used by main.py's execute_ablation_study
 # to resolve 'rules_file_key' in each ablation configuration.
-dynamic_rules_path_drop: "data/rules_drop_dynamic.json"  # Dynamically generated rules for DROP
+dynamic_rules_path_drop: "data/rules_drop_dynamic_cleaned.json"  # Dynamically generated rules for DROP (cleaned, 1030 valid rules)
 static_rules_path_drop: "data/rules_drop.json"           # Manually curated static rules for DROP
 no_rules_path: "data/empty_rules.json"                   # Empty JSON array for no-rules ablation
 rules_path_hotpotqa_baseline: "data/rules_hotpotqa.json" # Baseline rules for HotpotQA

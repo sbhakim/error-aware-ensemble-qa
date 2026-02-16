@@ -1,0 +1,5166 @@
+[
+  {
+    "type": "number",
+    "pattern": "Saints losing to Tampa Bay\\s+([0-9][0-9,\\. ]*)\\s+- 17 in overtime the",
+    "support": 120
+  },
+  {
+    "type": "number",
+    "pattern": "and truce called in July\\s+([0-9][0-9,\\. ]*)\\s+, representatives of the British",
+    "support": 66
+  },
+  {
+    "type": "spans",
+    "pattern": "spread out with 26.20 %\\s+([\\w\\s]+?)\\s+, 9.30 % from 18",
+    "support": 66
+  },
+  {
+    "type": "spans",
+    "pattern": "the population shows 21.8 %\\s+([\\w\\s]+?)\\s+, 13.1 % from 18",
+    "support": 55
+  },
+  {
+    "type": "spans",
+    "pattern": "them , 44.0 % were\\s+([\\w\\s]+?)\\s+, 11.6 % had a",
+    "support": 55
+  },
+  {
+    "type": "number",
+    "pattern": "Chicago Bears in a Week\\s+([0-9][0-9,\\. ]*)\\s+rematch to conclude the 40th",
+    "support": 55
+  },
+  {
+    "type": "spans",
+    "pattern": "Havens residents are 25.4 %\\s+([\\w\\s]+?)\\s+, 16.4 % from 18",
+    "support": 55
+  },
+  {
+    "type": "number",
+    "pattern": "Municipal Stadium for a Week\\s+([0-9][0-9,\\. ]*)\\s+intraconference duel with the Jacksonville",
+    "support": 45
+  },
+  {
+    "type": "number",
+    "pattern": "first demarcation line on June\\s+([0-9][0-9,\\. ]*)\\s+. The line , drawn",
+    "support": 45
+  },
+  {
+    "type": "number",
+    "pattern": "34 - yard and a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 45
+  },
+  {
+    "type": "spans",
+    "pattern": "them , 46.28 % were\\s+([\\w\\s]+?)\\s+, 11.68 % had a",
+    "support": 45
+  },
+  {
+    "type": "number",
+    "pattern": "  He put up a\\s+([0-9][0-9,\\. ]*)\\s+- yarder in the first",
+    "support": 45
+  },
+  {
+    "type": "spans",
+    "pattern": "2000 , there were 15,633\\s+([\\w\\s]+?)\\s+, 5,734 households , and",
+    "support": 45
+  },
+  {
+    "type": "spans",
+    "pattern": "were 15,633 people , 5,734\\s+([\\w\\s]+?)\\s+, and 4,432 families residing",
+    "support": 45
+  },
+  {
+    "type": "spans",
+    "pattern": "years . For every 100\\s+([\\w\\s]+?)\\s+, there were 87.1 males",
+    "support": 36
+  },
+  {
+    "type": "spans",
+    "pattern": ". 17.2 % were of\\s+([\\w\\s]+?)\\s+, 9.9 % English American",
+    "support": 36
+  },
+  {
+    "type": "spans",
+    "pattern": "; 16.1 % were from\\s+([\\w\\s]+?)\\s+; 10.5 % were from",
+    "support": 36
+  },
+  {
+    "type": "number",
+    "pattern": "II . It began on\\s+([0-9][0-9,\\. ]*)\\s+December 1575 when Emperor Maximillian",
+    "support": 36
+  },
+  {
+    "type": "number",
+    "pattern": "with kicker Kris Brown 's\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 36
+  },
+  {
+    "type": "number",
+    "pattern": ". Total Romanian deaths from\\s+([0-9][0-9,\\. ]*)\\s+to 1918 , military and",
+    "support": 36
+  },
+  {
+    "type": "number",
+    "pattern": "who turned it into a\\s+([0-9][0-9,\\. ]*)\\s+- yard gain . Two",
+    "support": 36
+  },
+  {
+    "type": "spans",
+    "pattern": "them , 53.3 % were\\s+([\\w\\s]+?)\\s+, 9.1 % had a",
+    "support": 36
+  },
+  {
+    "type": "spans",
+    "pattern": "24 , 26.50 % from\\s+([\\w\\s]+?)\\s+, 23.50 % from 45",
+    "support": 36
+  },
+  {
+    "type": "number",
+    "pattern": "- Governor of Smolensk from\\s+([0-9][0-9,\\. ]*)\\s+, Lithuanian Great - Quartermaster",
+    "support": 36
+  },
+  {
+    "type": "spans",
+    "pattern": "was distributed as 28.3 %\\s+([\\w\\s]+?)\\s+, 11.3 % from 18",
+    "support": 36
+  },
+  {
+    "type": "number",
+    "pattern": "by Gostkowski 's 35- and\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 28
+  },
+  {
+    "type": "number",
+    "pattern": "Karlowitz , signed in January\\s+([0-9][0-9,\\. ]*)\\s+, confirmed the Venetian possession",
+    "support": 28
+  },
+  {
+    "type": "number",
+    "pattern": "quarterback Ben Roethlisberger completed a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass to",
+    "support": 28
+  },
+  {
+    "type": "number",
+    "pattern": "Hai 's group on September\\s+([0-9][0-9,\\. ]*)\\s+, upon which government forces",
+    "support": 28
+  },
+  {
+    "type": "number",
+    "pattern": "RB T.J. Duckett getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD run ,",
+    "support": 28
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Jason Elam getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 28
+  },
+  {
+    "type": "spans",
+    "pattern": "of Germans , 7.9 %\\s+([\\w\\s]+?)\\s+people and 7.8 % Irish",
+    "support": 28
+  },
+  {
+    "type": "number",
+    "pattern": "in the German campaigns of\\s+([0-9][0-9,\\. ]*)\\s+, and retired from active",
+    "support": 28
+  },
+  {
+    "type": "spans",
+    "pattern": "spread out with 25.00 %\\s+([\\w\\s]+?)\\s+, 17.10 % from 18",
+    "support": 28
+  },
+  {
+    "type": "spans",
+    "pattern": "were 15,557 people , 6,123\\s+([\\w\\s]+?)\\s+, and 4,365 families residing",
+    "support": 28
+  },
+  {
+    "type": "number",
+    "pattern": "by 1919 and sold over\\s+([0-9][0-9,\\. ]*)\\s+copies . Their first original",
+    "support": 28
+  },
+  {
+    "type": "spans",
+    "pattern": "years . For every 100\\s+([\\w\\s]+?)\\s+there were 95.90 males .",
+    "support": 28
+  },
+  {
+    "type": "spans",
+    "pattern": "44 , 23.50 % from\\s+([\\w\\s]+?)\\s+, and 14.60 % who",
+    "support": 28
+  },
+  {
+    "type": "number",
+    "pattern": "along with Anderson completing a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 28
+  },
+  {
+    "type": "number",
+    "pattern": "end it on 30 March\\s+([0-9][0-9,\\. ]*)\\s+, but , despite this",
+    "support": 28
+  },
+  {
+    "type": "number",
+    "pattern": "Between 2000 and\\s+([0-9][0-9,\\. ]*)\\s+, school enrollment declined by",
+    "support": 28
+  },
+  {
+    "type": "number",
+    "pattern": "Buchanon intercepted Vince Young with\\s+([0-9][0-9,\\. ]*)\\s+remaining in the half ,",
+    "support": 28
+  },
+  {
+    "type": "number",
+    "pattern": "Lee were ordered in January\\s+([0-9][0-9,\\. ]*)\\s+, to attack Georgetown but",
+    "support": 28
+  },
+  {
+    "type": "spans",
+    "pattern": "spread out with 24.60 %\\s+([\\w\\s]+?)\\s+, 6.40 % from 18",
+    "support": 28
+  },
+  {
+    "type": "spans",
+    "pattern": "24 , 31.2 % from\\s+([\\w\\s]+?)\\s+, 16.7 % from 45",
+    "support": 28
+  },
+  {
+    "type": "number",
+    "pattern": "Houshmandzadeh ( with a failed\\s+([0-9][0-9,\\. ]*)\\s+- point conversion ) ,",
+    "support": 21
+  },
+  {
+    "type": "number",
+    "pattern": "passes of 65 yards and\\s+([0-9][0-9,\\. ]*)\\s+yards , to Todd Heap",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "24 , 31.7 % from\\s+([\\w\\s]+?)\\s+, 20.1 % from 45",
+    "support": 21
+  },
+  {
+    "type": "number",
+    "pattern": "  The Steelers started their\\s+([0-9][0-9,\\. ]*)\\s+season at home against the",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": ". 16.2 % were of\\s+([\\w\\s]+?)\\s+people , 12.2 % Irish",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "minorities in the state were\\s+([\\w\\s]+?)\\s+( 10.83 % ) ,",
+    "support": 21
+  },
+  {
+    "type": "number",
+    "pattern": "in 1583 , and on\\s+([0-9][0-9,\\. ]*)\\s+November 1590 he was married",
+    "support": 21
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Dave Rayner nailed a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal for",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "; 10.5 % were from\\s+([\\w\\s]+?)\\s+; and 7 % were",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "10.1 % of residents were\\s+([\\w\\s]+?)\\s+; 56.2 % were between",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "were 25,764 people , 10,477\\s+([\\w\\s]+?)\\s+, and 7,459 families residing",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "of Slobodyshche 14,000 - 15,000\\s+([\\w\\s]+?)\\s+and 5,000 - 6,000 Tatars",
+    "support": 21
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Phil Dawson completed a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 21
+  },
+  {
+    "type": "number",
+    "pattern": "for the Packers in the\\s+([0-9][0-9,\\. ]*)\\s+season . The Lions '",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "was succeeded by his brother\\s+([\\w\\s]+?)\\s+; the latter was murdered",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "2005 - 2009 roughly 290,000\\s+([\\w\\s]+?)\\s+, 125,000 Bangladeshis , 45,000",
+    "support": 21
+  },
+  {
+    "type": "number",
+    "pattern": "were both selected in the\\s+([0-9][0-9,\\. ]*)\\s+NFL Draft . Though Wilson",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "2000 , there were 15,557\\s+([\\w\\s]+?)\\s+, 6,123 households , and",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "6,123 households , and 4,365\\s+([\\w\\s]+?)\\s+residing in the county .",
+    "support": 21
+  },
+  {
+    "type": "number",
+    "pattern": "Forty Years ' War in\\s+([0-9][0-9,\\. ]*)\\s+, Ava gave up its",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "it is home to 81,570\\s+([\\w\\s]+?)\\s+and 55,893 Chinese nationals ,",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": ", and 33.4 % were\\s+([\\w\\s]+?)\\s+. 26.1 % of all",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "18 , 9.30 % from\\s+([\\w\\s]+?)\\s+, 26.50 % from 25",
+    "support": 21
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Jay Feely getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 21
+  },
+  {
+    "type": "number",
+    "pattern": "In\\s+([0-9][0-9,\\. ]*)\\s+, the Steelers overcame a",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "quarter as Jets running back\\s+([\\w\\s]+?)\\s+got a 1 - yard",
+    "support": 21
+  },
+  {
+    "type": "number",
+    "pattern": "by a patriotic uprising of\\s+([0-9][0-9,\\. ]*)\\s+and Mikhail Romanov had been",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": ", and 39.9 % were\\s+([\\w\\s]+?)\\s+. 23.2 % of all",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "percent of global exports .\\s+([\\w\\s]+?)\\s+accounts for 52.2 percent of",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "diabetes , arteriosclerosis , and\\s+([\\w\\s]+?)\\s+. In 2010 , Texas",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "causes several chronic diseases including\\s+([\\w\\s]+?)\\s+and diabetes . The three",
+    "support": 21
+  },
+  {
+    "type": "number",
+    "pattern": "to Wembley Stadium for the\\s+([0-9][0-9,\\. ]*)\\s+International Series game with the",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "were 7,791 people , 3,155\\s+([\\w\\s]+?)\\s+, and 2,240 families residing",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "of germans , 13.9 %\\s+([\\w\\s]+?)\\s+people , 10.1 % irish",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "44 , 25.40 % from\\s+([\\w\\s]+?)\\s+, and 20.80 % who",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "were 14,702 people , 5,771\\s+([\\w\\s]+?)\\s+, and 4,097 families residing",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "duel with the New Orleans\\s+([\\w\\s]+?)\\s+.   In the first",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "24 , 32.7 % from\\s+([\\w\\s]+?)\\s+, 18.2 % from 45",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "18 , 11.3 % from\\s+([\\w\\s]+?)\\s+, 32.7 % from 25",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "years . For every 100\\s+([\\w\\s]+?)\\s+, there were 97.3 males",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "5,734 households , and 4,432\\s+([\\w\\s]+?)\\s+residing in the town .",
+    "support": 21
+  },
+  {
+    "type": "spans",
+    "pattern": "18 , 16.4 % from\\s+([\\w\\s]+?)\\s+, 31.2 % from 25",
+    "support": 21
+  },
+  {
+    "type": "number",
+    "pattern": "Johnnie Lee Higgins catching a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass from",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Robbie Gould nailing a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "The first issue in\\s+([0-9][0-9,\\. ]*)\\s+consisted of denominations of 1",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "Near the end of the\\s+([0-9][0-9,\\. ]*)\\s+quarter , the Bengals had",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "  The Broncos began their\\s+([0-9][0-9,\\. ]*)\\s+campaign on the road against",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "the third quarter with a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown run from",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "18 , 13.1 % from\\s+([\\w\\s]+?)\\s+, 31.7 % from 25",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "44 , 20.1 % from\\s+([\\w\\s]+?)\\s+, and 13.2 % who",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "secure the return of their\\s+([0-9][0-9,\\. ]*)\\s+In fact , all they",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "the county was 97.90 %\\s+([\\w\\s]+?)\\s+( U.S. Census ) ,",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "region where Ethnic Albanians and\\s+([\\w\\s]+?)\\s+meet , and it welcomed",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "( 13.6 % ) ,\\s+([\\w\\s]+?)\\s+( 12.3 % ) ,",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "ships . When initiated in\\s+([0-9][0-9,\\. ]*)\\s+, the naval helicopters consisted",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "English people , 12.2 %\\s+([\\w\\s]+?)\\s+people , 12.0 % polish",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "first conquered Yunnan borderlands between\\s+([0-9][0-9,\\. ]*)\\s+and 1388 , and stamped",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "Left Socialist - Revolutionaries had\\s+([0-9][0-9,\\. ]*)\\s+delegates compared to 745 Bolsheviks",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "Offensively , the Ravens gained\\s+([0-9][0-9,\\. ]*)\\s+yards in the entire game",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": ", as Stover kicked a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal in",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "suzerainty that had existed since\\s+([0-9][0-9,\\. ]*)\\s+. In an effort to",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "were between the ages of\\s+([\\w\\s]+?)\\s+; 16.1 % were from",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "10,477 households , and 7,459\\s+([\\w\\s]+?)\\s+residing in the county .",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "was waged from 1593 to\\s+([0-9][0-9,\\. ]*)\\s+but in Europe it is",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "WR Bobby Engram for an\\s+([0-9][0-9,\\. ]*)\\s+- yard TD and a",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "100 females , there were\\s+([0-9][0-9,\\. ]*)\\s+males .   For every",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "kicked another field goal from\\s+([0-9][0-9,\\. ]*)\\s+yards out for a 7",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "On\\s+([0-9][0-9,\\. ]*)\\s+April 1918 , Detachment Brandenstein",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "up to 2.3 % in\\s+([0-9][0-9,\\. ]*)\\s+reaching an all time high",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "1,813 ( 1.0 % )\\s+([\\w\\s]+?)\\s+( U.S. Census ) ,",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "21,070 ( 11.1 % )\\s+([\\w\\s]+?)\\s+( U.S. Census ) ,",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "them , 36.4 % were\\s+([\\w\\s]+?)\\s+, 9.7 % had a",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "The Byzantine civil war of\\s+([0-9][0-9,\\. ]*)\\s+- 1379 was a military",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "Gnash can not use SWF\\s+([0-9][0-9,\\. ]*)\\s+yet . Notably , Gnash",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "would then score on a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown run for",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "Vinateri hit back with a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal of",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "lead was cut when kicker\\s+([\\w\\s]+?)\\s+nailed a 47 - yard",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Billy Cundiff getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "for a career - high\\s+([0-9][0-9,\\. ]*)\\s+yards and two touchdowns and",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "West duel with the Denver\\s+([\\w\\s]+?)\\s+.   In the first",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Jason Elam got a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "out of 416 passes for\\s+([0-9][0-9,\\. ]*)\\s+yards and 17 touchdowns ,",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "Instead , the Allies spent\\s+([0-9][0-9,\\. ]*)\\s+and 1703 taking towns such",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Olindo Mare hitting a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "quarterback Mark Sanchez completing a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass to",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "size was 2.39 and the\\s+([\\w\\s]+?)\\s+was 2.97 .",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": ", and 37.40 % were\\s+([\\w\\s]+?)\\s+. 30.11 % of all",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "% of all households were\\s+([\\w\\s]+?)\\s+and 3.8 % had someone",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "back Frank Gore on a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass .",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "'s policies , and over\\s+([0-9][0-9,\\. ]*)\\s+of them joined the new",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "the first quarter with a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal by",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Mike Nugent making a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "diseases including heart disease and\\s+([\\w\\s]+?)\\s+. The three leading causes",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "which cut government spending by\\s+([0-9][0-9,\\. ]*)\\s+% of GDP . Growth",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "2000 , there were 7,791\\s+([\\w\\s]+?)\\s+, 3,155 households , and",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "Texas Stadium for a Week\\s+([0-9][0-9,\\. ]*)\\s+game with the throwback -",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": ".   For every 100\\s+([\\w\\s]+?)\\s+there are 95.90 males .",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "18 , 6.40 % from\\s+([\\w\\s]+?)\\s+, 22.80 % from 25",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "2000 , there were 14,702\\s+([\\w\\s]+?)\\s+, 5,771 households , and",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "44 , 18.2 % from\\s+([\\w\\s]+?)\\s+, and 9.6 % who",
+    "support": 15
+  },
+  {
+    "type": "number",
+    "pattern": "partner of Nepal . In\\s+([0-9][0-9,\\. ]*)\\s+, total exports to China",
+    "support": 15
+  },
+  {
+    "type": "spans",
+    "pattern": "44 , 16.7 % from\\s+([\\w\\s]+?)\\s+, and 10.2 % who",
+    "support": 15
+  },
+  {
+    "type": "count",
+    "pattern": "\\bhow many\\s+entitys?\\b",
+    "entity": "entity",
+    "temporal_constraint": null,
+    "support": 11,
+    "confidence": 0.8820582285939178
+  },
+  {
+    "type": "difference",
+    "pattern": "\\bdifference\\s+([\\w\\s]+?)\\b",
+    "entity": "how many yards difference",
+    "temporal_constraint": null,
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "back Michael Turner got a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown run .",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "quarterback Matt Ryan completed a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass to",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "has four art galleries :\\s+([\\w\\s]+?)\\s+, Hughes / Donahue Gallery",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "tied 3 - 3 with\\s+([0-9][0-9,\\. ]*)\\s+remaining in the first half",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "  The\\s+([\\w\\s]+?)\\s+traveled to M&T Bank Stadium",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Lawrence Tynes getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "Macromedia disclosed the Flash Version\\s+([0-9][0-9,\\. ]*)\\s+Specification on its website .",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "FedEx Field for a Week\\s+([0-9][0-9,\\. ]*)\\s+NFC East rematch with the",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Morten Andersen hitting a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "Singapore National Olympic Council on\\s+([0-9][0-9,\\. ]*)\\s+December 2013 on the sidelines",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "last Toungoo king in April\\s+([0-9][0-9,\\. ]*)\\s+. This redeployment of Hanthawaddy",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "English people , 16.5 %\\s+([\\w\\s]+?)\\s+, 11.4 % Irish people",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "165 ( 0.5 % )\\s+([\\w\\s]+?)\\s+( U.S. Census ) ,",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "2,834 ( 8.1 % )\\s+([\\w\\s]+?)\\s+( U.S. Census ) ,",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "as Matt Moore completed a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "German American , 9.9 %\\s+([\\w\\s]+?)\\s+, 8.2 % Irish American",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "touchdown and Brady completed a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass to",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Ryan Longwell getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "Cornwall . On 4 November\\s+([0-9][0-9,\\. ]*)\\s+Killigrew married in the church",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "she remarried on 19 April\\s+([0-9][0-9,\\. ]*)\\s+George Downham , Bishop of",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "week 2 loss , the\\s+([\\w\\s]+?)\\s+were determined to bounce back",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "  The Eagles fell to\\s+([0-9][0-9,\\. ]*)\\s+- 4 , 0 -",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Matt Stover with a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal to",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "Atlanta Braves , 3 -\\s+([0-9][0-9,\\. ]*)\\s+, with a game four",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "The Astros won the\\s+([0-9][0-9,\\. ]*)\\s+National League Division Series against",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "player in the MLB at\\s+([0-9][0-9,\\. ]*)\\s+years old ; Clemens was",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "2000 , there were 25,764\\s+([\\w\\s]+?)\\s+, 10,477 households , and",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "the peninsula compared to a\\s+([\\w\\s]+?)\\s+population of around 200,000 .",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "Polish throne was contested by\\s+([\\w\\s]+?)\\s+and the Holy Roman Emperor",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": ". It was waged from\\s+([0-9][0-9,\\. ]*)\\s+to 1606 but in Europe",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "reckoning from the 1591 -\\s+([0-9][0-9,\\. ]*)\\s+Turkish campaign that captured Biha\u0107",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "ships were accompanied by the\\s+([0-9][0-9,\\. ]*)\\s+Torpedo - boat Flotilla .",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "'s Jason Hanson kicked a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "20 unanswered points in the\\s+([0-9][0-9,\\. ]*)\\s+half alone as Rob Bironas",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "Boghazi , consisting of over\\s+([0-9][0-9,\\. ]*)\\s+Diasporan Armenian volunteers who fought",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "Louis . Each rated for\\s+([0-9][0-9,\\. ]*)\\s+guns , they never carried",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "to put the Broncos up\\s+([0-9][0-9,\\. ]*)\\s+- 0 . In the",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Matt Prater made a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal to",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "18 , 55.2 % from\\s+([\\w\\s]+?)\\s+, 15.3 % from 25",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "44 , 10.3 % from\\s+([\\w\\s]+?)\\s+, and 7.1 % who",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "and over , there were\\s+([0-9][0-9,\\. ]*)\\s+males .",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "A. J. Green on a\\s+([0-9][0-9,\\. ]*)\\s+- yard pass for a",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "2010 , there were 22,915\\s+([\\w\\s]+?)\\s+, 7,953 households , and",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "were 22,915 people , 7,953\\s+([\\w\\s]+?)\\s+, and 5,748 families residing",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "7,953 households , and 5,748\\s+([\\w\\s]+?)\\s+residing in the county .",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": ". 39.1 % were of\\s+([\\w\\s]+?)\\s+, 7.9 % English people",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "English people and 7.8 %\\s+([\\w\\s]+?)\\s+people ancestry according to Census",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "three generations . In the\\s+([0-9][0-9,\\. ]*)\\s+, after Fianna F\u00e1il took",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "of Edessa from 1100 to\\s+([0-9][0-9,\\. ]*)\\s+. In 1118 his uncle",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "Tynes field goal and a\\s+([0-9][0-9,\\. ]*)\\s+- 7 half time lead",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "POWs and exchanged , but\\s+([0-9][0-9,\\. ]*)\\s+captured Jacobites were indicted for",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "to take on the Detroit\\s+([\\w\\s]+?)\\s+on Thanksgiving football . Due",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": ", 125,000 Bangladeshis , 45,000\\s+([\\w\\s]+?)\\s+, 45,000 Filipinos , and",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "game as Elam booted a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal in",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "the Bolshevik Central Committee and\\s+([0-9][0-9,\\. ]*)\\s+were proposed by the Socialist",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "Middle East , with only\\s+([0-9][0-9,\\. ]*)\\s+- 400,000 remaining in what",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "state of Mone in July\\s+([0-9][0-9,\\. ]*)\\s+, bringing his realm to",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "Nyaungyan declared himself king on\\s+([0-9][0-9,\\. ]*)\\s+February 1600 . Nyaungyan then",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "with 32,828 , followed by\\s+([\\w\\s]+?)\\s+with 28,763 , Soroca with",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "in Constantinople . In early\\s+([0-9][0-9,\\. ]*)\\s+, Polin successfully negotiated the",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Joe Nedney making a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "facing repeated failure . In\\s+([0-9][0-9,\\. ]*)\\s+, the knights captured Dorpat",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "days later on 9 December\\s+([0-9][0-9,\\. ]*)\\s+. The Mongol sources say",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "31.5 % of households had\\s+([\\w\\s]+?)\\s+, and 9.5 % had",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": ", 9.1 % had a\\s+([\\w\\s]+?)\\s+present , and 33.4 %",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "quarterback Matt Schaub completed a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass to",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "of Bahrain is available from\\s+([0-9][0-9,\\. ]*)\\s+, death registration started in",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "and 14.60 % who were\\s+([\\w\\s]+?)\\s+or older .   The",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Mike Nugent getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "force of 49 soldiers and\\s+([0-9][0-9,\\. ]*)\\s+porters and archers from Verapaz",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "within 15 - 7 with\\s+([0-9][0-9,\\. ]*)\\s+remaining . After the Broncos",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "the kick and returned it\\s+([0-9][0-9,\\. ]*)\\s+yards to the Eagles 24",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "two at Soldier Field since\\s+([0-9][0-9,\\. ]*)\\s+, where the Bears won",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "His son and successor ,\\s+([\\w\\s]+?)\\s+, requested help from the",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "out respectively to take a\\s+([0-9][0-9,\\. ]*)\\s+- point lead going into",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "The Lions responded with a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown run from",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "quarter Ryan Succop made a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "shut out the Chicago Bears\\s+([0-9][0-9,\\. ]*)\\s+- 0 in the NFC",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "In\\s+([0-9][0-9,\\. ]*)\\s+, the 49ers had one",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Sebastian Janikowski nailing a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "trail as Janikowski made a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "with quarterback Tom Brady 's\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown run and",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "for Round 1 of the\\s+([0-9][0-9,\\. ]*)\\s+Rust Belt series .  ",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "duel with the San Francisco\\s+([0-9][0-9,\\. ]*)\\s+.   New Orleans would",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "tonnes per year , or\\s+([0-9][0-9,\\. ]*)\\s+percent of global output .",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "were 49,129 people , 18,878\\s+([\\w\\s]+?)\\s+, and 13,629 families residing",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "to their lead with a\\s+([0-9][0-9,\\. ]*)\\s+- yard catch and run",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "In\\s+([0-9][0-9,\\. ]*)\\s+MacGill reluctantly accepted appointment as",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "In 1570\\s+([\\w\\s]+?)\\s+reluctantly accepted appointment as Provost",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "40 - yard and a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "which will close by May\\s+([0-9][0-9,\\. ]*)\\s+due to low demand for",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "end Tony Gonzalez on a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass ,",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "the Cleveland Browns on September\\s+([0-9][0-9,\\. ]*)\\s+.   In the first",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "From\\s+([0-9][0-9,\\. ]*)\\s+to 1624 the Dutch had",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "to Denver , allowing only\\s+([0-9][0-9,\\. ]*)\\s+passing yards . Osweiler spent",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "kicker John Kasay nailing a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "Clinton Portis scored on a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD run .",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "of the countys population was\\s+([\\w\\s]+?)\\s+. The median age was",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "19 years , 5.5 %\\s+([\\w\\s]+?)\\s+, 5.5 % between 25",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "Since\\s+([0-9][0-9,\\. ]*)\\s+the Royal Danish Navy has",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "Then , in\\s+([0-9][0-9,\\. ]*)\\s+, five French galleys under",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "regained the lead as QB\\s+([\\w\\s]+?)\\s+( a former Charger )",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "3,155 households , and 2,240\\s+([\\w\\s]+?)\\s+residing in the county .",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "swedish people , 10.1 %\\s+([\\w\\s]+?)\\s+people , 8.8 % united",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "Mark Sanchez finding wide receiver\\s+([\\w\\s]+?)\\s+on a 25 - yard",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "in 39 masjids , 7,000\\s+([\\w\\s]+?)\\s+in 34 temples , 7,000",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "years . For every 100\\s+([\\w\\s]+?)\\s+, there were 93.6 males",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "took the lead as QB\\s+([\\w\\s]+?)\\s+completed a 75 - yard",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "period of power as kicker\\s+([\\w\\s]+?)\\s+got a 48 - yard",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "According to the\\s+([0-9][0-9,\\. ]*)\\s+American Community Survey , 78.1",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "working Nashville residents commuted by\\s+([\\w\\s]+?)\\s+, 9.8 % carpooled ,",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "yard field goal from kicker\\s+([\\w\\s]+?)\\s+, followed by quarterback Ben",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "24 , 22.80 % from\\s+([\\w\\s]+?)\\s+, 25.40 % from 45",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "24 - 17 in Week\\s+([0-9][0-9,\\. ]*)\\s+and then Pittsburgh 17 -",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "5,771 households , and 4,097\\s+([\\w\\s]+?)\\s+residing in the county .",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "sealed the win with kicker\\s+([0-9][0-9,\\. ]*)\\s+Gram&#225;tica nailing a 31 -",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "are 91.8 males per 100\\s+([\\w\\s]+?)\\s+. For every 100 females",
+    "support": 10
+  },
+  {
+    "type": "spans",
+    "pattern": "average . There are 91.8\\s+([\\w\\s]+?)\\s+per 100 females . For",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "signs of aging . In\\s+([0-9][0-9,\\. ]*)\\s+, nearly 16 million cosmetic",
+    "support": 10
+  },
+  {
+    "type": "number",
+    "pattern": "quarterback JaMarcus Russell completed a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass to",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Shayne Graham getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard and a 31",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Nick Folk got a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "first time in DC since\\s+([0-9][0-9,\\. ]*)\\s+. After teams exchanged punts",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Morris took off for a\\s+([0-9][0-9,\\. ]*)\\s+- yard score , evening",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "North rematch the - now\\s+([0-9][0-9,\\. ]*)\\s+- time NFC North champion",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "only response would be kicker\\s+([\\w\\s]+?)\\s+nailing a 40 - yard",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "the first half score to\\s+([0-9][0-9,\\. ]*)\\s+- 0 . During the",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "2000 , there were 40,543\\s+([\\w\\s]+?)\\s+, 15,416 households , and",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "Jay Cutler found wide receiver\\s+([\\w\\s]+?)\\s+on a 23 - yard",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "Hughes / Donahue Gallery ,\\s+([\\w\\s]+?)\\s+, and the Trescott Street",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "the second quarter with a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal from",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Truce of Vilna , on\\s+([0-9][0-9,\\. ]*)\\s+November . After that ,",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "grew weaker . In September\\s+([0-9][0-9,\\. ]*)\\s+, Emperor Haile Selassie had",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "The\\s+([\\w\\s]+?)\\s+in 1529 was the first",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "attack on as running back\\s+([\\w\\s]+?)\\s+got a 30 - yard",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "yard TD pass to WR\\s+([\\w\\s]+?)\\s+.   In the second",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "when Josh Lambo kicked a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal to",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "WR Devin Thomas getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD run .",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "QB Jake Delhomme completing a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "to halftime with Smith 's\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown run .",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "second quarter with Cutler 's\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass to",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "back Kevin Smith got a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown run .",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "United States , 5.3 %\\s+([\\w\\s]+?)\\s+people and 5.3 % Italian",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "yard TD pass to WR\\s+([\\w\\s]+?)\\s+. In the third quarter",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "in a region where Ethnic\\s+([\\w\\s]+?)\\s+and Macedonians meet , and",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "and it welcomed Romani ,\\s+([\\w\\s]+?)\\s+, Jews and Serbs throughout",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": ", Turks , Jews and\\s+([\\w\\s]+?)\\s+throughout its history . Skopje",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "Bosniaks ( 7,585 ) and\\s+([\\w\\s]+?)\\s+( 2,557 ) . 8,167",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "people on the census are\\s+([\\w\\s]+?)\\s+( 13.6 % ) ,",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "( 8.7 % ) ,\\s+([\\w\\s]+?)\\s+( 6.0 % ) ,",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "( 6.0 % ) ,\\s+([\\w\\s]+?)\\s+( 5.4 % ) ,",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "years . On 26 November\\s+([0-9][0-9,\\. ]*)\\s+the Karnkowski Statutes from 1570",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "25,532 ( 73.2 % )\\s+([\\w\\s]+?)\\s+( U.S. Census ) ,",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "their special teams woes in\\s+([0-9][0-9,\\. ]*)\\s+, the Chargers allowed a",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "126 wounded , while 2337\\s+([\\w\\s]+?)\\s+were killed , another 1652",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "German people , 6.1 %\\s+([\\w\\s]+?)\\s+people and 6.0 % united",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "2000 , there were 71,535\\s+([\\w\\s]+?)\\s+, 29,466 households , and",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "were 71,535 people , 29,466\\s+([\\w\\s]+?)\\s+, and 18,416 families residing",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "drive culminating in a Gostkowski\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "answered with Bironas kicking a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "English American , 8.2 %\\s+([\\w\\s]+?)\\s+, and 6.7 % Americans",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "American , and 6.7 %\\s+([\\w\\s]+?)\\s+. 81.7 % spoke only",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "( 5.84 % ) ,\\s+([\\w\\s]+?)\\s+language ( 3.45 % )",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "( 1.27 % ) and\\s+([\\w\\s]+?)\\s+( 0.18 % ) .",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "tradition dates back to the\\s+([0-9][0-9,\\. ]*)\\s+century , when the Lands",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "quarterback Matt Cassel completed a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass to",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "to the Vikings , the\\s+([\\w\\s]+?)\\s+flew to Gillette Stadium for",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "would trail early in the\\s+([\\w\\s]+?)\\s+as Patriots running back LaMont",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "revolt was led by the\\s+([\\w\\s]+?)\\s+in Moscow . Previously ,",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "after the February Revolution of\\s+([0-9][0-9,\\. ]*)\\s+. The Bolshevik Party came",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Hightower and a Kurt Warner\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": ", existed from 1920 to\\s+([0-9][0-9,\\. ]*)\\s+as a de factonote 1",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "QB Kyle Orton completed a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Humphrey Metrodome for a Week\\s+([0-9][0-9,\\. ]*)\\s+NFC North rematch with the",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": ". Buffalo started off with\\s+([\\w\\s]+?)\\s+throwing a 51 - yard",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "of Derry , and died\\s+([0-9][0-9,\\. ]*)\\s+. By his first wife",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "touchdown passes to Smith for\\s+([0-9][0-9,\\. ]*)\\s+and 18 yards respectively ,",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "% of Americans worked in\\s+([\\w\\s]+?)\\s+, between 30 % and",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "on 6 April 1490 ,\\s+([\\w\\s]+?)\\s+was able to regain the",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": ", on September 6 ,\\s+([0-9][0-9,\\. ]*)\\s+, there was a potential",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "through which visitors arrive in\\s+([\\w\\s]+?)\\s+, Bangkok is visited by",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": ", as Rayner got a\\s+([0-9][0-9,\\. ]*)\\s+- yarder and a 46",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "1686 . On 1 September\\s+([0-9][0-9,\\. ]*)\\s+the siege of Herceg Novi",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "was 64.3 % male and\\s+([0-9][0-9,\\. ]*)\\s+% female .",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "makeup of the city was\\s+([0-9][0-9,\\. ]*)\\s+% male and 35.7 %",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "the city was 64.3 %\\s+([\\w\\s]+?)\\s+and 35.7 % female .",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": ".   There were 12,115\\s+([\\w\\s]+?)\\s+at an average density of",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "- 8 October at the\\s+([\\w\\s]+?)\\s+14,000 - 15,000 Poles and",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Neil Rackers nailing a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Russian Black Sea Fleet until\\s+([0-9][0-9,\\. ]*)\\s+. However , the treaty",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "English , 9.9 % were\\s+([\\w\\s]+?)\\s+, 6.8 % were Polish",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "the Spanish Civil War (\\s+([0-9][0-9,\\. ]*)\\s+- 1939 ) . Following",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "and the Eagles fell behind\\s+([0-9][0-9,\\. ]*)\\s+- 7 when linebacker Jameel",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "quarterback Joe Flacco completed a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass to",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "  The Titans would score\\s+([0-9][0-9,\\. ]*)\\s+unanswered points in the 1st",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "WR Hines Ward and a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass to",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "and Wireless . Throughout the\\s+([0-9][0-9,\\. ]*)\\s+, many worked at the",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "the Seahawks played their Week\\s+([0-9][0-9,\\. ]*)\\s+home opener their NFC West",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "foe , the San Francisco\\s+([0-9][0-9,\\. ]*)\\s+.   In the first",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "where he recruited up to\\s+([0-9][0-9,\\. ]*)\\s+new followers by hosting banquets",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "quarter as Janikowski nailed a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "the Chiefs played their Week\\s+([0-9][0-9,\\. ]*)\\s+home opener against their AFC",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "with kicker Adam Vinatieri 's\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "QB Peyton Manning completing a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "the Soleil Royal and the\\s+([\\w\\s]+?)\\s+. Each rated for 120",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Catholics in France . In\\s+([0-9][0-9,\\. ]*)\\s+the French marshals Fran\u00e7ois de",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": ". In the FA Cup\\s+([0-9][0-9,\\. ]*)\\s+- 05 season , 660",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "of their membership vary from\\s+([0-9][0-9,\\. ]*)\\s+up to 70,000 in about",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "and 7.1 % who were\\s+([\\w\\s]+?)\\s+or older .   The",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "24 , 15.3 % from\\s+([\\w\\s]+?)\\s+, 10.3 % from 45",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "spread out with 12.0 %\\s+([\\w\\s]+?)\\s+, 55.2 % from 18",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": ", followed by running back\\s+([\\w\\s]+?)\\s+getting a 32 - yard",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "RB Ron Dayne getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD run .",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "km   wide front moving\\s+([0-9][0-9,\\. ]*)\\s+- 30 \u00a0 km  ",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "The Eagles answered with a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal from",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "DeSean Jackson returned a punt\\s+([0-9][0-9,\\. ]*)\\s+yards for a touchdown ,",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "yard field goal from kicker\\s+([\\w\\s]+?)\\s+. In the second quarter",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "yard score . He carried\\s+([0-9][0-9,\\. ]*)\\s+times for career - high",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "to further conquests fell to\\s+([\\w\\s]+?)\\s+and his children Guill\u00e9n Peraza",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Britain until 1960 . In\\s+([0-9][0-9,\\. ]*)\\s+, under pressure from their",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "when the war ended in\\s+([0-9][0-9,\\. ]*)\\s+with the Peace of Paris",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Russian governments following talks between\\s+([0-9][0-9,\\. ]*)\\s+and 9 March 1918 on",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "within two months , on\\s+([0-9][0-9,\\. ]*)\\s+March 1918 Romania formally attached",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "The Giants played their Week\\s+([0-9][0-9,\\. ]*)\\s+home opener against the Green",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "145,661 ( 76.7 % )\\s+([\\w\\s]+?)\\s+( U.S. Census ) ,",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "the Packers answered with a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal to",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "tie with the Minnesota Vikings\\s+([0-9][0-9,\\. ]*)\\s+- 26 at Lambeau Field",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Shaun Suisham got a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "the revolutions of 1890 and\\s+([0-9][0-9,\\. ]*)\\s+, and not having achieved",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Shaun Suisham getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Indians , 125,000 Bangladeshis ,\\s+([0-9][0-9,\\. ]*)\\s+Pakistanis , 45,000 Filipinos ,",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "in 2004 and employed about\\s+([0-9][0-9,\\. ]*)\\s+percent of Paraguay 's working",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "between quarterbacks Russell Wilson and\\s+([\\w\\s]+?)\\s+, who were both selected",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "to retake Lower Burma in\\s+([0-9][0-9,\\. ]*)\\s+after Wareru had decided to",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "or older . The average\\s+([\\w\\s]+?)\\s+was 2.20 and the average",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "% of all households were\\s+([\\w\\s]+?)\\s+and 13 % had someone",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "great expeditions of 1741 and\\s+([0-9][0-9,\\. ]*)\\s+. Sir Chaloner Ogle ,",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "21 - 14 lead with\\s+([0-9][0-9,\\. ]*)\\s+remaining . Pittsburgh was unable",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "to give the Steelers a\\s+([0-9][0-9,\\. ]*)\\s+- 9 lead . Later",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "- yard touchdown pass to\\s+([\\w\\s]+?)\\s+to give the Steelers a",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "game 's scoring with a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown run on",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "America Stadium for a Week\\s+([0-9][0-9,\\. ]*)\\s+NFC South rematch against the",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Jason Elam nailed a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "back Correll Buckhalter and a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal by",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "This was followed in the\\s+([0-9][0-9,\\. ]*)\\s+quarter by Rivers ' 28",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "On\\s+([0-9][0-9,\\. ]*)\\s+November , a Constituent Assembly",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Maximilien Robespierre as early as\\s+([0-9][0-9,\\. ]*)\\s+. The Decree on Land",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "and imprison John V in\\s+([0-9][0-9,\\. ]*)\\s+. In 1379 however ,",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "fall of Pegu in December\\s+([0-9][0-9,\\. ]*)\\s+, Lower Burma was in",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "24 , 25.70 % from\\s+([\\w\\s]+?)\\s+, 19.30 % from 45",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "44 , 19.30 % from\\s+([\\w\\s]+?)\\s+, and 12.90 % who",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "18 , 17.10 % from\\s+([\\w\\s]+?)\\s+, 25.70 % from 25",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": ", but the average was\\s+([0-9][0-9,\\. ]*)\\s+% from June 2007 to",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "game , Pennington led the\\s+([\\w\\s]+?)\\s+on a 9 - play",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "- 1546 , with the\\s+([\\w\\s]+?)\\s+promising to send 27,500 troops",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "while David Akers hit a\\s+([0-9][0-9,\\. ]*)\\s+- yarder for the Lions",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Nate Kaeding would complete a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "the Americas , 5,289 from\\s+([\\w\\s]+?)\\s+and 3,022 from Africa .",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "a peace agreement . In\\s+([0-9][0-9,\\. ]*)\\s+, Lithuania had lost a",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": ".   After adding a\\s+([0-9][0-9,\\. ]*)\\s+- yarder from Suisham ,",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "in southern France again in\\s+([0-9][0-9,\\. ]*)\\s+and 1362 .    Cardinal",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "pass , followed by a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal from",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "a 38 , and a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Sebastian Janikowski getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "yard TD pass to WR\\s+([\\w\\s]+?)\\s+for the only score of",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "TD run , while kicker\\s+([\\w\\s]+?)\\s+got a 23 - yard",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "quarterback Mark Sanchez completed a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass to",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "would answer with Carpenter 's\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "trailed early as Jets RB\\s+([\\w\\s]+?)\\s+got an 18 - yard",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "went home for a Week\\s+([0-9][0-9,\\. ]*)\\s+AFC East rematch with the",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "ended the period with kicker\\s+([\\w\\s]+?)\\s+getting a 53 - yard",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": ", with field goals of\\s+([0-9][0-9,\\. ]*)\\s+and 36 yards by kicker",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "On\\s+([0-9][0-9,\\. ]*)\\s+September 1580 , 600 Papal",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "the end zone for a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown to bring",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": ". Pro Bowl wide receiver\\s+([\\w\\s]+?)\\s+was the teams leading receiver",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "offense was led by quarterback\\s+([\\w\\s]+?)\\s+, who completed 246 out",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "ball after Stacy McGee recovered\\s+([\\w\\s]+?)\\s+'s fumble . Oakland eventually",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "touchdowns , from 7 ,\\s+([0-9][0-9,\\. ]*)\\s+, and 8 yards out",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "War   of 1919 -\\s+([0-9][0-9,\\. ]*)\\s+\"   and \" Polish",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Nugent 's career - long\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal to",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "half with Suisham nailing a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "by the Raiders with kicker\\s+([\\w\\s]+?)\\s+nailing a 31 - yard",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "further with Campbell getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "increase their winning streak the\\s+([\\w\\s]+?)\\s+flew to Oakland - Alameda",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "The 5 October\\s+([0-9][0-9,\\. ]*)\\s+revolution was the overthrow of",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": ", back - up QB\\s+([\\w\\s]+?)\\s+was given the start .",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Cleveland managed to get a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal from",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "struggles continued with Browns kicker\\s+([\\w\\s]+?)\\s+getting a 40 - yard",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Smith , followed by his\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown reception from",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "back LaDainian Tomlinson got a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown run .",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "end Dustin Keller catching a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass from",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "( 6.4 million ) ,\\s+([\\w\\s]+?)\\s+( 5.1 million ) ,",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "when Shaun Suisham kicked a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal for",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Cleveland Browns , for Round\\s+([0-9][0-9,\\. ]*)\\s+of the 2007 Rust Belt",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "the win with Reed 's\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "first quarter , with quarterback\\s+([\\w\\s]+?)\\s+connecting with wide receiver Eric",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Colts responded , with a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal by",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "size was 2.59 and the\\s+([\\w\\s]+?)\\s+was 3.13 .",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "age or older . The\\s+([\\w\\s]+?)\\s+was 2.59 and the average",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Candlestick Park for a Week\\s+([0-9][0-9,\\. ]*)\\s+Monday Night duel with the",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "Alex Smith found running back\\s+([\\w\\s]+?)\\s+on a 12 - yard",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "C at the depths of\\s+([0-9][0-9,\\. ]*)\\s+m and below . Salinity",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "18,878 households , and 13,629\\s+([\\w\\s]+?)\\s+residing in the county .",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "2000 , there were 49,129\\s+([\\w\\s]+?)\\s+, 18,878 households , and",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "the Ravens responded with a\\s+([0-9][0-9,\\. ]*)\\s+- yard rushing TD by",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "MacGill died on 16 October\\s+([0-9][0-9,\\. ]*)\\s+. Alexander Hay succeeded him",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "each other again on a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass .",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "nearby in 1887 . In\\s+([0-9][0-9,\\. ]*)\\s+, the Manufacturing Investment Company",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "  The\\s+([\\w\\s]+?)\\s+hosted the Titans at Raymond",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "drive which resulted in a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal by",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Tennessee drove to the Buccaneers\\s+([0-9][0-9,\\. ]*)\\s+- yard line , but",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": ". The municipality had 266\\s+([\\w\\s]+?)\\s+and 5,040 pupils . Of",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "was the multiple - walled\\s+([\\w\\s]+?)\\s+, situated at the entrance",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "3 and out . The\\s+([\\w\\s]+?)\\s+would return the punt 39",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "and 13.7 % of age\\s+([\\w\\s]+?)\\s+. 22.7 % of the",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Adam Vinateri got a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "admitted that three of its\\s+([0-9][0-9,\\. ]*)\\s+strike aircraft and one Tu-22M3",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "- range bomber , one\\s+([0-9][0-9,\\. ]*)\\s+M Fencer fighter - bomber",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "15 smaller galleys , 75\\s+([\\w\\s]+?)\\s+, and 20 horse -",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "In\\s+([0-9][0-9,\\. ]*)\\s+Ricklefs was elected a Fellow",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "  with little difficulty in\\s+([0-9][0-9,\\. ]*)\\s+. In 1802 , the",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "Greater Chennai Corporation .  \\s+([\\w\\s]+?)\\s+people form the majority of",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "Chennais population was 80.7 %\\s+([\\w\\s]+?)\\s+, 9.5 % Muslim ,",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": ". 33.7 % were of\\s+([\\w\\s]+?)\\s+, 13.9 % swedish people",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "the second quarter with quarterback\\s+([\\w\\s]+?)\\s+finding wide receiver Jerricho Cotchery",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "The Patriots scored first when\\s+([\\w\\s]+?)\\s+found James White on a",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "LaGarrette Blount ran for a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown to make",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "after Blount ran for a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown and the",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "when Chris Boswell kicked a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal for",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "the city was 21.45 %\\s+([\\w\\s]+?)\\s+( U.S. Census ) ,",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "the village was 96.11 %\\s+([\\w\\s]+?)\\s+( U.S. Census ) ,",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "QB Tony Romo completed a\\s+([\\w\\s]+?)\\s+TD pass to former 49ers",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "over the Rams , the\\s+([0-9][0-9,\\. ]*)\\s+flew to Texas Stadium for",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "ethnic group in Saskatchewan is\\s+([\\w\\s]+?)\\s+people ( 28.6 % )",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "39 - yard and a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "quarterback Chad Henne completing a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass to",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": ". By market segment ,\\s+([\\w\\s]+?)\\s+were worth $ 22.3 billion",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "or 0.9 % who are\\s+([\\w\\s]+?)\\s+.",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "managed to beat the Jets\\s+([0-9][0-9,\\. ]*)\\s+- 9 on the 2010",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "include by France during the\\s+([\\w\\s]+?)\\s+( 1946 - 1954 )",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "of Independence ( 1954 -\\s+([0-9][0-9,\\. ]*)\\s+) , the Portuguese Colonial",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Gore by 50.4 % to\\s+([0-9][0-9,\\. ]*)\\s+% in United States presidential",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "yard TD pass to WR\\s+([\\w\\s]+?)\\s+.   San Francisco would",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": ", Springfield is 51.8 %\\s+([\\w\\s]+?)\\s+American , 22.3 % African",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "28 lead . Down by\\s+([0-9][0-9,\\. ]*)\\s+points , the Dolphins ran",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "to face the 6 -\\s+([0-9][0-9,\\. ]*)\\s+Dolphins at Dolphin Stadium .",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "% of the population are\\s+([\\w\\s]+?)\\s+years old . 22,158 people",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "The Pistons opened the\\s+([0-9][0-9,\\. ]*)\\s+NBA Playoffs with a 4",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "on the strength of his\\s+([0-9][0-9,\\. ]*)\\s+points - per - game",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "2008 from 1 % to\\s+([0-9][0-9,\\. ]*)\\s+% , with a further",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "QB Kyle Orton completed a\\s+([\\w\\s]+?)\\s+TD pass to TE Desmond",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "the Rams would reel off\\s+([0-9][0-9,\\. ]*)\\s+unanswered points , starting off",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "field goals from placekicker Josh\\s+([\\w\\s]+?)\\s+and 37 yards&#8212;before halftime .",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "field goal by placekicker Matt\\s+([\\w\\s]+?)\\s+. The Rams responded ,",
+    "support": 6
+  },
+  {
+    "type": "spans",
+    "pattern": "( 1975\u20131993 ) , and\\s+([\\w\\s]+?)\\s+( 1972\u20132000 ) . Pennington",
+    "support": 6
+  },
+  {
+    "type": "number",
+    "pattern": "Dawson River West , on\\s+([0-9][0-9,\\. ]*)\\s+January 1969 the 9th Marines",
+    "support": 6
+  },
+  {
+    "type": "count",
+    "pattern": "\\bhow many\\s+a\\ new\\ fueros?\\b",
+    "entity": "a new fuero",
+    "temporal_constraint": null,
+    "support": 4,
+    "confidence": 0.8381152082751203
+  },
+  {
+    "type": "count",
+    "pattern": "\\bhow many\\s+how\\ many\\ yardss?\\b",
+    "entity": "how many yards",
+    "temporal_constraint": null,
+    "support": 3,
+    "confidence": 0.9235551308503158
+  },
+  {
+    "type": "count",
+    "pattern": "\\bhow many\\s+the\\ bengalss?\\b",
+    "entity": "the bengals",
+    "temporal_constraint": null,
+    "support": 3,
+    "confidence": 0.9229012176176024
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Sebastian Janikowski getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard and a 30",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "53 - yard and a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Kris Brown getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard and a 24",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "took the lead with QB\\s+([\\w\\s]+?)\\s+completing a 23 - yard",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "immigrants , which included 802\\s+([\\w\\s]+?)\\s+and 231 women and children",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "gathered in Pamplona , urging\\s+([\\w\\s]+?)\\s+  to attend a coronation",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "response was Graham kicking a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Stephen Gostkowski got a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "from scoring until the final\\s+([0-9][0-9,\\. ]*)\\s+seconds of the game ,",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "field goals . Dallas lead\\s+([0-9][0-9,\\. ]*)\\s+- 10 with under 2",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "were 40,543 people , 15,416\\s+([\\w\\s]+?)\\s+, and 11,068 families residing",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "% germans , 12.1 %\\s+([\\w\\s]+?)\\s+people and 10.9 % irish",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ": Taunton Art Association ,\\s+([\\w\\s]+?)\\s+, Art Euphoric , and",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "23 - yard and a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ", there were only 400\\s+([\\w\\s]+?)\\s+, a few Winchester rifles",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "before half time . Trailing\\s+([0-9][0-9,\\. ]*)\\s+- 3 with about three",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ", to Todd Heap and\\s+([\\w\\s]+?)\\s+respectively , just before half",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "on Russia in the late\\s+([0-9][0-9,\\. ]*)\\s+and early 40s of the",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "3 . In summer of\\s+([\\w\\s]+?)\\s+, 2000 Budjak Tatars invaded",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "The Siege of Vienna in\\s+([0-9][0-9,\\. ]*)\\s+was the first attempt by",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "back Michael Turner got a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown run ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "- yard TD pass to\\s+([\\w\\s]+?)\\s+.   In the second",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "trailed early as Bears RB\\s+([\\w\\s]+?)\\s+got a 43 - yard",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "of Novgorod and Kostroma .\\s+([\\w\\s]+?)\\s+Vasilyevich , the prince of",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "of Novgorod and Kostroma .\\s+([\\w\\s]+?)\\s+, the prince of Suzdal",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "pulled away with Lambo 's\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal to",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "winning at home , the\\s+([\\w\\s]+?)\\s+traveled down south to take",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "the Jaguars .   The\\s+([\\w\\s]+?)\\s+scored first in the first",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "In October\\s+([0-9][0-9,\\. ]*)\\s+, Macromedia disclosed the Flash",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "kicker John Carney getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "in sporadic border clashes throughout\\s+([0-9][0-9,\\. ]*)\\s+- 1920 . Following the",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "border clashes throughout 1919 -\\s+([0-9][0-9,\\. ]*)\\s+. Following the Kuwait -",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "The\\s+([\\w\\s]+?)\\s+erupted in the aftermath of",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "erupted in the aftermath of\\s+([\\w\\s]+?)\\s+The war occurred because Ibn",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "and Najd led to the\\s+([\\w\\s]+?)\\s+. The war resulted in",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "as possible . At the\\s+([\\w\\s]+?)\\s+in 1922 , the boundaries",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "  The\\s+([\\w\\s]+?)\\s+started well in Tennessee ,",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "in Tennessee , taking a\\s+([0-9][0-9,\\. ]*)\\s+- 6 lead at halftime",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": ". The median age was\\s+([0-9][0-9,\\. ]*)\\s+years . For every 100",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "AFC West rematch with the\\s+([\\w\\s]+?)\\s+Raiders .   In the",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "QB Josh McCown completed a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "tourism receipts declined annually from\\s+([0-9][0-9,\\. ]*)\\s+through 2002 . In 2003",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "and Sweden led to the\\s+([\\w\\s]+?)\\s+in 1563 , which ended",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "In\\s+([0-9][0-9,\\. ]*)\\s+, the Mon of Lower",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "fled to Siam . In\\s+([0-9][0-9,\\. ]*)\\s+, they sent a diplomatic",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "with quarterback Matthew Stafford 's\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass to",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Chicago 's lead with a\\s+([0-9][0-9,\\. ]*)\\s+- yard and a 22",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "QB Matt Leinart threw a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "RB Edgerrin James getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD run .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "the game on a Rackers\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "TD to make the score\\s+([0-9][0-9,\\. ]*)\\s+- 2 at halftime .",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ". 21.3 % were of\\s+([\\w\\s]+?)\\s+people , 16.5 % Germans",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "% Germans , 11.4 %\\s+([\\w\\s]+?)\\s+people , 10.7 % United",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "trailed early as Jaguars kicker\\s+([\\w\\s]+?)\\s+managed to get a 48",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "San Diego responded with RB\\s+([\\w\\s]+?)\\s+getting a 6 - yard",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "QB David Garrard completing a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "group in Skopje , with\\s+([0-9][0-9,\\. ]*)\\s+inhabitants , or 66.75 %",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "( 12.3 % ) ,\\s+([\\w\\s]+?)\\s+( 12.1 % ) ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "more races , 2.62 %\\s+([\\w\\s]+?)\\s+( U.S. Census ) ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "a fourth frontier fort ,\\s+([\\w\\s]+?)\\s+, at the falls of",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Devery Henderson ran for an\\s+([0-9][0-9,\\. ]*)\\s+- yard TD on a",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "consisted of a flight of\\s+([\\w\\s]+?)\\s+of RDAF squadron 722 .",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Following their\\s+([\\w\\s]+?)\\s+, the Percy brothers were",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Salisbury also agreed that Lord\\s+([\\w\\s]+?)\\s+was to be released from",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "1,234 ( 3.5 % )\\s+([\\w\\s]+?)\\s+( U.S. Census ) ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "356 ( 1.0 % )\\s+([\\w\\s]+?)\\s+( U.S. Census ) ,",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "the autonomy of 1809 -\\s+([0-9][0-9,\\. ]*)\\s+, not full independence .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "K Shayne Graham converting a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "as a Danish fleet under\\s+([\\w\\s]+?)\\s+sailed towards the Baltic .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Jafargulu Khan Nakhchivanski in December\\s+([0-9][0-9,\\. ]*)\\s+and declared the independent Republic",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "French people , 7.0 %\\s+([\\w\\s]+?)\\s+, 6.7 % German people",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "French Canadian , 6.7 %\\s+([\\w\\s]+?)\\s+people , 6.1 % Italian",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "29,466 households , and 18,416\\s+([\\w\\s]+?)\\s+residing in the county .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Carolina Panthers in a Week\\s+([0-9][0-9,\\. ]*)\\s+Sunday Night duel . The",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Poland and Sigismund . On\\s+([0-9][0-9,\\. ]*)\\s+September 1437 he attempted to",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": ". The Cowboys improved to\\s+([0-9][0-9,\\. ]*)\\s+- 2 , and with",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "ball at the Browns '\\s+([0-9][0-9,\\. ]*)\\s+- yard line . Brady",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "the game at 34 -\\s+([0-9][0-9,\\. ]*)\\s+, giving the Patriots their",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Rob Bironas got a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "On\\s+([0-9][0-9,\\. ]*)\\s+February 1525 , 25 villages",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "On 16 February\\s+([0-9][0-9,\\. ]*)\\s+, 25 villages belonging to",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "standings with a 5 -\\s+([0-9][0-9,\\. ]*)\\s+record thanks in large part",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "the year in the Denver\\s+([\\w\\s]+?)\\s+. The Broncos sat atop",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "of 2000 , there were\\s+([0-9][0-9,\\. ]*)\\s+people , 169,162 households ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "2000 , there were 445,342\\s+([\\w\\s]+?)\\s+, 169,162 households , and",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "were 445,342 people , 169,162\\s+([\\w\\s]+?)\\s+, and 114,015 families residing",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "169,162 households , and 114,015\\s+([\\w\\s]+?)\\s+residing in the county .",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ", while 9.6 % spoke\\s+([\\w\\s]+?)\\s+and 1.2 % Vietnamese .",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "( 10.83 % ) ,\\s+([\\w\\s]+?)\\s+language ( 5.84 % )",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "( 3.38 % ) ,\\s+([\\w\\s]+?)\\s+( 3.3 % ) ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "( 3.3 % ) ,\\s+([\\w\\s]+?)\\s+language ( 2.61 % )",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "( 2.61 % ) ,\\s+([\\w\\s]+?)\\s+language ( 1.29 % )",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": ", the Patriots advanced to\\s+([0-9][0-9,\\. ]*)\\s+- 1 and maintained their",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Kazimierz Pac , who obstructed\\s+([\\w\\s]+?)\\s+'s leadership , while the",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "starting quarterback Kurt Warner (\\s+([0-9][0-9,\\. ]*)\\s+for 30 yards ) was",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "starting with a Josh Brown\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal to",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "RB Chris Johnson getting an\\s+([0-9][0-9,\\. ]*)\\s+- yard TD run .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "away with Schaub throwing a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "client state of Germany from\\s+([0-9][0-9,\\. ]*)\\s+to 1944 . The Kingdom",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "the Vikings responded with kicker\\s+([\\w\\s]+?)\\s+getting a 23 - yard",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "the Bills played their Week\\s+([0-9][0-9,\\. ]*)\\s+home - opener against their",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Le Poer , London ,\\s+([\\w\\s]+?)\\s+, fourth daughter of Sir",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "offensive play from scrimmage ,\\s+([\\w\\s]+?)\\s+threw a 74 - yard",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "( Cundiff also missed two\\s+([0-9][0-9,\\. ]*)\\s+- yard field goals )",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "size of the black -\\s+([\\w\\s]+?)\\s+IQ gap in the United",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "A\\s+([0-9][0-9,\\. ]*)\\s+analysis of the National Assessment",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "eurozone unemployment rate in the\\s+([\\w\\s]+?)\\s+and has remained significantly lower",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "in industry , and between\\s+([0-9][0-9,\\. ]*)\\s+% and 15 % in",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Louis II was born in\\s+([0-9][0-9,\\. ]*)\\s+, but the Habsburgs did",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "a stroke on 6 April\\s+([0-9][0-9,\\. ]*)\\s+, Frederick was able to",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "  The\\s+([\\w\\s]+?)\\s+, who had not won",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ". Until the birth of\\s+([\\w\\s]+?)\\s+, son of Prince Akishino",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "law had been considered until\\s+([\\w\\s]+?)\\s+gave birth to a son",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Prince Hisahito , son of\\s+([\\w\\s]+?)\\s+, on September 6 ,",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": ", who trailed the series\\s+([0-9][0-9,\\. ]*)\\s+- 14 but had won",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "1,511 Guarani were killed and\\s+([0-9][0-9,\\. ]*)\\s+taken prisoner , while 4",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "surprise in the fall of\\s+([0-9][0-9,\\. ]*)\\s+Danes mobilized an army under",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Florida TV Time : CBS\\s+([0-9][0-9,\\. ]*)\\s+eastern The Ravens opened the",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "to put the Ravens up\\s+([0-9][0-9,\\. ]*)\\s+- 0 at halftime .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "up as McNabb got a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD run ,",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "would be repelled . On\\s+([0-9][0-9,\\. ]*)\\s+November 1690 , Venice took",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Venice besieged Sinj in October\\s+([0-9][0-9,\\. ]*)\\s+and then again March and",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "innings , notably striking out\\s+([\\w\\s]+?)\\s+, at the time the",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Giants scored first , sending\\s+([\\w\\s]+?)\\s+in for a 4 -",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "screen versions include 1948 's\\s+([\\w\\s]+?)\\s+starring David Niven who summarised",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Robert Louis Stevenson 's novels\\s+([\\w\\s]+?)\\s+and Catriona , the Jacobite",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "1990 and 2013 , the\\s+([\\w\\s]+?)\\s+rate dropped 89.4 % ,",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Harlem ; robberies dropped to\\s+([0-9][0-9,\\. ]*)\\s+in 1990 during David Dinkins",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "dropped 89.4 % , the\\s+([\\w\\s]+?)\\s+rate dropped 67.5 % ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "1990 and 2013 , the\\s+([\\w\\s]+?)\\s+dropped 89.4 % , the",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "rate dropped 74.2 % ,\\s+([\\w\\s]+?)\\s+dropped 93.4 % , and",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "divided into four provinces :\\s+([\\w\\s]+?)\\s+, with seat at Nafplion",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "1708 , probably driven by\\s+([\\w\\s]+?)\\s+- they failed to win",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "exceeded 1,000 killed , 3,700\\s+([\\w\\s]+?)\\s+and 1,000 missing - representing",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "This board included over 361\\s+([\\w\\s]+?)\\s+, with Ji Yun and",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "was a revolt from December\\s+([0-9][0-9,\\. ]*)\\s+to December 1577 of the",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "trying to link up with\\s+([\\w\\s]+?)\\s+. After the unsuccessful battle",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "to the royal army with\\s+([0-9][0-9,\\. ]*)\\s+Cossacks . However , most",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Chudnov the Poles defeated the\\s+([\\w\\s]+?)\\s+. The fortified Russo -",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "the Russians had to pay\\s+([0-9][0-9,\\. ]*)\\s+rubles and evacuate Kiev ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "The Long Turkish War or\\s+([\\w\\s]+?)\\s+was an indecisive land war",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "War , reckoning from the\\s+([0-9][0-9,\\. ]*)\\s+- 92 Turkish campaign that",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Venetian War   and the\\s+([\\w\\s]+?)\\s+. The next of the",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "an AFC duel with the\\s+([\\w\\s]+?)\\s+. In the first quarter",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "RB Arian Foster got an\\s+([0-9][0-9,\\. ]*)\\s+- yard TD run .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "by 2017 .   In\\s+([0-9][0-9,\\. ]*)\\s+the Russian leasehold was renegotiated",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "In\\s+([0-9][0-9,\\. ]*)\\s+, Russia and Ukraine signed",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": ", dropping them 10 -\\s+([0-9][0-9,\\. ]*)\\s+. The Giants also allowed",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Irish , 12.2 % were\\s+([\\w\\s]+?)\\s+, 9.9 % were Italian",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "American Indian , 0.1 %\\s+([\\w\\s]+?)\\s+, 0.9 % from other",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "% Asian , 0.3 %\\s+([\\w\\s]+?)\\s+, 0.1 % Pacific islander",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "October Revolution of 7 November\\s+([0-9][0-9,\\. ]*)\\s+transferred political power in Petrograd",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "of political violence . An\\s+([\\w\\s]+?)\\s+had been shot during a",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Civil War ( 1936 -\\s+([0-9][0-9,\\. ]*)\\s+) . Following the outbreak",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "15 - 18 June 1937\\s+([\\w\\s]+?)\\s+withdrew from the Non -",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "the Republican attack were 31\\s+([\\w\\s]+?)\\s+and 110 wounded , 71",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "On 31 December\\s+([0-9][0-9,\\. ]*)\\s+, Henry and Charles had",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "invade France in person by\\s+([0-9][0-9,\\. ]*)\\s+June 1544 ; each was",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "off their win with a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal by",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "zone sending the game to\\s+([0-9][0-9,\\. ]*)\\s+- 0 , followed up",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ", Matt Hasselbeck hit WR\\s+([\\w\\s]+?)\\s+for an 18 - yard",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "K Shayne Graham converted a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal attempt",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "kicker John Carney completed a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "RB Reggie Bush got a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown run on",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "RB Deuce McAllister getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown run .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "back as Roethlisberger completed a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass to",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Southampton 6.4 , and Rushmoor\\s+([0-9][0-9,\\. ]*)\\s+. The lowest truancy percentages",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "to make it 6 -\\s+([0-9][0-9,\\. ]*)\\s+.   The Bengals however",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "yard pass to make it\\s+([0-9][0-9,\\. ]*)\\s+- 6 .   The",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "yard pass to make it\\s+([0-9][0-9,\\. ]*)\\s+- 7 .   Howard",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "for a game against the\\s+([\\w\\s]+?)\\s+.   In the first",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "J. T. O'Sullivan completed a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "nailed the game - winning\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Olindo Mare getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "touchdown , along with RB\\s+([\\w\\s]+?)\\s+'s 2 - yard TD",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "The drive ended with a\\s+([\\w\\s]+?)\\s+field goal . The Redskins",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Jerome Mathis returning a kickoff\\s+([0-9][0-9,\\. ]*)\\s+yards for a touchdown .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": ". On July 20 ,\\s+([0-9][0-9,\\. ]*)\\s+, the First and Third",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Pungsan , Hwangju , and\\s+([\\w\\s]+?)\\s+along the way . At",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "proceeded northward , and sacked\\s+([\\w\\s]+?)\\s+, Sohung , Pungsan ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "most powerful navies were the\\s+([\\w\\s]+?)\\s+, English , and Dutch",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "In 993 ,\\s+([\\w\\s]+?)\\s+under General Xiao Sunning invaded",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "yard TD pass to WR\\s+([\\w\\s]+?)\\s+, but Denver scored with",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "QB Kyle Orton made a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "cut the lead when QB\\s+([\\w\\s]+?)\\s+completed an 11 - yard",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "- 08 FA Cup to\\s+([0-9][0-9,\\. ]*)\\s+clubs , and for the",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "would return a kick off\\s+([0-9][0-9,\\. ]*)\\s+yards for a touchdown to",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Santonio Holmes .   WR\\s+([\\w\\s]+?)\\s+would return a kick off",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "fuel to the already simmering\\s+([\\w\\s]+?)\\s+, an event Nicholas II",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "when it was overtaken by\\s+([\\w\\s]+?)\\s+. The rapid secularisation of",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "years . For every 100\\s+([\\w\\s]+?)\\s+, there were 160.7 males",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "  The median age was\\s+([0-9][0-9,\\. ]*)\\s+years . For every 100",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "answer with Hanson kicking a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Ford Field for a Week\\s+([0-9][0-9,\\. ]*)\\s+interconference duel with the Detroit",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "yard TD pass to TE\\s+([\\w\\s]+?)\\s+. With the win ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Ireland , Richard Talbot ,\\s+([\\w\\s]+?)\\s+took action to ensure that",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": ", under Alexander MacDonnell ,\\s+([0-9][0-9,\\. ]*)\\s+Earl of Antrim , was",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "followed by Bironas hitting a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "QB Kerry Collins completing a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "fumble that was recovered by\\s+([\\w\\s]+?)\\s+and gave the Chiefs the",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "coasting to a 41 -\\s+([0-9][0-9,\\. ]*)\\s+victory . Brian Urlacher 's",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "the Chicago Bears overwhelmed the\\s+([0-9][0-9,\\. ]*)\\s+who were coming off their",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "quarter as Brown nailed a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "the Oakland Raiders .  \\s+([\\w\\s]+?)\\s+delivered the opening shot of",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "touchdown run and catching an\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass from",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "with kicker Kris Brown 's\\s+([\\w\\s]+?)\\s+field goal , followed by",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "the first quarter with kicker\\s+([\\w\\s]+?)\\s+'s 26 - yard field",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "regime security brigade , 10\\s+([\\w\\s]+?)\\s+, 10 Mechanized Infantry Battalions",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "goal for a 7 -\\s+([0-9][0-9,\\. ]*)\\s+game .   They drew",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "when Josh Lambo kicked a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal for",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Shayne Graham booting a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "finding Ochocinco again on a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass in",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "half as Elam nailed a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "on the board with kicker\\s+([\\w\\s]+?)\\s+getting a 41 - yard",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Denver would answer with QB\\s+([\\w\\s]+?)\\s+completing a 12 - yard",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "drew first blood as QB\\s+([\\w\\s]+?)\\s+got a 5 - yard",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "forces to retreat up to\\s+([0-9][0-9,\\. ]*)\\s+\u00a0 km . The Lithuanians",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "entire line was moved about\\s+([0-9][0-9,\\. ]*)\\s+\u00a0 km   west .",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "the east - southeast via\\s+([\\w\\s]+?)\\s+, through the Mustankallio graveyard",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "ended in 1763 with the\\s+([\\w\\s]+?)\\s+. He was appointed governor",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "of Paris . He was\\s+([\\w\\s]+?)\\s+in 1765 . He was",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "control over Bessarabia as the\\s+([\\w\\s]+?)\\s+abandoned the province . Although",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "In January\\s+([0-9][0-9,\\. ]*)\\s+, Romanian forces established control",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Central Powers by signing the\\s+([\\w\\s]+?)\\s+on 7 May 1918 .",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "In January 1918 ,\\s+([\\w\\s]+?)\\s+forces established control over Bessarabia",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "  were Fianna F\u00e1il and\\s+([\\w\\s]+?)\\s+, the descendants respectively of",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "two field guns and a\\s+([0-9][0-9,\\. ]*)\\s+inch naval gun on a",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "at San Diego , the\\s+([\\w\\s]+?)\\s+traveled to the Mall of",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Longwell , this time from\\s+([0-9][0-9,\\. ]*)\\s+yards , just before halftime",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Cameron , younger brother of\\s+([\\w\\s]+?)\\s+. Convicted of treason for",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "  The Chargers began their\\s+([0-9][0-9,\\. ]*)\\s+campaign at home against the",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "take the lead with QB\\s+([\\w\\s]+?)\\s+completing a 44 - yard",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "troops were killed and 23\\s+([\\w\\s]+?)\\s+; 45 Federales were casualties",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "992 ( 0.5 % )\\s+([\\w\\s]+?)\\s+( U.S. Census ) ,",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Beach had a population of\\s+([0-9][0-9,\\. ]*)\\s+. The population density was",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "drew first blood with a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Jones gave the Packers a\\s+([0-9][0-9,\\. ]*)\\s+- 7 lead midway through",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "halftime with Brees completing a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "defeating the Persian army at\\s+([\\w\\s]+?)\\s+on March 8 , 1722",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "peacefully in November 1715 from\\s+([\\w\\s]+?)\\s+and was succeeded by his",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "the title of king ,\\s+([\\w\\s]+?)\\s+was called \" Prince of",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "lead with Campbell completing a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass to",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "win with Westbrook turning a\\s+([0-9][0-9,\\. ]*)\\s+- yard reception and a",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "the Austrians lost only about\\s+([0-9][0-9,\\. ]*)\\s+. Some of the insurgents",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "45,000 Filipinos , and 8,000\\s+([\\w\\s]+?)\\s+.",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "agreement was reached in May\\s+([0-9][0-9,\\. ]*)\\s+, at Caesarea . Almost",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "England in the middle of\\s+([0-9][0-9,\\. ]*)\\s+, and was crowned King",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "his father .   In\\s+([0-9][0-9,\\. ]*)\\s+Edward started his homeward journey",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "In\\s+([0-9][0-9,\\. ]*)\\s+, a group of missionaries",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "capital city of Ayutthaya after\\s+([0-9][0-9,\\. ]*)\\s+months overland travel and started",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "renewed Taliban insurgency in the\\s+([0-9][0-9,\\. ]*)\\s+war in Afghanistan , the",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Myinsaing Kingdom . In January\\s+([0-9][0-9,\\. ]*)\\s+, the Myinsaing forces led",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Pagan , the new king\\s+([\\w\\s]+?)\\s+controlled just a small area",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ", 9.7 % had a\\s+([\\w\\s]+?)\\s+with no husband present ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ", and 50.4 % were\\s+([\\w\\s]+?)\\s+. 37.7 % of all",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "size was 2.20 and the\\s+([\\w\\s]+?)\\s+was 2.90 .",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "age or older . The\\s+([\\w\\s]+?)\\s+was 2.20 and the average",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "after the defeat at the\\s+([\\w\\s]+?)\\s+in 1741 , prepared an",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Ogle , who had replaced\\s+([\\w\\s]+?)\\s+after the defeat at the",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "killed and 1/2 of the\\s+([\\w\\s]+?)\\s+destroyed , the war left",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "the declaration of war ,\\s+([\\w\\s]+?)\\s+of Thessaly under Crown Prince",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "70 artillery pieces , 30\\s+([\\w\\s]+?)\\s+and 70,000 rifles . The",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "30 machine guns and 70,000\\s+([\\w\\s]+?)\\s+. The Ottoman forces estimated",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "over the Redskins , the\\s+([\\w\\s]+?)\\s+flew to Bank of America",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "early lead , as quarterback\\s+([\\w\\s]+?)\\s+completed a 13 - yard",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "third quarter , when quarterback\\s+([\\w\\s]+?)\\s+completed an 11 - yard",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "yard TD pass to WR\\s+([\\w\\s]+?)\\s+. They trailed again with",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Neil Rackers nailed a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "58 were proposed by the\\s+([\\w\\s]+?)\\s+. Of these mandatory candidates",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "ball at the Packers '\\s+([0-9][0-9,\\. ]*)\\s+. Six plays later ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "years . For every 100\\s+([\\w\\s]+?)\\s+, there were 93.70 males",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "flight hour in 2007 .\\s+([\\w\\s]+?)\\s+was $ 83,000 per hour",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Salween states . In late\\s+([0-9][0-9,\\. ]*)\\s+, a large infantry and",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "completed a short pass to\\s+([\\w\\s]+?)\\s+, who turned it into",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "would add a Josh Scobee\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal early",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Titans to the Jets '\\s+([0-9][0-9,\\. ]*)\\s+- yard line , but",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": ", finding Baker on the\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass to",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ". Polin tried to convince\\s+([\\w\\s]+?)\\s+to join the alliance ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "by his younger brother ,\\s+([\\w\\s]+?)\\s+. With a serious rebellion",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "were attempting to end a\\s+([0-9][0-9,\\. ]*)\\s+- game regular season losing",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "touchdown pass to tight end\\s+([\\w\\s]+?)\\s+, a 1 - yard",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "early lead , with a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal by",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "The Patriots then reeled off\\s+([0-9][0-9,\\. ]*)\\s+unanswered points , starting with",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "end Dallas Clark on a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "back Chad Simpson getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown run .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Tomlinson ran one in from\\s+([0-9][0-9,\\. ]*)\\s+- yard out . QB",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "  The\\s+([\\w\\s]+?)\\s+at home , donned their",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "lead with Dawson nailing a\\s+([0-9][0-9,\\. ]*)\\s+- yard and a 30",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "include 303,595 Burmese , 63,438\\s+([\\w\\s]+?)\\s+and 18,126 Lao . In",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "took the lead as QB\\s+([\\w\\s]+?)\\s+got a 1 - yard",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Knopf was founded in\\s+([0-9][0-9,\\. ]*)\\s+by Alfred A. Knopf Sr",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "the Livonians in 1217 ,\\s+([0-9][0-9,\\. ]*)\\s+, 1222 , and 1223",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "and Teutonic Knights began in\\s+([0-9][0-9,\\. ]*)\\s+, when the knights attacked",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Matt Stover converted a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal for",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "the third quarter with a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal from",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "25 August 1361 ; and\\s+([\\w\\s]+?)\\s+died in September 1361 .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "The Chargers lost 35 -\\s+([0-9][0-9,\\. ]*)\\s+to the Denver Broncos after",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "product was later identified as\\s+([\\w\\s]+?)\\s+. On November 7 ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "which 29.5 % had children\\s+([\\w\\s]+?)\\s+living with them , 53.3",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "% of all households were\\s+([\\w\\s]+?)\\s+, 31.5 % of households",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "31.5 % of households had\\s+([\\w\\s]+?)\\s+years , and 9.5 %",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "size was 2.44 and the\\s+([\\w\\s]+?)\\s+was 2.96 .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "field and scored on a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal by",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "and gave the Colts a\\s+([0-9][0-9,\\. ]*)\\s+- 0 lead . With",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "expired to shock the Colts\\s+([0-9][0-9,\\. ]*)\\s+- 24 . The Texans",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "27 - 24 . The\\s+([\\w\\s]+?)\\s+used Dayne and rookie Chris",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "was 16 - of-23 for\\s+([0-9][0-9,\\. ]*)\\s+yards and a touchdown and",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Rian Lindell nailed a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "second quarter with Stover 's\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Kris Brown nailing a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Mason Crosby got a\\s+([0-9][0-9,\\. ]*)\\s+, a 38 , and",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "the final score 38 -\\s+([0-9][0-9,\\. ]*)\\s+.   Smith rushed for",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "faced the 1993 San Francisco\\s+([0-9][0-9,\\. ]*)\\s+season in the NFC Championship",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "title , Dallas won when\\s+([\\w\\s]+?)\\s+thwarted an attempted 49ers comeback",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "On\\s+([0-9][0-9,\\. ]*)\\s+June 1911 the National Constitutional",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "for a game - winning\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "on the board with kicker\\s+([\\w\\s]+?)\\s+getting a 38 - yard",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Intermediate Cup winning team in\\s+([0-9][0-9,\\. ]*)\\s+against Bluebell United , top",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "won the 1989 - 90\\s+([\\w\\s]+?)\\s+in at Lansdowne Road with",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "at Lansdowne Road with a\\s+([0-9][0-9,\\. ]*)\\s+- 0 victory against St",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "first quarter as Jets quarterback\\s+([\\w\\s]+?)\\s+completed a 24 - yard",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "regained the lead with QB\\s+([\\w\\s]+?)\\s+completing a 19 - yard",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "set out from Mop\u00e1n on\\s+([0-9][0-9,\\. ]*)\\s+March and left some sick",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Week 13 duel with the\\s+([\\w\\s]+?)\\s+Broncos . The game would",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "entered this game with a\\s+([0-9][0-9,\\. ]*)\\s+- 1 record against the",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "passes . The Ravens led\\s+([0-9][0-9,\\. ]*)\\s+- 3 after the first",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "quarterback Matt Moore throwing a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass to",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "started the season out at\\s+([0-9][0-9,\\. ]*)\\s+- 1 .",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Papal troops   commanded by\\s+([\\w\\s]+?)\\s+, landed in Smerwick ,",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "allowed Gould to attempt the\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ;",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "draw first blood with a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal by",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Taylor managed to get a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD run .",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Mataram capital Plered . King\\s+([\\w\\s]+?)\\s+died during the retreat of",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "From November\\s+([0-9][0-9,\\. ]*)\\s+, during the seven -",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "of the game with a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown catch from",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "a head on 1 June\\s+([0-9][0-9,\\. ]*)\\s+, upon Alexei I 's",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "among the people . On\\s+([0-9][0-9,\\. ]*)\\s+June the insurgents burst into",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "16th century writers estimated the\\s+([0-9][0-9,\\. ]*)\\s+population of Hispaniola at over",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "- paid were raised by\\s+([0-9][0-9,\\. ]*)\\s+% in 1981 , and",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "raised by 25 % in\\s+([0-9][0-9,\\. ]*)\\s+, and in the two",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "- Quartermaster since 1630 ,\\s+([\\w\\s]+?)\\s+from 1625 , Lithuanian Great",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "and District - Governor of\\s+([\\w\\s]+?)\\s+, Pu\u0144sk , Kupise ,",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Rashad Jennings ran from the\\s+([0-9][0-9,\\. ]*)\\s+- yard line to the",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "then the Jaguars scored when\\s+([\\w\\s]+?)\\s+completed a 61 - yard",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "the ball at their own\\s+([0-9][0-9,\\. ]*)\\s+- yard line . A",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "punt from the Jets '\\s+([0-9][0-9,\\. ]*)\\s+- yard line , punter",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Shaun Suisham nailed a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal for",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "first blood when the kicker\\s+([\\w\\s]+?)\\s+nailed a 49 - yard",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Giants Stadium for a Week\\s+([0-9][0-9,\\. ]*)\\s+Sunday night NFC East rematch",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Minnesota Vikings , the 2004\\s+([\\w\\s]+?)\\s+, the 2011 Green Bay",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "by finishing the regular season\\s+([0-9][0-9,\\. ]*)\\s+- 1 - 0 ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "1703 taking towns such as\\s+([\\w\\s]+?)\\s+and Roermond in the modern",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "goal , followed by RB\\s+([\\w\\s]+?)\\s+making a 4 - yard",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "the second quarter by QB\\s+([\\w\\s]+?)\\s+'s 30 - yard TD",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": ". Then he made a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal in",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Fins would respond with kicker\\s+([\\w\\s]+?)\\s+getting a 43 - yard",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "receiver Derrick Mason on a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Nick Folk nailed a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "touchdown pass to wide receiver\\s+([\\w\\s]+?)\\s+. With the loss ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "outside the EU were in\\s+([\\w\\s]+?)\\s+( 6.4 million ) ,",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "In\\s+([0-9][0-9,\\. ]*)\\s+, 47.3 million people who",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "duel with the Kansas City\\s+([\\w\\s]+?)\\s+.   In the first",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "of Yaroslav 's sons :\\s+([\\w\\s]+?)\\s+and his brothers , Princes",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "The Kiev uprising of\\s+([0-9][0-9,\\. ]*)\\s+was a revolt against Grand",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ", 11.68 % had a\\s+([\\w\\s]+?)\\s+present , and 37.40 %",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "or older . The average\\s+([\\w\\s]+?)\\s+was 2.39 and the average",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ".   Also , with\\s+([\\w\\s]+?)\\s+a piece , the Steelers",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": ", while Roethlisberger completed a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "fourth quarter , with a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal by",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "receiver Eric Decker on a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "  In week\\s+([0-9][0-9,\\. ]*)\\s+, the Seahawks took on",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Halftime came with a small\\s+([0-9][0-9,\\. ]*)\\s+- 0 Seahawks lead .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "the war lumbered on until\\s+([0-9][0-9,\\. ]*)\\s+, when the Swedes captured",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": ", going 75 yards on\\s+([0-9][0-9,\\. ]*)\\s+plays with Marcus Mariota rushing",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "- government employment quadrupled from\\s+([0-9][0-9,\\. ]*)\\s+million workers in 1950 to",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ", 11.6 % had a\\s+([\\w\\s]+?)\\s+with no husband present ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "someone living alone who was\\s+([\\w\\s]+?)\\s+or older . The average",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "which 32.8 % had children\\s+([\\w\\s]+?)\\s+living with them , 44.0",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "touchdown pass to tight end\\s+([\\w\\s]+?)\\s+.   The Saints would",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "the second quarter as quarterback\\s+([\\w\\s]+?)\\s+found running back Frank Gore",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "revolt with the exception of\\s+([0-9][0-9,\\. ]*)\\s+comuneros , a small figure",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "is consumed locally . Almost\\s+([0-9][0-9,\\. ]*)\\s+percent of palm plantations and",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "down and its books ,\\s+([0-9][0-9,\\. ]*)\\s+volumes , were incorporated into",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "touchdown pass to Wide receiver\\s+([\\w\\s]+?)\\s+, putting the Cardinals on",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "protests against food rationing on\\s+([0-9][0-9,\\. ]*)\\s+February Old Style . Revolutionary",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "The Dolphins answered with a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown run by",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "touchdown pass to tight end\\s+([\\w\\s]+?)\\s+. The Dolphins answered with",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Colts answered back with a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown run by",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": ",\\s+([0-9][0-9,\\. ]*)\\s+% of the population was",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "  In week\\s+([0-9][0-9,\\. ]*)\\s+, the Lions traveled to",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "November 1571 , during the\\s+([\\w\\s]+?)\\s+when Mary 's supporters held",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "halftime with Croyle completing a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "QB Matt Ryan made a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "WR Jordan Shipley on a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "quarterback Jason Campbell completed a\\s+([0-9][0-9,\\. ]*)\\s+- yard touchdown pass to",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "The Mavericks finished\\s+([0-9][0-9,\\. ]*)\\s+- 33 , one game",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "yard touchdown pass from quarterback\\s+([\\w\\s]+?)\\s+to WR Marques Colston .",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "  The\\s+([\\w\\s]+?)\\s+opened the regular season on",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ", while his subordinate ,\\s+([\\w\\s]+?)\\s+, was in charge of",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "the Carolinas . On August\\s+([0-9][0-9,\\. ]*)\\s+, Marion rescued a small",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Eutaw Springs . In January\\s+([0-9][0-9,\\. ]*)\\s+, he was elected to",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "small American force trapped by\\s+([0-9][0-9,\\. ]*)\\s+British soldiers , under the",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Neil Rackers got a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "yard TD pass to WR\\s+([\\w\\s]+?)\\s+. In the second quarter",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "In the first quarter ,\\s+([\\w\\s]+?)\\s+pounced first as QB Jake",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "the game out with kicker\\s+([\\w\\s]+?)\\s+nailing a 32 - yard",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Carolina pounced first as QB\\s+([\\w\\s]+?)\\s+completed a 3 - yard",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "increased their lead as RB\\s+([\\w\\s]+?)\\s+got a 69 - yard",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Brown kicked field goals of\\s+([0-9][0-9,\\. ]*)\\s+and 44 yards early in",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "The Rams responded with a\\s+([\\w\\s]+?)\\s+51 - yard field goal",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "By\\s+([0-9][0-9,\\. ]*)\\s+fewer than 7 % of",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "years , 5.5 % between\\s+([\\w\\s]+?)\\s+, 5.5 % between 25",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "49 years , 8.0 %\\s+([\\w\\s]+?)\\s+, 7.0 % between 55",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "field , stopping at the\\s+([0-9][0-9,\\. ]*)\\s+- yard line . However",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "QB Tom Brady completed a\\s+([0-9][0-9,\\. ]*)\\s+- yard TD pass to",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "5 intraconference duel with the\\s+([\\w\\s]+?)\\s+. In the first quarter",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "yard TD pass to TE\\s+([\\w\\s]+?)\\s+. In the third quarter",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Phil Dawson getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal for",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Neil Rackers getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "responded with Kasay getting a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "operational flying boats and five\\s+([\\w\\s]+?)\\s+making it possible to make",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "between about 110 ships ,\\s+([0-9][0-9,\\. ]*)\\s+, 160 , 200 -",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Cultural Award . In June\\s+([0-9][0-9,\\. ]*)\\s+, Professor Ricklefs was made",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "awarded him in 2001 the\\s+([\\w\\s]+?)\\s+for service to Australian society",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": ". He was awarded the\\s+([0-9][0-9,\\. ]*)\\s+George McT. Kahin Prize of",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "was back to Toulon on\\s+([0-9][0-9,\\. ]*)\\s+October 1544 .",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ". In 1802 , the\\s+([\\w\\s]+?)\\s+formally ceded the Dutch part",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "bye week at 3 -\\s+([0-9][0-9,\\. ]*)\\s+.",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Political and financial crises in\\s+([0-9][0-9,\\. ]*)\\s+, shattered the Czech Republic",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "GDP . Growth dropped to\\s+([0-9][0-9,\\. ]*)\\s+% in 1997 , \u22122.3",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "% Muslim , 7.7 %\\s+([\\w\\s]+?)\\s+, 1.1 % Jainism ,",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "city had a population of\\s+([0-9][0-9,\\. ]*)\\s+, within the area administered",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Buick automobiles were made in\\s+([0-9][0-9,\\. ]*)\\s+and 1900 at the \"",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "The Jets answered with a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal from",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "yard touchdown to make it\\s+([0-9][0-9,\\. ]*)\\s+- 0 . The Steelers",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "denominations there are approximately 93,000\\s+([\\w\\s]+?)\\s+in 253 congregations , 25,000",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "in 21 synagogues , 12,000\\s+([\\w\\s]+?)\\s+in 39 masjids , 7,000",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ", 12,000 Muslims in 39\\s+([\\w\\s]+?)\\s+, 7,000 Buddhists in 34",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "came on top with kicker\\s+([\\w\\s]+?)\\s+hitting a 26 and a",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "kicker Josh Scobee made a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal .",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "fell behind again with QB\\s+([\\w\\s]+?)\\s+making a 3 - yard",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ", 64.56 % residents speak\\s+([\\w\\s]+?)\\s+, 23.13 % speak Spanish",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ". His favorite target was\\s+([\\w\\s]+?)\\s+, who recorded 64 receptions",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "consisted of 5,841 people (\\s+([0-9][0-9,\\. ]*)\\s+% ) under age 18",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "of Germans , 16.6 %\\s+([\\w\\s]+?)\\s+people , 13.8 % Irish",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "English people , 13.8 %\\s+([\\w\\s]+?)\\s+people , 11.9 % United",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "United States and 7.0 %\\s+([\\w\\s]+?)\\s+people ancestry according to Census",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "23 - yard and a\\s+([\\w\\s]+?)\\s+field goal .   In",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "kicker Nick Folk got a\\s+([\\w\\s]+?)\\s+and a 41 - yard",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Niners struck first as kicker\\s+([\\w\\s]+?)\\s+got a 23 - yard",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Party .   The two\\s+([\\w\\s]+?)\\s+municipalities of Hollister and San",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "the city was 76.21 %\\s+([\\w\\s]+?)\\s+( U.S. Census ) ,",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "50 years ( 1960 to\\s+([0-9][0-9,\\. ]*)\\s+) , rural Pennsylvania saw",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "County live birth rate in\\s+([0-9][0-9,\\. ]*)\\s+declined to 566 births ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "carpooled , 2 % used\\s+([\\w\\s]+?)\\s+, and 2.2 % walked",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "% of working Nashville residents\\s+([\\w\\s]+?)\\s+. In 2015 , 7.9",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "over the Browns , the\\s+([\\w\\s]+?)\\s+flew to Sun Life Stadium",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "intraconference duel with the Miami\\s+([\\w\\s]+?)\\s+.   Pittsburgh trailed in",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "quarter as Carpenter got a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "and 20.80 % who are\\s+([\\w\\s]+?)\\s+or older .   The",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "for $ 23.6 billion ,\\s+([\\w\\s]+?)\\s+for $ 23.1 billion ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "for $ 22.1 billion and\\s+([\\w\\s]+?)\\s+for $ 4.5 billion .",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "billion . By region ,\\s+([\\w\\s]+?)\\s+accounted for $ 23.6 billion",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "( 1982 ) , by\\s+([\\w\\s]+?)\\s+( 1980 - 88 )",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ", by Morocco during the\\s+([\\w\\s]+?)\\s+( 1975 - 1991 )",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "the county was 88.84 %\\s+([\\w\\s]+?)\\s+, 3.06 % Black or",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "people or 18.2 % are\\s+([\\w\\s]+?)\\s+, and 31 people or",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "or 0.5 % who are\\s+([\\w\\s]+?)\\s+.",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "In\\s+([0-9][0-9,\\. ]*)\\s+, there were 122,051 people",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "McCain . However , Republican\\s+([\\w\\s]+?)\\s+carried Clallam twice , defeating",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "presidential election , 2012 ,\\s+([\\w\\s]+?)\\s+narrowly won with 48.4 %",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "United States presidential election ,\\s+([0-9][0-9,\\. ]*)\\s+, Donald Trump won with",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "presidential election , 2016 ,\\s+([\\w\\s]+?)\\s+won with 46.7 % of",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "to pull away as RB\\s+([\\w\\s]+?)\\s+got a 1 - yard",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "over the Lions , the\\s+([\\w\\s]+?)\\s+flew to the Louisiana Superdome",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "yard TD pass to WR\\s+([\\w\\s]+?)\\s+, yet New Orleans sealed",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "over the Lions , the\\s+([0-9][0-9,\\. ]*)\\s+flew to the Louisiana Superdome",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "from 18 to 24 ,\\s+([0-9][0-9,\\. ]*)\\s+% from 25 to 44",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "forcing a 30 - yard\\s+([\\w\\s]+?)\\s+field goal four plays later",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "10 yards , forcing a\\s+([0-9][0-9,\\. ]*)\\s+- yard Gostkowski field goal",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "the Patriots ' lead to\\s+([0-9][0-9,\\. ]*)\\s+- 21 on the final",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "back divisional losses , the\\s+([\\w\\s]+?)\\s+traveled to Miami to face",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "or 4.7 % who are\\s+([\\w\\s]+?)\\s+, and there are 1,171",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "cultivated in the Levant .\\s+([\\w\\s]+?)\\s+was domesticated in China between",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "With a\\s+([0-9][0-9,\\. ]*)\\s+- 82 win over the",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ". Pro Bowl running back\\s+([\\w\\s]+?)\\s+led the team in rushing",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "The\\s+([\\w\\s]+?)\\s+debuted on November 3 ,",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "win , beating the Philadelphia\\s+([0-9][0-9,\\. ]*)\\s+at home 125 - 118",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Off , Kobayashis mark of\\s+([0-9][0-9,\\. ]*)\\s+hamburgers was 30 better than",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "force \" by the late\\s+([0-9][0-9,\\. ]*)\\s+, after World War II",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "confederated union which existed between\\s+([0-9][0-9,\\. ]*)\\s+and 2006 . The two",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "of births were to unmarried\\s+([\\w\\s]+?)\\s+. Life expectancy was 71.96",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "than the corresponding period in\\s+([\\w\\s]+?)\\s+. In 2015 , 47.9",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "of 76.5 for males and\\s+([0-9][0-9,\\. ]*)\\s+for females . Moreover ,",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "4.1 years for females between\\s+([\\w\\s]+?)\\s+and 2013 compared to a",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "the Cleveland Indians . The\\s+([\\w\\s]+?)\\s+won the series , and",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "commanded all Australian operations from\\s+([0-9][0-9,\\. ]*)\\s+until 1972 . 1st Australian",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "into two regiments in December\\s+([0-9][0-9,\\. ]*)\\s+, with Fegelein in charge",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "with rounding up and exterminating\\s+([\\w\\s]+?)\\s+and partisans . The two",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "QB Jeff Garcia completing a\\s+([\\w\\s]+?)\\s+TD pass to TE Matt",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": ". 14 , 115 -\\s+([0-9][0-9,\\. ]*)\\s+; Rome Profile of a",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "then became part of the\\s+([\\w\\s]+?)\\s+before returning to Byzantine Empire",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ", and signed with the\\s+([\\w\\s]+?)\\s+on December 13 , 1990",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "8 , 2007 , the\\s+([\\w\\s]+?)\\s+defeated the St. Paul Saints",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "decisive Game 5s and were\\s+([0-9][0-9,\\. ]*)\\s+- 0 in games in",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "to approx . 14,000 in\\s+([0-9][0-9,\\. ]*)\\s+. This is significant because",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Jaguars would respond with kicker\\s+([\\w\\s]+?)\\s+getting a 46 - yard",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ". No contemporary likeness of\\s+([\\w\\s]+?)\\s+is known , although he",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": ", alternating unevenly between wells\\s+([\\w\\s]+?)\\s+, 6 , and 7",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "match against the St. Louis\\s+([\\w\\s]+?)\\s+. In the first quarter",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Moreno , followed by a\\s+([0-9][0-9,\\. ]*)\\s+- yard field goal by",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "Broncos jumped out to a\\s+([0-9][0-9,\\. ]*)\\s+- 0 lead , with",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "in 2003 and grew by\\s+([0-9][0-9,\\. ]*)\\s+% in 2004 . Growth",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "season since 1960 , going\\s+([0-9][0-9,\\. ]*)\\s+- 1 before resting their",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "In 2004\\s+([\\w\\s]+?)\\s+season , the Philadelphia Eagles",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "proposals ( RFP ) in\\s+([0-9][0-9,\\. ]*)\\s+for its Humvee sustainment modification",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "in the Boise Basin in\\s+([0-9][0-9,\\. ]*)\\s+brought settlement to the region",
+    "support": 3
+  },
+  {
+    "type": "spans",
+    "pattern": "Significant settlement of Greenleaf and\\s+([\\w\\s]+?)\\s+started around 1904 with the",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "of Ozzie and Harriet (\\s+([0-9][0-9,\\. ]*)\\s+) , Father Knows Best",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "with minimal opposition . On\\s+([0-9][0-9,\\. ]*)\\s+December 1968 , the 3rd",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "held in Moscow in July\\s+([0-9][0-9,\\. ]*)\\s+. North Carolina States Kay",
+    "support": 3
+  },
+  {
+    "type": "number",
+    "pattern": "team opened up with a\\s+([0-9][0-9,\\. ]*)\\s+win over Yugoslavia , and",
+    "support": 3
+  }
+]

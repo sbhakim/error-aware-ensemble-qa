@@ -1580,11 +1580,11 @@ class NeuralRetriever:
             is_date_query = 'when' in query_lower or 'what date' in query_lower or 'which year' in query_lower or 'what month' in query_lower or 'what day' in query_lower
 
             if is_count_query or is_difference_query or is_extreme_value_numeric_query:
-                instruction = "CRITICAL: The answer must come from the context provided. Find the relevant numbers, perform any required calculation (addition, subtraction, counting), and provide ONLY the final number. Do not guess or use external knowledge. No units unless the question asks for them."
+                instruction = "CRITICAL: The answer must come from the context. Step 1: Find all relevant numbers in the text. Step 2: Identify what calculation is needed (addition, subtraction, counting, finding maximum/minimum). Step 3: Perform the calculation carefully. Step 4: Provide ONLY the final numeric answer as an integer or decimal. Do not include units unless explicitly asked. Do not explain your work."
             elif is_who_which_what_span_query:
                 instruction = "CRITICAL: Extract ONLY the name exactly as written in the context. Do not include positions (QB, WR, RB), descriptions, or extra words. Do not include yardage (e.g., '57-yard'). Match spelling exactly from the text. For team names, use the exact term from context (team name or city). Provide ONLY the name(s), comma-separated if multiple. No explanations."
             elif is_date_query:
-                instruction = "CRITICAL: The answer must come from the context. Find where the date/year is explicitly stated. Do not infer dates not mentioned. Format appropriately: YYYY, MM/YYYY, or MM/DD/YYYY. Provide ONLY the date."
+                instruction = "CRITICAL: Extract the date EXACTLY as mentioned in the context. Do not calculate or infer dates. If only a year is mentioned, provide just the year (e.g., 2015). If a full date is mentioned, provide it in the format it appears. If day/month/year are separate, extract each component. Provide ONLY the date value(s), no text like 'in' or 'during'."
             else:  # Default DROP instruction
                 instruction = "CRITICAL: The answer must be grounded in the context provided. Find the specific evidence in the text. Extract the precise answer (number, name, or date) directly from the context. No guessing or external knowledge."
             self.logger.debug(f"[QID:{query_id_for_log}] DROP Instruction: {instruction}")

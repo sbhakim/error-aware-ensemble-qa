@@ -1,0 +1,30 @@
+[
+  {
+    "variant": "Baseline",
+    "em": 0.1,
+    "f1": 0.1,
+    "samples": 10,
+    "log_file": "/tmp/prompt_test_baseline_142627.log"
+  },
+  {
+    "variant": "Variant 5: Hybrid",
+    "em": 0.2,
+    "f1": 0.2,
+    "samples": 10,
+    "log_file": "/tmp/prompt_test_variant_5:_hybrid_142952.log"
+  },
+  {
+    "variant": "Variant 2: Grounding",
+    "em": 0.3,
+    "f1": 0.3,
+    "samples": 10,
+    "log_file": "/tmp/prompt_test_variant_2:_grounding_143411.log"
+  },
+  {
+    "variant": "Variant 3: Structured",
+    "em": 0.1,
+    "f1": 0.1,
+    "samples": 10,
+    "log_file": "/tmp/prompt_test_variant_3:_structured_143737.log"
+  }
+]

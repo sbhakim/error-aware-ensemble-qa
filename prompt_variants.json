@@ -1,0 +1,70 @@
+{
+  "variants": [
+    {
+      "id": "variant_1_cot",
+      "name": "Chain-of-Thought Style",
+      "description": "Encourages reasoning before answering",
+      "instructions": {
+        "number": "First, identify the relevant numbers in the context. Then, if calculation is needed (sum, difference, count), perform it step by step. Finally, provide ONLY the final numerical answer without units unless explicitly requested. Example: if you need to add 3 goals and 2 goals, think: 3 + 2 = 5, then answer: 5",
+        "span": "First, locate the relevant entity (player, team, or name) mentioned in the context that directly answers the question. The answer must be a span that appears in the text. Provide ONLY the name(s) without explanations. If multiple entities, separate with commas.",
+        "date": "First, find where the date is mentioned in the context. Extract the year, month, or day as requested. Format: YYYY for year only, MM/YYYY for month-year, MM/DD/YYYY for full date. Provide ONLY the date.",
+        "default": "First, carefully read the context to find the answer. Determine if it's a number, name, or date. Extract the precise answer from the text. Provide ONLY the answer without explanation."
+      }
+    },
+    {
+      "id": "variant_2_grounding",
+      "name": "Grounding-Focused",
+      "description": "Emphasizes finding evidence in context",
+      "instructions": {
+        "number": "CRITICAL: The answer must come from the context provided. Find the relevant numbers, perform any required calculation (addition, subtraction, counting), and provide ONLY the final number. Do not guess or use external knowledge. No units unless the question asks for them.",
+        "span": "CRITICAL: The answer must be a direct quote or name from the context. Do not generate names or entities not mentioned in the text. Find the exact player, team, or entity name that answers the question. Provide ONLY the name(s), comma-separated if multiple.",
+        "date": "CRITICAL: The answer must come from the context. Find where the date/year is explicitly stated. Do not infer dates not mentioned. Format appropriately: YYYY, MM/YYYY, or MM/DD/YYYY. Provide ONLY the date.",
+        "default": "CRITICAL: The answer must be grounded in the context provided. Find the specific evidence in the text. Extract the precise answer (number, name, or date) directly from the context. No guessing or external knowledge."
+      }
+    },
+    {
+      "id": "variant_3_structured",
+      "name": "Structured Reasoning Template",
+      "description": "Step-by-step template approach",
+      "instructions": {
+        "number": "Follow these steps: (1) Find all relevant numbers in the context. (2) Identify what operation is needed (count, add, subtract, find maximum/minimum). (3) Perform the calculation. (4) Output ONLY the final number. No units unless requested.",
+        "span": "Follow these steps: (1) Identify what entity type is being asked for (player, team, person, etc.). (2) Scan the context for mentions of this entity type. (3) Select the one that directly answers the question. (4) Output ONLY the name(s) from the text.",
+        "date": "Follow these steps: (1) Determine what date information is requested (year, month-year, or full date). (2) Find this date in the context. (3) Format correctly: YYYY, MM/YYYY, or MM/DD/YYYY. (4) Output ONLY the formatted date.",
+        "default": "Follow these steps: (1) Understand what the question asks. (2) Find the relevant sentence(s) in the context. (3) Extract the precise answer (number, name, or date). (4) Output ONLY the answer without explanation."
+      }
+    },
+    {
+      "id": "variant_4_examples_enhanced",
+      "name": "Enhanced Few-Shot with Reasoning",
+      "description": "Adds reasoning steps to few-shot examples",
+      "instructions": {
+        "number": "Like the examples above, find the numbers in the context, calculate if needed, and provide the final numerical answer only. Show your work mentally: identify values → perform operation → output result.",
+        "span": "Like the examples above, locate the exact entity name in the context that answers the question. The answer must appear in the text. Provide only the name(s).",
+        "date": "Like the examples above, find the date mentioned in the context and format it appropriately (YYYY, MM/YYYY, or MM/DD/YYYY). Provide only the date.",
+        "default": "Like the examples above, extract the precise answer from the context. Determine if it's a number, name, or date, then provide only that answer."
+      },
+      "note": "This variant requires modifying few-shot examples to include brief reasoning"
+    },
+    {
+      "id": "variant_5_hybrid",
+      "name": "Hybrid Best Practices",
+      "description": "Combines grounding + reasoning + structure",
+      "instructions": {
+        "number": "Your answer must come from the context. Steps: (1) Identify relevant numbers. (2) Determine operation needed (add/subtract/count/compare). (3) Calculate carefully. (4) Provide ONLY the final number, no units unless requested. Example: for 'How many more X than Y?', find X count, find Y count, compute X - Y, output the difference.",
+        "span": "Your answer must be an exact match from the context. Steps: (1) Identify the entity type requested (player/team/name). (2) Find where it's mentioned in the text. (3) Extract the exact name as written. (4) Provide ONLY the name(s), comma-separated if multiple. Do not generate or infer names.",
+        "date": "Your answer must come from the context. Steps: (1) Locate the date/year mentioned. (2) Determine required format based on question (year only? full date?). (3) Format: YYYY for year, MM/YYYY for month-year, MM/DD/YYYY for full date. (4) Provide ONLY the formatted date.",
+        "default": "Your answer must be grounded in the context. Steps: (1) Read the question carefully. (2) Find the relevant information in the context. (3) Extract the precise answer (number/name/date). (4) Provide ONLY the answer, no explanation. Ensure accuracy over speed."
+      }
+    }
+  ],
+  "baseline": {
+    "id": "current",
+    "name": "Current Production",
+    "instructions": {
+      "number": "Your task is to provide ONLY the single, final numerical answer. Do NOT include units (like 'yards' or 'points') unless the question explicitly asks for the unit as part of the answer. Do NOT include any reasoning, explanation, or introductory phrases. For example, if the answer is 7, respond with '7'.",
+      "span": "Your task is to provide ONLY the name(s) of the player(s), team(s), or specific entity(ies) requested. If multiple distinct entities are requested by the question, separate them with a comma. DO NOT provide explanations or introductory phrases. The answer should be a direct span from the text if possible.",
+      "date": "Your task is to provide ONLY the date. If the answer is a full date, format it as MM/DD/YYYY. If only a year, provide just the YYYY. If only month and year, format as MM/YYYY. Do NOT provide explanations or introductory phrases.",
+      "default": "Carefully analyze the question and context. Provide the single, most precise answer. This could be a number (output only the number), a short text span (like a name or specific phrase from the text), or a date (MM/DD/YYYY or YYYY). Do NOT include explanations or units unless they are explicitly part of the answer span itself."
+    }
+  }
+}

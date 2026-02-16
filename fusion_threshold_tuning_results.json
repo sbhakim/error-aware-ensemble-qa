@@ -1,0 +1,16 @@
+{
+  "optimal_config": {
+    "unanimous_boost": 1.2,
+    "down_weight_factor": 0.7,
+    "low_conf_threshold": 0.5
+  },
+  "default_config": {
+    "unanimous_boost": 1.2,
+    "down_weight_factor": 0.5,
+    "low_conf_threshold": 0.7
+  },
+  "final_metrics": {
+    "em": 0.05,
+    "f1": 0.05
+  }
+}

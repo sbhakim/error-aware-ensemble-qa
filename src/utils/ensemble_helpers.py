@@ -127,7 +127,23 @@ def are_drop_values_equivalent(
             }
             if not spans1 and not spans2:
                 return treat_empty_as_agree  # default False -> no agreement on empty-empty
-            return spans1 == spans2
+
+            # Try exact match first
+            if spans1 == spans2:
+                return True
+
+            # Try fuzzy matching as fallback (for spelling variations)
+            use_fuzzy = kwargs.get("use_fuzzy_matching", True)
+            if use_fuzzy and len(spans1) == len(spans2) and len(spans1) > 0:
+                from .fuzzy_matcher import fuzzy_match_spans
+                # Sort spans by length to pair similar spans
+                sorted1 = sorted(list(spans1), key=len)
+                sorted2 = sorted(list(spans2), key=len)
+                # Check if all span pairs fuzzy match
+                if all(fuzzy_match_spans(s1, s2) for s1, s2 in zip(sorted1, sorted2)):
+                    return True
+
+            return False
 
         elif value_type == "date":
             date1 = obj1.get("date", {}) or {}

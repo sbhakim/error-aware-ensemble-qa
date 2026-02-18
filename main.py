@@ -291,9 +291,13 @@ def run_single_model_system(
                 ground_truths[s["query_id"]] = s["answer"]
     elif ds == 'hotpotqa':
         hotpotqa_path = config.get("hotpotqa_dataset_path", os.path.join(default_data_dir, "hotpot_dev_distractor_v1.json"))
+        print(f"DEBUG: HotPotQA path: {hotpotqa_path}, exists={os.path.exists(hotpotqa_path)}")
         if not os.path.exists(hotpotqa_path):
+            print(f"ERROR: HotPotQA dataset not found!")
             return {"error": f"HotpotQA dataset not found at {hotpotqa_path}"}
+        print(f"DEBUG: Calling load_hotpotqa with max_samples={samples}...")
         test_queries = load_hotpotqa(hotpotqa_path, max_samples=samples)
+        print(f"DEBUG: load_hotpotqa returned {len(test_queries)} queries")
         for s in test_queries:
             if "query_id" in s and "answer" in s:
                 ground_truths[s["query_id"]] = s["answer"]
@@ -522,22 +526,30 @@ def run_ensemble_system(
     print(f"\n=== Initializing SymRAG System in ENSEMBLE MODE for Dataset: {dataset_type.upper()} ===")
 
     # 1) Initialize Shared Components (device, managers)
+    print("DEBUG: Getting device...")
     device = DeviceManager.get_device()
+    print(f"DEBUG: Device = {device}")
+    print("DEBUG: Creating ResourceManager...")
     resource_manager = ResourceManager(
         config_path=os.path.join(os.path.dirname(__file__), "src", "config", "resource_config.yaml")
     )
+    print("DEBUG: Creating DimensionalityManager...")
     dimensionality_manager = DimensionalityManager(
         target_dim=config.get('alignment', {}).get('target_dim', 768),
         device=device
     )
+    print("DEBUG: Creating UnifiedResponseAggregator...")
     response_aggregator = UnifiedResponseAggregator(include_explanations=True)
 
+    print("DEBUG: Creating QueryExpander...")
     complexity_config_path = os.path.join(os.path.dirname(__file__), "src", "config", "complexity_rules.yaml")
     query_expander = QueryExpander(
         complexity_config=complexity_config_path if os.path.exists(complexity_config_path) else None
     )
+    print("DEBUG: Creating Evaluation...")
     evaluator = Evaluation(dataset_type=dataset_type)
 
+    print("DEBUG: Loading dataset...")
     # 2) Load Dataset
     default_data_dir = os.path.join(os.path.dirname(__file__), "data")
     ds = (dataset_type or "").strip().lower()
@@ -548,15 +560,21 @@ def run_ensemble_system(
         test_queries = load_drop_dataset(drop_path, max_samples=samples)
     elif ds == 'hotpotqa':
         hotpotqa_path = config.get("hotpotqa_dataset_path", os.path.join(default_data_dir, "hotpot_dev_distractor_v1.json"))
+        print(f"DEBUG: HotPotQA path: {hotpotqa_path}, exists={os.path.exists(hotpotqa_path)}")
         if not os.path.exists(hotpotqa_path):
+            print(f"ERROR: HotPotQA dataset not found!")
             return {"error": f"HotpotQA dataset not found at {hotpotqa_path}"}
+        print(f"DEBUG: Calling load_hotpotqa with max_samples={samples}...")
         test_queries = load_hotpotqa(hotpotqa_path, max_samples=samples)
+        print(f"DEBUG: load_hotpotqa returned {len(test_queries)} queries")
     else:
         return {"error": f"Unknown dataset_type '{dataset_type}'"}
 
     ground_truths = {
         q['query_id']: q['answer'] for q in test_queries if 'query_id' in q and 'answer' in q
     }
+
+    print(f"DEBUG: Loaded {len(test_queries)} queries. Initializing EnsembleManager...")
 
     # 3) Initialize EnsembleManager with shared components
     ensemble_manager = EnsembleManager(
@@ -678,8 +696,14 @@ def run_ensemble_system(
                 fused_result_obj = fused_results_per_qid.get(qid, {})
                 fused_answer = fused_result_obj.get('answer')
 
+                # Extract actual answer string if fused_answer is a dict
+                if isinstance(fused_answer, dict):
+                    actual_answer = fused_answer.get('answer', fused_answer)
+                else:
+                    actual_answer = fused_answer
+
                 print("\n" + "-" * 10 + f" Fused Result for QID: {qid} " + "-" * 10)
-                print(f"  Final Fused Answer: {fused_answer}")
+                print(f"  Final Fused Answer: {actual_answer}")
                 print(f"  Fusion Strategy: {fused_result_obj.get('fusion_type')}")
                 if fused_result_obj.get('routing_reason'):
                     print(f"  Routing Reason: {fused_result_obj.get('routing_reason')}")
@@ -692,7 +716,7 @@ def run_ensemble_system(
                 if gt_answer and fused_result_obj.get('status') == 'success':
                     try:
                         eval_metrics = evaluator.evaluate(
-                            predictions={qid: fused_answer},
+                            predictions={qid: actual_answer},
                             ground_truths={qid: gt_answer}
                         )
                         em = float(eval_metrics.get('average_exact_match', 0.0))
@@ -753,8 +777,15 @@ def run_ensemble_system(
                 processing_time = time.time() - start_time
 
                 fused_answer = fused_result_obj.get('answer')
+
+                # Extract actual answer string if fused_answer is a dict
+                if isinstance(fused_answer, dict):
+                    actual_answer = fused_answer.get('answer', fused_answer)
+                else:
+                    actual_answer = fused_answer
+
                 print("\n" + "-" * 10 + f" Fused Result for QID: {query_id_val} " + "-" * 10)
-                print(f"  Final Fused Answer: {fused_answer}")
+                print(f"  Final Fused Answer: {actual_answer}")
                 print(f"  Fusion Strategy: {fused_result_obj.get('fusion_type')}")
                 if fused_result_obj.get('routing_reason'):
                     print(f"  Routing Reason: {fused_result_obj.get('routing_reason')}")
@@ -767,7 +798,7 @@ def run_ensemble_system(
                 if gt_answer and fused_result_obj.get('status') == 'success':
                     try:
                         eval_metrics = evaluator.evaluate(
-                            predictions={query_id_val: fused_answer},
+                            predictions={query_id_val: actual_answer},
                             ground_truths={query_id_val: gt_answer}
                         )
                         em = float(eval_metrics.get('average_exact_match', 0.0))

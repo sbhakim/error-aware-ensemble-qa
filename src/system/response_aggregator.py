@@ -188,7 +188,14 @@ class UnifiedResponseAggregator:
                         'error'] = f"Unexpected result structure for DROP: {str(raw_result_payload)[:100]}"
 
             else:  # For non-DROP datasets (e.g., HotpotQA, text-based QA)
-                if not isinstance(raw_result_payload, str):
+                # Check if it's a dict with 'answer' and 'confidence' (new text QA format)
+                if isinstance(raw_result_payload, dict) and 'answer' in raw_result_payload:
+                    # Preserve dict format for ensemble compatibility (includes confidence)
+                    formatted_response['result'] = raw_result_payload
+                    # Extract confidence for metadata
+                    if 'confidence' in raw_result_payload:
+                        formatted_response['confidence'] = raw_result_payload['confidence']
+                elif not isinstance(raw_result_payload, str):
                     self.logger.warning(
                         f"QID {query_id}: Text QA result is not a string ({type(raw_result_payload)}). Converting. Payload: '{str(raw_result_payload)[:100]}'")
                     formatted_response['result'] = str(raw_result_payload)
@@ -197,9 +204,11 @@ class UnifiedResponseAggregator:
                 else:
                     formatted_response['result'] = raw_result_payload
 
-                if formatted_response['result'].lower().startswith("error:"):
+                # Check for error status (handle both string and dict formats)
+                result_str = raw_result_payload.get('answer', '') if isinstance(raw_result_payload, dict) else str(raw_result_payload)
+                if result_str.lower().startswith("error:"):
                     formatted_response['status'] = 'failed'
-                    if formatted_response['error'] is None: formatted_response['error'] = formatted_response['result']
+                    if formatted_response['error'] is None: formatted_response['error'] = result_str
 
         if self.include_explanations:
             formatted_response["explanation"] = self._generate_detailed_explanation(formatted_response)

@@ -156,7 +156,7 @@ class Evaluation:
 
                     # Exact match
                     em = float(self._normalize_text(pred_text) == self._normalize_text(truth_text))
-                    current_query_metrics['exact_match_text'] = em
+                    current_query_metrics['exact_match'] = em  # Changed from exact_match_text to exact_match
 
                     # Semantic similarity
                     if self.use_semantic_scoring and self.embedder:
@@ -173,8 +173,8 @@ class Evaluation:
 
                     # F1 (text-based)
                     sem_sim_for_f1 = current_query_metrics.get('semantic_similarity', 0.0)
-                    current_query_metrics['f1_text'] = (2.0 * em * sem_sim_for_f1) / (em + sem_sim_for_f1 + 1e-9) if (
-                                                                                                                             em + sem_sim_for_f1) > 0 else 0.0
+                    f1_text = (2.0 * em * sem_sim_for_f1) / (em + sem_sim_for_f1 + 1e-9) if (em + sem_sim_for_f1) > 0 else 0.0
+                    current_query_metrics['f1'] = f1_text  # Changed from f1_text to f1
 
                     # Reasoning analysis
                     if reasoning_chain and reasoning_chain.get(query_id):

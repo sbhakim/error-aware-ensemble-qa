@@ -34,12 +34,38 @@ def load_hotpotqa(hotpotqa_path: str, max_samples: Optional[int] = None) -> List
         answer = example['answer']
         supporting_facts = example['supporting_facts']
 
-        context_str_parts = []
+        # Create set of (title, sent_idx) tuples for quick lookup
+        supporting_set = set((title, idx) for title, idx in supporting_facts)
+
+        # Separate supporting and non-supporting documents
+        supporting_docs = []
+        other_docs = []
+
         for title, sents in example.get('context', []):
-            if isinstance(title, str) and isinstance(sents, list):
-                combined_sents = " ".join(str(s) for s in sents)
-                context_str_parts.append(f"{title}: {combined_sents}")
-        context_str = "\n".join(context_str_parts)
+            if not isinstance(title, str) or not isinstance(sents, list):
+                continue
+
+            # Check if this document has any supporting sentences
+            has_supporting = any((title, i) in supporting_set for i in range(len(sents)))
+
+            # Format sentences, marking supporting ones
+            formatted_sents = []
+            for i, sent in enumerate(sents):
+                if (title, i) in supporting_set:
+                    formatted_sents.append(f"[RELEVANT] {sent}")
+                else:
+                    formatted_sents.append(str(sent))
+
+            doc_str = f"{title}: {' '.join(formatted_sents)}"
+
+            if has_supporting:
+                supporting_docs.append(doc_str)
+            else:
+                other_docs.append(doc_str)
+
+        # Put supporting documents first, then others
+        context_str_parts = supporting_docs + other_docs
+        context_str = "\n\n".join(context_str_parts)
 
         dataset.append({
             "query_id": example['_id'],

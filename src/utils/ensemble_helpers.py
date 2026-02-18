@@ -385,6 +385,14 @@ class EnsembleFuser:
         if any([y, mo, d]):
             return ("date", (y, mo, d))
 
+        # Text answer key (for HotPotQA and other text-based QA)
+        text_answer = answer.get("answer")
+        if text_answer and isinstance(text_answer, str) and text_answer.strip():
+            # Tokenize and normalize for comparison
+            text_toks = tuple(sorted(set(self._TOKEN_RE.findall(text_answer.lower()))))
+            if text_toks:
+                return ('text', text_toks)
+
         return None
 
     def _is_populated(self, answer: Optional[Dict]) -> bool:

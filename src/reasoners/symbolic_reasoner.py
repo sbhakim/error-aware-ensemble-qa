@@ -92,8 +92,8 @@ class SymbolicReasoner:
         sims = util.cos_sim(query_embedding, self.rule_embeddings).squeeze(0)
         indices = (sims >= self.match_threshold).nonzero(as_tuple=False).flatten().tolist()
         if not indices:
-            self.query_cache[query_fingerprint] = ["No symbolic match found."]
-            return ["No symbolic match found."]
+            self.query_cache[query_fingerprint] = []
+            return []  # Return empty list, not error message
         best_index = max(indices, key=lambda i: sims[i].item())
         best_rule = self.rules[best_index]
         print(f"Symbolic match found (score={sims[best_index].item():.2f}).")

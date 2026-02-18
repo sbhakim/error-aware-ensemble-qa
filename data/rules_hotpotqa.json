@@ -1,10 +1,51 @@
 {
-  "rules": [],
+  "rules": [
+    {
+      "id": "hotpot_comparison",
+      "pattern": "(?:Were|Are|Is|Was).*(?:same|both|different|similar).*\\?",
+      "description": "Comparison questions requiring info from multiple sources",
+      "action": "compare_entities",
+      "confidence": 0.8,
+      "examples": ["Were X and Y of the same nationality?", "Are X and Y both from the same country?"]
+    },
+    {
+      "id": "hotpot_yes_no",
+      "pattern": "(?:Is|Are|Was|Were|Do|Does|Did|Can|Could|Would|Will)\\s+.*\\?",
+      "description": "Yes/no questions",
+      "action": "binary_answer",
+      "confidence": 0.7,
+      "examples": ["Is X located in Y?", "Did X happen before Y?"]
+    },
+    {
+      "id": "hotpot_what_when",
+      "pattern": "(?:What|When|Where|Which|Who).*\\?",
+      "description": "Factoid questions requiring entity extraction",
+      "action": "extract_entity",
+      "confidence": 0.75,
+      "examples": ["What year was X born?", "When did X happen?", "Where is X located?"]
+    },
+    {
+      "id": "hotpot_bridge",
+      "pattern": ".*(?:directed|produced|written|created|founded|established).*(?:by|in|at).*\\?",
+      "description": "Bridge questions connecting two pieces of information",
+      "action": "bridge_entities",
+      "confidence": 0.8,
+      "examples": ["What is X directed by the creator of Y?"]
+    },
+    {
+      "id": "hotpot_intersection",
+      "pattern": ".*(?:both|shared|common|between).*\\?",
+      "description": "Intersection questions requiring finding commonality",
+      "action": "find_intersection",
+      "confidence": 0.75,
+      "examples": ["What do X and Y have in common?"]
+    }
+  ],
   "metadata": {
-    "created": "2026-02-14",
-    "description": "HotpotQA rules - initially empty, will be populated by RuleExtractor during runtime",
+    "created": "2026-02-18",
+    "description": "HotPotQA multi-hop reasoning rules",
     "version": "1.0",
     "dataset": "hotpotqa",
-    "extraction_method": "dynamic"
+    "extraction_method": "manual"
   }
 }

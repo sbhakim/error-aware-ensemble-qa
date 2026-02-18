@@ -54,7 +54,7 @@ class HotpotQAEvaluator:
 
         # Initialize components
         self.initialize_components()
-        self.evaluator = Evaluation()
+        self.evaluator = Evaluation(dataset_type='hotpotqa')
 
         # Initialize performance tracking
         self.performance_metrics = {
@@ -89,9 +89,9 @@ class HotpotQAEvaluator:
 
             logger.info("Initializing Hybrid Integrator...")
             self.hybrid_integrator = HybridIntegrator(
-                self.symbolic_reasoner,
-                self.neural_retriever,
-                self.resource_manager
+                symbolic_reasoner=self.symbolic_reasoner,
+                neural_retriever=self.neural_retriever,
+                dataset_type='hotpotqa'
             )
 
         except Exception as e:

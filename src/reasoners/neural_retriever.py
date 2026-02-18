@@ -405,9 +405,12 @@ class NeuralRetriever:
                 })
                 return answer_obj
         else:
-            # Non-DROP datasets (e.g., HotpotQA)
+            # Non-DROP datasets (e.g., HotPotQA)
             try:
                 final_result = self._post_process_response(response_text.strip(), dataset_type, query_id_for_log, question)
+                # Additional HotPotQA-specific cleaning
+                if dataset_type and dataset_type.lower() == 'hotpotqa':
+                    final_result = self._clean_hotpotqa_answer(final_result, question)
             except Exception as post_err:
                 self.logger.error(f"[NR Error QID:{query_id_for_log}] Post-processing failed: {post_err}. Returning raw response.")
                 final_result = response_text.strip()  # Return raw if post-processing fails
@@ -1035,6 +1038,52 @@ class NeuralRetriever:
                 f"[NR PostProc QID:{query_id}] TextQA - Processed string representation: '{final_string_representation[:100]}...'")
             return final_string_representation if final_string_representation else " "
 
+    def _clean_hotpotqa_answer(self, answer: str, question: str) -> str:
+        """Clean HotPotQA answers to be concise and match expected format."""
+        if not answer or not isinstance(answer, str):
+            return answer
+
+        answer = answer.strip()
+
+        # Remove verbose patterns
+        answer = re.sub(r'^(Answer:|The answer is:?|Based on the context,?)\s*', '', answer, flags=re.IGNORECASE)
+        answer = re.sub(r'\s*\(Confidence.*?\)', '', answer, flags=re.IGNORECASE)
+
+        # Handle "Unable to provide" → "unknown"
+        if re.search(r'unable to|cannot|not (enough|sufficient)', answer, flags=re.IGNORECASE):
+            return "unknown"
+
+        # For yes/no questions, extract yes/no
+        if any(q in question.lower() for q in ['were ', 'are ', 'is ', 'was ', 'do ', 'does ', 'did ']):
+            if 'yes' in answer.lower()[:50] and 'no' not in answer.lower()[:10]:
+                return "yes"
+            elif 'no' in answer.lower()[:50] and 'yes' not in answer.lower()[:10]:
+                return "no"
+
+        # Clean "X is older." → "X"
+        answer = re.sub(r'^(.+?)\s+(is older|is younger|was|were|are|is)\.?$', r'\1', answer, flags=re.IGNORECASE)
+
+        # Remove math expressions
+        answer = re.sub(r'\s*\([^)]*\+[^)]*\)', '', answer)
+
+        # Extract numbers for "how many" questions
+        if re.search(r'how many|how much|what is the (seating )?(capacity|number)', question.lower()):
+            num_match = re.search(r'(\d{1,3}(?:,\d{3})*)', answer)
+            if num_match:
+                return num_match.group(1).replace(',', '')
+
+        # Handle multi-line answers
+        if '\n' in answer:
+            lines = [l.strip() for l in answer.split('\n') if l.strip()]
+            for line in lines:
+                if 'Correct Answer:' in line:
+                    answer = line.split('Correct Answer:')[1].strip()
+                    break
+            else:
+                answer = lines[0]
+
+        return answer.strip().rstrip('.')
+
     def _chunk_context(self, context: str) -> List[Dict]:
         """Chunks context into smaller pieces with overlap, adding embeddings."""
         if not isinstance(context, str) or not context.strip():
@@ -1589,7 +1638,17 @@ class NeuralRetriever:
                 instruction = "CRITICAL: The answer must be grounded in the context provided. Find the specific evidence in the text. Extract the precise answer (number, name, or date) directly from the context. No guessing or external knowledge."
             self.logger.debug(f"[QID:{query_id_for_log}] DROP Instruction: {instruction}")
         else:  # Default / HotpotQA
-            instruction = "Based ONLY on the context passages and any relevant background information provided, answer the following question accurately and concisely. Provide only the answer, no explanations."
+            if dataset_type and dataset_type.lower() == 'hotpotqa':
+                instruction = """CRITICAL: This is a multi-hop reasoning question. Follow these steps:
+1. Look for sentences marked with [RELEVANT] - these contain key information
+2. Identify what information you need from EACH relevant source
+3. Combine or compare the information to form your answer
+4. For yes/no questions: answer 'yes' or 'no' based on the evidence
+5. For factoid questions: extract the specific fact (name, date, place, etc.)
+6. Provide ONLY the direct answer - no explanations, no extra text
+7. If the answer is not in the context, say 'unknown' (do not guess)"""
+            else:
+                instruction = "Based ONLY on the context passages and any relevant background information provided, answer the following question accurately and concisely. Provide only the answer, no explanations."
 
         prompt_parts.append(f"Question: {question.strip()}")
         prompt_parts.append(f"\n{instruction}")

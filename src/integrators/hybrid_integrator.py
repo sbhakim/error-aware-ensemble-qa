@@ -266,26 +266,39 @@ class HybridIntegrator:
         start_fus = time.time()
         final_result: Any
         source: str
+        confidence: float = 0.5  # Default confidence for text QA
+
         if self.alignment_layer:
             try:
                 fused_result, conf, dbg = self._fuse_symbolic_neural_for_text(query, sym_list, neu, query_complexity, qid)
                 source = 'hybrid_text'
                 final_result = fused_result  # Use the fused result
+                confidence = conf  # Use fusion confidence
                 self._update_fusion_metrics(conf, query_complexity, dbg)
             except Exception as e:
                 self.logger.error(f"[Text QID:{qid}] Text fusion failed: {e}. Using fallback.")
                 final_result = self._create_fallback_text_fusion(query, sym_list, neu)
                 source = 'fusion_fallback'  # Indicate fusion failed
+                confidence = 0.3  # Lower confidence for fallback
         else:
             # No alignment layer, decide based on content
             final_result = self._create_fallback_text_fusion(query, sym_list, neu)
             source = 'neural_dominant' if neu else ('symbolic_dominant' if sym_list else 'no_result')
+            confidence = 0.4 if (neu or sym_list) else 0.1  # Assign reasonable confidence
 
         self.component_times['fusion'] = time.time() - start_fus
         # Adjust neural time to exclude fusion time
         self.component_times['neural'] -= self.component_times['fusion']
 
-        return final_result, source
+        # Wrap text answer in dict format for ensemble compatibility
+        answer_dict = {
+            'answer': final_result,
+            'confidence': confidence,
+            'status': 'success' if final_result else 'no_result',
+            'type': 'text'
+        }
+
+        return answer_dict, source
 
     def _handle_drop_path(
             self, query: str, context: str,
@@ -1308,8 +1321,16 @@ class HybridIntegrator:
 
     def _create_fallback_text_fusion(self, query: str, sym_txt: str, neu_txt: str) -> str:
         """Creates fallback text response when alignment/fusion fails."""
-        if neu_txt and len(neu_txt.split()) > 2:
+        # For HotPotQA, accept any non-empty answer (many valid answers are short: "yes", "no", names)
+        is_hotpotqa = self.dataset_type and 'hotpot' in self.dataset_type.lower()
+        min_words = 1 if is_hotpotqa else 3
+
+        if neu_txt and len(neu_txt.split()) > min_words:
             self.logger.debug("Using neural text as fallback.")
+            return neu_txt
+        # For HotPotQA, also accept short neural answers
+        if is_hotpotqa and neu_txt and neu_txt.strip():
+            self.logger.debug("Using short neural text as fallback (HotPotQA).")
             return neu_txt
         if sym_txt:
             self.logger.debug("Using symbolic text as fallback.")
@@ -1319,12 +1340,24 @@ class HybridIntegrator:
 
     def _generate_reasoned_response_for_text(self, query: str, sym_list: List[str], neu: str, conf: float) -> str:
         """Generates final text response based on fusion confidence."""
-        if conf >= self.fusion_threshold and neu and len(neu.split()) > 1:
-            return neu
-        elif neu and len(neu.split()) > 1:
-            return neu
-        elif sym_list:
-            return ' '.join(sym_list)
+        # For HotPotQA, accept any non-empty answer (many valid answers are short: "yes", "no", names)
+        is_hotpotqa = self.dataset_type and 'hotpot' in self.dataset_type.lower()
+
+        if is_hotpotqa:
+            # For HotPotQA, prioritize neural answer if it exists (even if short)
+            if neu and neu.strip():
+                return neu
+            elif sym_list:
+                return ' '.join(sym_list)
+        else:
+            # Original logic for other datasets (like DROP)
+            if conf >= self.fusion_threshold and neu and len(neu.split()) > 1:
+                return neu
+            elif neu and len(neu.split()) > 1:
+                return neu
+            elif sym_list:
+                return ' '.join(sym_list)
+
         return f"Unable to provide a confident answer (Confidence Score: {conf:.2f})"
 
     def _update_fusion_metrics(self, confidence: float, query_complexity: float, debug_info: Dict[str, Any]) -> None:

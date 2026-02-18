@@ -310,7 +310,7 @@ class GraphSymbolicReasoner:
         matched_rules = self._match_rule_to_query(query, query_id)
         if not matched_rules:
             self.logger.info(f"[Text QID:{query_id}] No symbolic match found via semantic search.")
-            responses = ["No symbolic match found."]
+            responses = []  # Return empty list, not error message
         else:
             responses = []
             visited = set()
@@ -333,7 +333,7 @@ class GraphSymbolicReasoner:
 
             if not responses:
                 self.logger.info(f"[Text QID:{query_id}] No valid responses after processing top rules.")
-                responses = ["No symbolic match found."]
+                responses = []  # Return empty list when no match found
 
         responses = self._filter_responses(responses)
         self.query_cache[query_fingerprint] = responses

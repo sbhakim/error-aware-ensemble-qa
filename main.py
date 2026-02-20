@@ -53,7 +53,7 @@ try:
     from src.utils.progress import tqdm, ProgressManager
     from src.utils.output_capture import capture_output
     from src.ablation_study import setup_and_orchestrate_ablation
-    from src.utils.data_loaders import load_hotpotqa, load_drop_dataset
+    from src.utils.data_loaders import load_hotpotqa, load_drop_dataset, load_squad_data
     # NEW: EnsembleManager entry point (contains batched dataset processing)
     from src.system.ensemble_manager import EnsembleManager  # NEW
 except ImportError as e:
@@ -298,6 +298,18 @@ def run_single_model_system(
         print(f"DEBUG: Calling load_hotpotqa with max_samples={samples}...")
         test_queries = load_hotpotqa(hotpotqa_path, max_samples=samples)
         print(f"DEBUG: load_hotpotqa returned {len(test_queries)} queries")
+        for s in test_queries:
+            if "query_id" in s and "answer" in s:
+                ground_truths[s["query_id"]] = s["answer"]
+    elif ds == 'squad':
+        squad_path = config.get("squad_dataset_path", os.path.join(default_data_dir, "SQuAD-2.0.json"))
+        print(f"DEBUG: SQuAD path: {squad_path}, exists={os.path.exists(squad_path)}")
+        if not os.path.exists(squad_path):
+            print(f"ERROR: SQuAD dataset not found!")
+            return {"error": f"SQuAD dataset not found at {squad_path}"}
+        print(f"DEBUG: Calling load_squad_data with max_samples={samples}...")
+        test_queries = load_squad_data(squad_path, max_samples=samples)
+        print(f"DEBUG: load_squad_data returned {len(test_queries)} queries")
         for s in test_queries:
             if "query_id" in s and "answer" in s:
                 ground_truths[s["query_id"]] = s["answer"]
@@ -567,6 +579,15 @@ def run_ensemble_system(
         print(f"DEBUG: Calling load_hotpotqa with max_samples={samples}...")
         test_queries = load_hotpotqa(hotpotqa_path, max_samples=samples)
         print(f"DEBUG: load_hotpotqa returned {len(test_queries)} queries")
+    elif ds == 'squad':
+        squad_path = config.get("squad_dataset_path", os.path.join(default_data_dir, "SQuAD-2.0.json"))
+        print(f"DEBUG: SQuAD path: {squad_path}, exists={os.path.exists(squad_path)}")
+        if not os.path.exists(squad_path):
+            print(f"ERROR: SQuAD dataset not found!")
+            return {"error": f"SQuAD dataset not found at {squad_path}"}
+        print(f"DEBUG: Calling load_squad_data with max_samples={samples}...")
+        test_queries = load_squad_data(squad_path, max_samples=samples)
+        print(f"DEBUG: load_squad_data returned {len(test_queries)} queries")
     else:
         return {"error": f"Unknown dataset_type '{dataset_type}'"}
 
@@ -862,8 +883,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description='Run SymRAG system with output capture and optional ablation study.'
     )
-    parser.add_argument('--dataset', type=str, default='hotpotqa', choices=['hotpotqa', 'drop'],
-                        help='Dataset to use for evaluation (hotpotqa or drop)')
+    parser.add_argument('--dataset', type=str, default='hotpotqa', choices=['hotpotqa', 'drop', 'squad'],
+                        help='Dataset to use for evaluation (hotpotqa, drop, or squad)')
     parser.add_argument('--log-dir', default='logs', help='Directory to save log files')
     parser.add_argument('--no-output-capture', action='store_true', help='Disable output capture to file')
     parser.add_argument('--samples', type=int, default=100,

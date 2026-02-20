@@ -900,7 +900,21 @@ class GraphSymbolicReasonerDrop(GraphSymbolicReasoner):
                     return {'type': 'number', 'value': count, 'confidence': 0.3,
                             'rationale': f'Temporal filtering failed, count is from all spans for {entity}'}
 
-            count = len(spans)
+            # Sentence-scoped deduplication: count at most one occurrence per sentence
+            # to avoid double-counting entities mentioned in summaries/headers
+            if self.nlp and spans:
+                doc_count = self.nlp(context)
+                seen_sent_idxs: set = set()
+                deduped_count = 0
+                for span_text in spans:
+                    for sent_idx, sent in enumerate(doc_count.sents):
+                        if span_text.lower() in sent.text.lower() and sent_idx not in seen_sent_idxs:
+                            seen_sent_idxs.add(sent_idx)
+                            deduped_count += 1
+                            break
+                count = deduped_count
+            else:
+                count = len(spans)
             confidence = 0.85 if spans else 0.4
             self.logger.info(
                 f"[DROP QID:{query_id}] COUNT operation: Entity='{entity}', TempConstraint='{temporal_constraint}', Final Count={count}, Conf={confidence:.2f}")
@@ -1013,7 +1027,34 @@ class GraphSymbolicReasonerDrop(GraphSymbolicReasoner):
             if 'who' in query_lower or 'which' in query_lower or 'what team' in query_lower or 'what player' in query_lower:
                 return_type = 'spans'
                 if associated_spans_for_value:
-                    final_value = list(dict.fromkeys(associated_spans_for_value))[:1]
+                    # Check if all associated spans are purely numeric strings (wrong — we need the entity name)
+                    all_numeric = all(
+                        re.fullmatch(r'-?\d+(\.\d+)?', s.strip())
+                        for s in associated_spans_for_value
+                    )
+                    if all_numeric and self.nlp and extreme_val_numeric is not None:
+                        # Second-pass: find PERSON/ORG entity in the same sentence as the extreme value
+                        num_str = str(int(extreme_val_numeric)) if isinstance(extreme_val_numeric, int) \
+                            else str(extreme_val_numeric)
+                        doc_ctx = self.nlp(context)
+                        entity_found = []
+                        for sent in doc_ctx.sents:
+                            if num_str in sent.text:
+                                person_ents = [
+                                    ent.text for ent in sent.ents
+                                    if ent.label_ in ('PERSON', 'ORG', 'GPE', 'NORP')
+                                ]
+                                if person_ents:
+                                    entity_found = person_ents[:1]
+                                    self.logger.info(
+                                        f"[DROP QID:{query_id}] EXTREME_VALUE entity-lookup: "
+                                        f"replaced numeric span '{associated_spans_for_value}' "
+                                        f"with entity '{entity_found}' from sentence containing {num_str}."
+                                    )
+                                    break
+                        final_value = entity_found if entity_found else list(dict.fromkeys(associated_spans_for_value))[:1]
+                    else:
+                        final_value = list(dict.fromkeys(associated_spans_for_value))[:1]
                 else:
                     all_spans_for_desc = list(dict.fromkeys([s for v, s in value_span_pairs]))
                     final_value = all_spans_for_desc[:1] if all_spans_for_desc else []

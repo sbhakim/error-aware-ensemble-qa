@@ -136,3 +136,90 @@ def load_drop_dataset(drop_path: str, max_samples: Optional[int] = None) -> List
 
     logger.info(f"Finished loading DROP. Total samples: {len(dataset)}.")
     return dataset
+
+
+def load_squad_data(squad_path: str, max_samples: Optional[int] = None) -> List[Dict[str, Any]]:
+    """
+    Loads a portion of the SQuAD 2.0 dataset.
+    Each sample includes a query, ground-truth answer (or empty for unanswerable),
+    context passage, and a 'type' = 'ground_truth_available_squad'.
+
+    SQuAD 2.0 includes both answerable and unanswerable questions.
+    For unanswerable questions (is_impossible=true), the answer should be empty string.
+    """
+    if not os.path.exists(squad_path):
+        logger.error(f"SQuAD dataset file not found at: {squad_path}")
+        return []
+
+    dataset: List[Dict[str, Any]] = []
+    try:
+        with open(squad_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except Exception as e:
+        logger.error(f"Failed to load or parse SQuAD JSON from {squad_path}: {e}")
+        return []
+
+    if 'data' not in data:
+        logger.error(f"Invalid SQuAD format: missing 'data' key in {squad_path}")
+        return []
+
+    count = 0
+    total_unanswerable = 0
+
+    for article in data['data']:
+        if 'title' not in article or 'paragraphs' not in article:
+            logger.warning(f"Skipping invalid article (missing title or paragraphs)")
+            continue
+
+        title = article['title']
+
+        for para in article['paragraphs']:
+            if 'context' not in para or 'qas' not in para:
+                logger.warning(f"Skipping invalid paragraph in article '{title}'")
+                continue
+
+            context = para['context']
+
+            for qa in para['qas']:
+                if 'question' not in qa or 'id' not in qa:
+                    logger.warning(f"Skipping invalid QA (missing question or id)")
+                    continue
+
+                question = qa['question']
+                qid = qa['id']
+                is_impossible = qa.get('is_impossible', False)
+
+                # Handle answer extraction
+                if is_impossible:
+                    # For unanswerable questions, answer should be empty
+                    answer = ""
+                    total_unanswerable += 1
+                else:
+                    # For answerable questions, extract the first answer text
+                    answers = qa.get('answers', [])
+                    if answers and len(answers) > 0:
+                        answer = answers[0].get('text', '')
+                    else:
+                        # No answer provided but not marked impossible - treat as empty
+                        answer = ""
+                        logger.warning(f"Question {qid} has no answers but is_impossible=false")
+
+                dataset.append({
+                    "query_id": qid,
+                    "query": question,
+                    "answer": answer,
+                    "context": context,
+                    "type": "ground_truth_available_squad",
+                    "is_impossible": is_impossible,
+                    "title": title
+                })
+                count += 1
+
+                if max_samples and count >= max_samples:
+                    logger.info(f"Loaded {count} SQuAD samples (max requested: {max_samples}). "
+                              f"Unanswerable: {total_unanswerable}, Answerable: {count - total_unanswerable}.")
+                    return dataset
+
+    logger.info(f"Finished loading SQuAD. Total samples: {len(dataset)}. "
+                f"Unanswerable: {total_unanswerable}, Answerable: {len(dataset) - total_unanswerable}.")
+    return dataset

@@ -83,6 +83,16 @@ class AnswerPostProcessor:
 
         cleaned = span.strip()
 
+        # Strip leading/trailing quotation marks (straight and curly)
+        cleaned = re.sub(r'^[\"\u201c\u201d\']+|[\"\u201c\u201d\']+$', '', cleaned).strip()
+
+        # Strip trailing parenthetical metadata appended by models
+        # e.g., "(exact span from text)", "(A FC in the passage)", "(from the context)"
+        cleaned = re.sub(
+            r'\s*\([^)]*(?:span|text|passage|context|from|in the)\b[^)]*\)\s*$',
+            '', cleaned, flags=re.IGNORECASE
+        ).strip()
+
         # Remove position prefixes (case-insensitive)
         for prefix_pattern in self.position_prefixes:
             cleaned = re.sub(prefix_pattern, '', cleaned, flags=re.IGNORECASE)

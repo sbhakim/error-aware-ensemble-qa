@@ -1321,30 +1321,38 @@ class HybridIntegrator:
 
     def _create_fallback_text_fusion(self, query: str, sym_txt: str, neu_txt: str) -> str:
         """Creates fallback text response when alignment/fusion fails."""
-        # For HotPotQA, accept any non-empty answer (many valid answers are short: "yes", "no", names)
+        # For HotPotQA and SQuAD, accept any non-empty answer (many valid answers are short)
+        # HotPotQA: "yes", "no", entity names
+        # SQuAD: exact spans from context, can be single words
         is_hotpotqa = self.dataset_type and 'hotpot' in self.dataset_type.lower()
-        min_words = 1 if is_hotpotqa else 3
+        is_squad = self.dataset_type and 'squad' in self.dataset_type.lower()
+        min_words = 1 if (is_hotpotqa or is_squad) else 3
 
         if neu_txt and len(neu_txt.split()) > min_words:
             self.logger.debug("Using neural text as fallback.")
             return neu_txt
-        # For HotPotQA, also accept short neural answers
-        if is_hotpotqa and neu_txt and neu_txt.strip():
-            self.logger.debug("Using short neural text as fallback (HotPotQA).")
+        # For HotPotQA and SQuAD, also accept short neural answers
+        if (is_hotpotqa or is_squad) and neu_txt and neu_txt.strip():
+            self.logger.debug(f"Using short neural text as fallback ({'HotPotQA' if is_hotpotqa else 'SQuAD'}).")
             return neu_txt
         if sym_txt:
             self.logger.debug("Using symbolic text as fallback.")
             return sym_txt
         self.logger.warning("No valid text from neural or symbolic for fallback.")
+        # For SQuAD 2.0, return empty string for unanswerable
+        if is_squad:
+            return ""
         return "Unable to provide a confident answer based on available information."
 
     def _generate_reasoned_response_for_text(self, query: str, sym_list: List[str], neu: str, conf: float) -> str:
         """Generates final text response based on fusion confidence."""
-        # For HotPotQA, accept any non-empty answer (many valid answers are short: "yes", "no", names)
+        # For HotPotQA and SQuAD, accept any non-empty answer (many valid answers are short)
         is_hotpotqa = self.dataset_type and 'hotpot' in self.dataset_type.lower()
+        is_squad = self.dataset_type and 'squad' in self.dataset_type.lower()
 
-        if is_hotpotqa:
-            # For HotPotQA, prioritize neural answer if it exists (even if short)
+        if is_hotpotqa or is_squad:
+            # For HotPotQA and SQuAD, prioritize neural answer if it exists (even if short)
+            # SQuAD requires exact span extraction, so neural model's answer is crucial
             if neu and neu.strip():
                 return neu
             elif sym_list:
@@ -1358,6 +1366,10 @@ class HybridIntegrator:
             elif sym_list:
                 return ' '.join(sym_list)
 
+        # For SQuAD 2.0, return empty string for unanswerable
+        is_squad = self.dataset_type and 'squad' in self.dataset_type.lower()
+        if is_squad:
+            return ""
         return f"Unable to provide a confident answer (Confidence Score: {conf:.2f})"
 
     def _update_fusion_metrics(self, confidence: float, query_complexity: float, debug_info: Dict[str, Any]) -> None:

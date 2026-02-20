@@ -3,19 +3,22 @@
 # The ensemble mode will use the model names defined in the 'model_configs' section below.
 # model_name: "meta-llama/Llama-3.2-3B"
 # model_name: "mistralai/Mistral-7B-Instruct-v0.3"
-model_name: "google/gemma-1.1-7b-it"
+# model_name: "google/gemma-1.1-7b-it"
+# model_name: "meta-llama/Llama-3.1-8B"
+model_name: "Qwen/Qwen3-8B"  # Testing Qwen3-8B alone first
 
 # --- NEW: Ensemble Configuration ---
 # This section controls the multi-model ensemble mode.
 ensemble:
-  enabled: true            # Set to true to run in ensemble mode from main.py
+  enabled: true            # 4-model ensemble with Qwen3-8B
   batched: true            # NEW: process all queries per model before switching (fast path in main.py)
   preload_models: false    # (optional/future) preload all models at startup; keep false unless you implement it
   # List of model keys to use in the ensemble. These keys must map to an entry in 'model_configs'.
   models:
-    - "llama-3.2-3b"
+    - "llama-3.1-8b"
     - "mistral-7b"
     - "gemma-1.1-7b"
+    - "qwen3-8b"  # NEW: 4th model for architecture diversity (Alibaba/Qwen)
   fusion_strategy: "error_aware"  # Options: 'error_aware', 'confidence', 'majority_vote'
 
 # --- NEW: Model-Specific Configurations ---
@@ -23,8 +26,8 @@ ensemble:
 # Minimal important update: per-model few_shot_examples_path so ensemble runs
 # behave the same as single-model runs when few-shots are desired for DROP.
 model_configs:
-  "llama-3.2-3b":
-    model_name: "meta-llama/Llama-3.2-3B"
+  "llama-3.1-8b":
+    model_name: "meta-llama/Llama-3.1-8B"
     few_shot_examples_path: "data/drop_few_shot_examples.json"   # used for DROP when enabled
     # rules_file: "data/rules_drop.json"  # (optional per-model override; leave commented)
   "mistral-7b":
@@ -35,15 +38,25 @@ model_configs:
     model_name: "google/gemma-1.1-7b-it"
     few_shot_examples_path: "data/drop_few_shot_examples.json"
     # rules_file: "data/rules_drop.json"
+  "gemma-2-9b":
+    model_name: "google/gemma-2-9b-it"
+    few_shot_examples_path: "data/drop_few_shot_examples.json"
+    # rules_file: "data/rules_drop.json"
+  "qwen3-8b":
+    model_name: "Qwen/Qwen3-8B"
+    few_shot_examples_path: "data/drop_few_shot_examples.json"
+    # rules_file: "data/rules_drop.json"
 
 # (The rest of the configuration file remains the same)
 
 data_dir: "data/"  # General data directory
 
 # ---- Dataset Specific Paths ----
-hotpotqa_dataset_path: "ensemble_symrag/data/hotpot_dev_distractor_v1.json"
-drop_dataset_path: "ensemble_symrag/data/drop_dataset_dev.json"
+hotpotqa_dataset_path: "data/hotpot_dev_distractor_v1.json"
+drop_dataset_path: "data/drop_dataset_dev.json"
+squad_dataset_path: "data/SQuAD-2.0.json"  # Can also use ensemble_symrag/data/SQuAD-2.0.json from parent dir
 drop_few_shot_examples_path: "data/drop_few_shot_examples.json"  # Global path for few-shot examples
+squad_few_shot_examples_path: "data/squad_few_shot_examples.json"  # Optional few-shot for SQuAD
 
 # ---- Feature Flags ----
 # Control for including few-shot examples in NeuralRetriever for DROP
@@ -53,9 +66,10 @@ use_drop_few_shots: 1  # <-- minimal change: enable few-shots
 # Rule Files
 # The main system run (run_hysym_system) will dynamically create and prioritize rules_drop_dynamic.json for DROP.
 # Ablation studies can explicitly choose between these via ablation_config.yaml.
-hotpotqa_rules_file: "ensemble_symrag/data/rules_hotpotqa.json"
-drop_rules_file: "ensemble_symrag/data/rules_drop.json"                     # Static/fallback DROP rules
-drop_rules_dynamic_file: "ensemble_symrag/data/rules_drop_dynamic_cleaned.json"     # Path where dynamic DROP rules are saved (cleaned, 1030 valid rules)
+hotpotqa_rules_file: "data/rules_hotpotqa.json"
+drop_rules_file: "data/rules_drop.json"                     # Static/fallback DROP rules
+drop_rules_dynamic_file: "data/rules_drop_dynamic_cleaned.json"     # Path where dynamic DROP rules are saved (cleaned, 1030 valid rules)
+squad_rules_file: "data/rules_squad.json"                  # SQuAD 2.0 rules for reading comprehension
 empty_rules_file: "data/empty_rules.json"                   # For "no rules" ablation (optional)
 
 knowledge_base: "data/small_knowledge_base.txt"  # Ensured path consistency

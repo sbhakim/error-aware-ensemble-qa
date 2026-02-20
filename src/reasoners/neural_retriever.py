@@ -75,11 +75,21 @@ class NeuralRetriever:
             raise
 
         try:
+            # Gemma-2 models need special handling for torch dynamo compatibility
+            model_kwargs = {
+                "device_map": "auto",
+                "torch_dtype": "auto",
+                "load_in_8bit": use_quantization,
+            }
+
+            # Fix for Gemma-2: Use eager attention to avoid torch dynamo compilation errors
+            if "gemma-2" in model_name.lower():
+                model_kwargs["attn_implementation"] = "eager"
+                self.logger.info(f"Using eager attention implementation for Gemma-2 model: {model_name}")
+
             self.model = AutoModelForCausalLM.from_pretrained(
                 model_name,
-                device_map="auto",
-                torch_dtype="auto",
-                load_in_8bit=use_quantization,
+                **model_kwargs
             )
             self.model.config.pad_token_id = self.tokenizer.pad_token_id
             print(f"Model {model_name} loaded successfully!")
@@ -336,14 +346,12 @@ class NeuralRetriever:
             with torch.no_grad():  # Ensure no gradients calculated during inference
                 outputs = self.model.generate(
                     **inputs_pt,
-                    # Generation parameters - consider making configurable
+                    # Greedy decoding for reproducible, deterministic evaluation
                     max_new_tokens=150,  # Reduced max tokens for more concise answers, esp. for DROP
                     num_return_sequences=1,
                     no_repeat_ngram_size=3,  # Prevent repetitive phrasing
                     pad_token_id=self.tokenizer.eos_token_id,  # Use EOS for padding
-                    do_sample=True,  # Use sampling for potentially more natural answers
-                    temperature=0.6,  # Slightly lower temp for more focused answers
-                    top_p=0.9,
+                    do_sample=False,  # Greedy decoding: deterministic, same input → same output
                     eos_token_id=self.tokenizer.eos_token_id  # Stop generation at EOS
                 )
             # Decode response, skipping prompt tokens and special tokens
@@ -405,12 +413,14 @@ class NeuralRetriever:
                 })
                 return answer_obj
         else:
-            # Non-DROP datasets (e.g., HotPotQA)
+            # Non-DROP datasets (e.g., HotPotQA, SQuAD)
             try:
                 final_result = self._post_process_response(response_text.strip(), dataset_type, query_id_for_log, question)
-                # Additional HotPotQA-specific cleaning
+                # Additional dataset-specific cleaning
                 if dataset_type and dataset_type.lower() == 'hotpotqa':
                     final_result = self._clean_hotpotqa_answer(final_result, question)
+                elif dataset_type and dataset_type.lower() == 'squad':
+                    final_result = self._clean_squad_answer(final_result, question)
             except Exception as post_err:
                 self.logger.error(f"[NR Error QID:{query_id_for_log}] Post-processing failed: {post_err}. Returning raw response.")
                 final_result = response_text.strip()  # Return raw if post-processing fails
@@ -1049,12 +1059,24 @@ class NeuralRetriever:
         answer = re.sub(r'^(Answer:|The answer is:?|Based on the context,?)\s*', '', answer, flags=re.IGNORECASE)
         answer = re.sub(r'\s*\(Confidence.*?\)', '', answer, flags=re.IGNORECASE)
 
+        # Strip numbered list prefixes that models mimic from the prompt (e.g. "1. The relevant info...")
+        answer = re.sub(r'^\d+\.\s+', '', answer)
+        # Strip additional verbose reasoning prefixes
+        answer = re.sub(
+            r'^(The relevant information is that|The answer is that|Step \d+:?|According to the (text|context|passage),?)\s*',
+            '', answer, flags=re.IGNORECASE
+        )
+
         # Handle "Unable to provide" → "unknown"
         if re.search(r'unable to|cannot|not (enough|sufficient)', answer, flags=re.IGNORECASE):
             return "unknown"
 
-        # For yes/no questions, extract yes/no
-        if any(q in question.lower() for q in ['were ', 'are ', 'is ', 'was ', 'do ', 'does ', 'did ']):
+        # For yes/no questions, extract yes/no ONLY when the question actually starts with
+        # a yes/no auxiliary verb — not just contains one (avoids false triggers on
+        # "Which writer WAS from England?" or "When WAS the album released?")
+        first_word = question.strip().lower().split()[0] if question.strip() else ''
+        if first_word in {'were', 'are', 'is', 'was', 'do', 'does', 'did',
+                          'can', 'could', 'would', 'should', 'have', 'has', 'had'}:
             if 'yes' in answer.lower()[:50] and 'no' not in answer.lower()[:10]:
                 return "yes"
             elif 'no' in answer.lower()[:50] and 'yes' not in answer.lower()[:10]:
@@ -1083,6 +1105,69 @@ class NeuralRetriever:
                 answer = lines[0]
 
         return answer.strip().rstrip('.')
+
+    def _clean_squad_answer(self, answer: str, question: str) -> str:
+        """
+        Clean SQuAD answers to match expected format.
+        SQuAD requires exact span extraction from the context.
+        """
+        if not answer or not isinstance(answer, str):
+            return answer
+
+        answer = answer.strip()
+
+        # Remove verbose patterns (answer prefixes)
+        answer = re.sub(r'^(Answer:|The answer is:?|Based on the context,?|According to the passage,?)\s*', '', answer, flags=re.IGNORECASE)
+        answer = re.sub(r'\s*\(Confidence.*?\)', '', answer, flags=re.IGNORECASE)
+
+        # Check for unanswerable indicators
+        unanswerable_patterns = [
+            r'^unanswerable$',
+            r'^unknown$',
+            r'not mentioned',
+            r'not stated',
+            r'not provided',
+            r'insufficient information',
+            r'cannot be determined',
+            r'no information',
+            r'unable to (answer|determine)',
+            r'the (context|passage) does not (mention|state|provide|contain)'
+        ]
+
+        for pattern in unanswerable_patterns:
+            if re.search(pattern, answer, flags=re.IGNORECASE):
+                return ""  # SQuAD 2.0 uses empty string for unanswerable
+
+        # Remove explanatory text (e.g., "The answer is X because..." → "X")
+        # Split on common explanation patterns
+        if ' because ' in answer.lower():
+            answer = answer.split(' because ')[0].strip()
+        if ' as ' in answer.lower() and len(answer.split(' as ')) > 1:
+            # Only split if "as" seems to introduce explanation
+            parts = answer.split(' as ')
+            if len(parts[0].split()) < len(parts[1].split()):
+                # Second part is longer, likely explanation
+                answer = parts[0].strip()
+
+        # Remove trailing punctuation except for abbreviations
+        answer = answer.rstrip('.,;:!?')
+
+        # Handle multi-line answers - take the first substantive line
+        if '\n' in answer:
+            lines = [l.strip() for l in answer.split('\n') if l.strip()]
+            if lines:
+                answer = lines[0]
+
+        # Remove quotes if the entire answer is quoted
+        if answer.startswith('"') and answer.endswith('"'):
+            answer = answer[1:-1].strip()
+        if answer.startswith("'") and answer.endswith("'"):
+            answer = answer[1:-1].strip()
+
+        # Final cleanup - remove extra whitespace
+        answer = ' '.join(answer.split())
+
+        return answer.strip()
 
     def _chunk_context(self, context: str) -> List[Dict]:
         """Chunks context into smaller pieces with overlap, adding embeddings."""
@@ -1637,7 +1722,7 @@ class NeuralRetriever:
             else:  # Default DROP instruction
                 instruction = "CRITICAL: The answer must be grounded in the context provided. Find the specific evidence in the text. Extract the precise answer (number, name, or date) directly from the context. No guessing or external knowledge."
             self.logger.debug(f"[QID:{query_id_for_log}] DROP Instruction: {instruction}")
-        else:  # Default / HotpotQA
+        else:  # Default / HotpotQA / SQuAD
             if dataset_type and dataset_type.lower() == 'hotpotqa':
                 instruction = """CRITICAL: This is a multi-hop reasoning question. Follow these steps:
 1. Look for sentences marked with [RELEVANT] - these contain key information
@@ -1647,6 +1732,16 @@ class NeuralRetriever:
 5. For factoid questions: extract the specific fact (name, date, place, etc.)
 6. Provide ONLY the direct answer - no explanations, no extra text
 7. If the answer is not in the context, say 'unknown' (do not guess)"""
+            elif dataset_type and dataset_type.lower() == 'squad':
+                instruction = """CRITICAL: This is a reading comprehension question. Follow these guidelines:
+1. Read the context passage carefully to locate the answer
+2. Extract the answer EXACTLY as it appears in the text - do not paraphrase or reword
+3. The answer must be a direct span from the context (word-for-word match)
+4. For questions asking Who/What/When/Where/Which: extract the specific entity, date, location, or name
+5. For How many questions: extract the exact number mentioned
+6. IMPORTANT: If the passage does NOT contain the information needed to answer the question, respond ONLY with the word "unanswerable"
+7. Do NOT guess or use external knowledge - only use information explicitly stated in the context
+8. Provide ONLY the answer span or "unanswerable" - no explanations, no extra text"""
             else:
                 instruction = "Based ONLY on the context passages and any relevant background information provided, answer the following question accurately and concisely. Provide only the answer, no explanations."
 

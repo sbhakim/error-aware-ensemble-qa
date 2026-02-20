@@ -30,6 +30,8 @@ data/drop_dataset_dev.json
 data/drop_dataset_train.json
 data/hotpot_dev_distractor_v1.json
 data/rules_drop_dynamic.json
+data/SQuAD-2.0.json
+data/rules_squad.json
 
 # Keep only small reference files in data/
 # (drop_few_shot_examples.json, rules_drop.json, rules_hotpotqa.json, empty_rules.json)
@@ -65,8 +67,12 @@ Thumbs.db
 # Git
 .git/
 
-# Temporary - decide later whether to commit
-PROJECT_GUIDE.md
-PROJECT_GUIDE_updated.md
+# Markdown docs - all root-level .md files except README.md
+/*.md
+!README.md
+
+# Standalone test / utility scripts not part of core project
+test_*.py
+run_simple_gpu_test.py
+download_qwen3.py
 scripts/
-UPDATE.md

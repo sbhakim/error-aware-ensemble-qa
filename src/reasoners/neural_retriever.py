@@ -1104,6 +1104,23 @@ class NeuralRetriever:
             else:
                 answer = lines[0]
 
+        # Truncate verbose comparison tails where the entity comes first and the
+        # model appends a quantity/comparison justification.  Two patterns:
+        #   "Letters To Cleo had 6 members, ..."  → "Letters To Cleo"
+        #   "Letters to Cleo had more members than ..."  → "Letters to Cleo"
+        # Guards: only fires when non-empty content precedes the pattern, so
+        # bare numeric answers ("6") and yes/no answers are unaffected.
+        stripped = re.sub(r'\s+had\s+(\d+|more|fewer|less)\b.*$', '', answer, flags=re.IGNORECASE).strip()
+        if stripped:
+            answer = stripped
+
+        # Truncate "X is older/younger than Y" → "X" for age-comparison questions.
+        # Only apply when the question explicitly asks about age to avoid false
+        # positives like "The band is older than expected" on non-age questions.
+        if re.search(r'\b(older|younger)\b', question, re.IGNORECASE):
+            answer = re.sub(r'^(.+?)\s+(is older|is younger)\s+than\s+.*$', r'\1',
+                            answer, flags=re.IGNORECASE).strip()
+
         return answer.strip().rstrip('.')
 
     def _clean_squad_answer(self, answer: str, question: str) -> str:

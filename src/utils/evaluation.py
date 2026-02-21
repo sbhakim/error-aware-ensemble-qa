@@ -275,6 +275,9 @@ class Evaluation:
         text = text.lower()
         # Replace underscores with spaces (e.g. "World_War_II" → "World War II")
         text = text.replace('_', ' ')
+        # Strip standalone military/royal post-nominal letters that appear in GT
+        # but not in predictions (e.g. "Robert Erskine Childers DSC" → "Robert Erskine Childers")
+        text = re.sub(r'\b(dsc|obe|cbe|kbe|mbe|gc|qc|pc)\b', ' ', text)
         text = re.sub(r'\b(a|an|the)\b', ' ', text)
         text = re.sub(r'[^\w\s]', '', text)
         # Strip leading zeros from day numbers (e.g. "february 07" -> "february 7")
